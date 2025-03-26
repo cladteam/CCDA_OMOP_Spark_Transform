@@ -9,6 +9,9 @@ source:
   path: ../src
 
 requirements:
+  pip:
+    - pandas
+
   # Tools required to build the package. These packages are run on the build system and include
   # things such as revision control systems (Git, SVN) make tools (GNU make, Autotool, CMake) and
   # compilers (real cross, pseudo-cross, or native when not cross-compiling), and any source pre-processors.
@@ -27,6 +30,11 @@ requirements:
     - transforms-preview
     - transforms-verbs
     - foundry-transforms-lib-python
+    - ccda-omop-conversion-package=1.0.0
+
+test:
+  requires:
+    - ccda-omop-conversion-package 1.0.0
 
 build:
   script: python setup.py install --single-version-externally-managed --record=record.txt
