@@ -126,10 +126,11 @@ tzdata=2025b=h78e105d_0 @ noarch
 urllib3=2.3.0=pyhd8ed1ab_0 @ noarch
 wheel=0.45.1=pyhd8ed1ab_1 @ noarch
 yaml=0.2.5=h7f98852_2 @ linux-64
-zstandard=0.23.0=py311h9ecbd09_1 @ linux-64
-zstd=1.5.7=hb8e6e7a_2 @ linux-64
+zstandard=0.23.0=py311hbc35293_1 @ linux-64
+zstd=1.5.6=ha6fb4c9_0 @ linux-64
 
 [Pip dependencies]
+duckdb==1.2.1
 lxml==5.3.1
 numpy==2.2.4
 pandas==2.2.3
@@ -142,4 +143,4 @@ typing-extensions==4.13.0
 tzdata==2025.2
 
 [Conda lock version]
-v2 - 541870c4da6903bd9689c360f5da434ae48f47664dc4a76d756b23d31fef5502
+v2 - b010d4b9389b4357e2315b00388c316848a849249429a6d3da0cfa44f1d03607
