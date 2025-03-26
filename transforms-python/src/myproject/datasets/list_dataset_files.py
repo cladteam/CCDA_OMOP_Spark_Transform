@@ -5,10 +5,8 @@ from pyspark.sql import functions as F
 import io
 import time
 
-## from myproject.bar import ba
-
 from prototype_2 import layer_datasets
-#import test_package
+
 
     
 def create_empty_df(ctx):
