@@ -13,6 +13,7 @@ requirements:
     - pandas
     - typeguard
     - lxml
+    - duckdb
 
   # Tools required to build the package. These packages are run on the build system and include
   # things such as revision control systems (Git, SVN) make tools (GNU make, Autotool, CMake) and
