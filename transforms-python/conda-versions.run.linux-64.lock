@@ -130,6 +130,7 @@ zstandard=0.23.0=py311h9ecbd09_1 @ linux-64
 zstd=1.5.7=hb8e6e7a_2 @ linux-64
 
 [Pip dependencies]
+lxml==5.3.1
 numpy==2.2.4
 pandas==2.2.3
 parsimonious==0.8.1
@@ -141,4 +142,4 @@ typing-extensions==4.13.0
 tzdata==2025.2
 
 [Conda lock version]
-v2 - 5e3073cf9414c4fd918d427eda141ebd700061d98810aca1babe5c687a9fc0cd
+v2 - 541870c4da6903bd9689c360f5da434ae48f47664dc4a76d756b23d31fef5502
