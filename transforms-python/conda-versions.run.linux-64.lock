@@ -126,8 +126,8 @@ tzdata=2025b=h78e105d_0 @ noarch
 urllib3=2.3.0=pyhd8ed1ab_0 @ noarch
 wheel=0.45.1=pyhd8ed1ab_1 @ noarch
 yaml=0.2.5=h7f98852_2 @ linux-64
-zstandard=0.23.0=py311hbc35293_1 @ linux-64
-zstd=1.5.6=ha6fb4c9_0 @ linux-64
+zstandard=0.23.0=py311h9ecbd09_1 @ linux-64
+zstd=1.5.7=hb8e6e7a_2 @ linux-64
 
 [Pip dependencies]
 numpy==2.2.4
@@ -136,7 +136,9 @@ parsimonious==0.8.1
 python-dateutil==2.9.0.post0
 pytz==2025.2
 six==1.17.0
+typeguard==4.4.2
+typing-extensions==4.13.0
 tzdata==2025.2
 
 [Conda lock version]
-v2 - 3535f48b9ce66d6bcd5af89a52ff2366599c5fc90f811af039344bdd8b154ace
+v2 - 5e3073cf9414c4fd918d427eda141ebd700061d98810aca1babe5c687a9fc0cd
