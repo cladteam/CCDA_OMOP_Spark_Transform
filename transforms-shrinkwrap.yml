@@ -1,0 +1,77 @@
+---
+mappings:
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP/condition_occurrence"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.29384810-8dba-4a43-b3e3-2bd8377c0a55"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP/drug_exposure"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.d8e162ef-6f18-4712-a568-1f2145cc5f5a"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP/location"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.da671c94-8923-49e8-878b-e428b3ac4518"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP/measurement"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.e227087b-66b1-4438-906a-0b4b5c0aebfa"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP/observation"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.259dbbeb-e648-4cf5-ad00-b49fb77855a9"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP/person"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.d7940152-ccad-4af8-963c-779c7845fddf"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP/procedure_occurrence"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.e2e2c1ed-bef7-49e4-b1c7-bbcde77a97c4"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP/provider"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.26ff1178-0fb3-4ec8-bcb4-96ed6e006002"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/datasets/list_dataset_files"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.32d99372-4048-4a45-92a6-59d337d482ad"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/ccda_value_set_mapping_table_dataset"
+  modes:
+  - "READ"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.5ba1594c-ef36-4eeb-b6c4-d3d005dbd127"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/codemap_xwalk"
+  modes:
+  - "READ"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.28fe6af8-0b22-4b45-86e2-b394c62dcd09"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/visit_concept_xwalk_mapping_dataset"
+  modes:
+  - "READ"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.832f8106-d7ee-4364-9082-d48c49302dd8"
+- alias: "ri.foundry.main.dataset.1fc47371-d39c-4985-aacd-c0aacf5484b3"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.1fc47371-d39c-4985-aacd-c0aacf5484b3"
+- alias: "ri.foundry.main.dataset.672dd7ae-bbd4-43e8-9b8b-b5c7e8711e79"
+  modes:
+  - "READ"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.672dd7ae-bbd4-43e8-9b8b-b5c7e8711e79"
+- alias: "ri.foundry.main.dataset.8c8ff8f9-d429-4396-baed-a3de9c945f49"
+  modes:
+  - "READ"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.8c8ff8f9-d429-4396-baed-a3de9c945f49"
