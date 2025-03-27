@@ -35,6 +35,7 @@ from prototype_2 import visit_concept_xwalk_mapping_dataset
 def compute(
     ctx,
     # outputs
+        care_site,
         condition_occurrence,  drug_exposure, location, 
         measurement, observation, person,
         procedure_occurrence, provider, visit_occurrence,
@@ -57,7 +58,7 @@ def compute(
     filestatus_list = list(xml_files.filesystem().ls())
     file_count=0
     tuple_list = [] # for a status df
-    omop_dataset_dict  {}
+    omop_dataset_dict = {}
     fs = xml_files.filesystem()
     doc_regex = re.compile(r'(<ClinicalDocument.*?</ClinicalDocument>)', re.DOTALL)
     for status in filestatus_list:
