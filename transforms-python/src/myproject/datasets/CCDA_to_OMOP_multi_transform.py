@@ -15,13 +15,14 @@ from prototype_2 import layer_datasets
 from prototype_2 import codemap_xwalk
 from prototype_2 import ccda_value_set_mapping_table_dataset
 from prototype_2 import visit_concept_xwalk_mapping_dataset
-from ..util import create_ds_schema
+from ..util.ds_schema import domain_dataset_schema
 
 
 
 def convert_and_write(ctx, name, dataset_dict, spark_ds):
         if name in dataset_dict:
-            spark_dff = ctx.spark_session.createDataFrame(dataset_dict[name])
+            schema = domain_dataset_schema[name]
+            spark_dff = ctx.spark_session.createDataFrame(dataset_dict[name], schema)
             spark_ds.write_dataframe(spark_dff)
             
 @transform(
@@ -120,7 +121,6 @@ def compute(
         if file_count > FILE_LIMIT:
             break
 
-    create_ds_schema.foo()
     convert_and_write(ctx, 'Care_Site',   omop_dataset_dict, care_site)
     convert_and_write(ctx, 'Condition',   omop_dataset_dict, condition_occurrence)
     convert_and_write(ctx, 'Drug',        omop_dataset_dict, drug_exposure)
