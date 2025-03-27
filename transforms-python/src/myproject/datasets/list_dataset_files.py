@@ -17,10 +17,12 @@ def create_empty_df(ctx):
 
 @transform(
     output_df = Output("/All of Us-cdb223/HIN - HIE/CCDA/datasets/list_dataset_files"),
+
     # the big production set
-    xml_files=Input("ri.foundry.main.dataset.8c8ff8f9-d429-4396-baed-a3de9c945f49")
+    # xml_files=Input("ri.foundry.main.dataset.8c8ff8f9-d429-4396-baed-a3de9c945f49")
+
     # the test set
-    #xml_files=Input("ri.foundry.main.dataset.877bc6a8-2ec1-4b21-9794-4ad02cc27e30")
+    xml_files=Input("ri.foundry.main.dataset.877bc6a8-2ec1-4b21-9794-4ad02cc27e30")
 )
 def compute(ctx, output_df, xml_files):
     filestatus_list = list(xml_files.filesystem().ls())
