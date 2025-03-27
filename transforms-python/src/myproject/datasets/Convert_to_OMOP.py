@@ -1,13 +1,5 @@
 # from pyspark.sql import functions as F
-from transforms.api import transform_df, Input, Output
 
-
-@transform_df(
-    Output("/All of Us-cdb223/HIN - HIE/CCDA/datasets/Convert_to_OMOP"),
-    source_df=Input("SOURCE_DATASET_PATH"),
-)
-def compute(source_df):
-    return source_df
 from transforms.api import transform_df, Input, Output, transform
 from pyspark.sql import types as T
 from pyspark.sql import Row
@@ -28,7 +20,7 @@ def create_empty_df(ctx):
 @transform(
     output_df = Output("/All of Us-cdb223/HIN - HIE/CCDA/datasets/list_dataset_files"),
     # the big production set
-    xml_files=Input("ri.foundry.main.dataset.8c8ff8f9-d429-4396-baed-a3de9c945f49")
+    xml_files=Input("/All of Us-cdb223/HIN - HIE/sharedResources/FullyIdentiifed/ccda/ccda_OTHER_ response_files")
     # the test set
     #xml_files=Input("ri.foundry.main.dataset.877bc6a8-2ec1-4b21-9794-4ad02cc27e30")
 )
