@@ -2,7 +2,6 @@
 from transforms.api import transform, Input, Output
 from pyspark.sql import types as T
 from pyspark.sql import functions as F
-from pyspark.sql import SQLContext
 
 import io
 ##import logger

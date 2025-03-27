@@ -1,5 +1,6 @@
 # from pyspark.sql import functions as F
 
+from pyspark.sql import types as T
 domain_dataset_schema = {
     'Care_Site': T.StructType([
         T.StructField( 'care_site_id', T.LongType(), True),
