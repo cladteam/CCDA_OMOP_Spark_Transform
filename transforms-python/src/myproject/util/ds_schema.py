@@ -5,13 +5,6 @@
 # #
 # #
 from pyspark.sql import types as T
-  schema = T.StructType([
-        T.StructField("path", T.StringType(), True),
-        T.StructField("size", T.IntegerType(), True),
-        T.StructField("time_int", T.FloatType(), True),
-        T.StructField("string_length", T.IntegerType(), True),
-        T.StructField("contents", T.StringType(), True)
-        ]
 
 domain_dataset_schema = {
 
@@ -289,31 +282,6 @@ domain_dataset_schema = {
     T.StructField('care_site_source_value', T.StringType(), True),
     T.StructField('place_of_service_source_value', T.StringType(), True),
     T.StructField('place_of_service_concept_name', T.StringType(), True)
-     ]), 
-
-    'Condition': T.StructType([
-    T.StructField('condition_concept_id', T.IntegerType(), True),
-    T.StructField('data_partner_id', T.IntegerType(), True),
-    T.StructField('condition_era_end_date', T.DateType(), True),
-    T.StructField('condition_era_start_date', T.DateType(), True),
-    T.StructField('payload', T.StringType(), True),
-    T.StructField('person_id', T.LongType(), True),
-    T.StructField('condition_era_id', T.LongType(), True),
-    T.StructField('condition_occurrence_count', T.IntegerType(), True),
-    T.StructField('condition_concept_name', T.StringType(), True)
-     ]), 
-
-    'Drug': T.StructType([ 
-    T.StructField('drug_concept_id', T.IntegerType(), True),
-    T.StructField('drug_exposure_count', T.IntegerType(), True),
-    T.StructField('drug_era_start_date', T.DateType(), True),
-    T.StructField('gap_days', T.IntegerType(), True),
-    T.StructField('person_id', T.LongType(), True),
-    T.StructField('drug_era_end_date', T.DateType(), True),
-    T.StructField('drug_era_id', T.LongType(), True),
-    T.StructField('drug_concept_name', T.StringType(), True),
-    T.StructField('data_partner_id', T.IntegerType(), True),
-    T.StructField('payload', T.StringType(), True)
      ]), 
 
     'Location': T.StructType([
