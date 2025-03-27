@@ -38,8 +38,7 @@ def compute(ctx, output_df, xml_files):
             contents = tw.readline()
             for line in tw:
                 contents += line
-##            test_package.do_it(contents)
-    ###        layer_datasets.process_string(contents, status.path, False )
+            layer_datasets.process_string(contents, status.path, False )
 
             end_time = time.time()
             time_int  = end_time - start_time
