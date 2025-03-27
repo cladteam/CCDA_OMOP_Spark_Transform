@@ -4,7 +4,7 @@ from pyspark.sql import types as T
 from pyspark.sql import functions as F
 
 import io
-import logger
+##import logger
 import os
 import pandas as pd
 import re
@@ -88,10 +88,10 @@ def compute(
                             omop_dataset_dict[key] = pd.concat([ omop_dataset_dict[key], new_data_dict[key] ])
                     else:
                         omop_dataset_dict[key]= new_data_dict[key]
-                    if new_data_dict[key] is not None:
-                        logger.info(f"{status.path} {key} {len(omop_dataset_dict)} {omop_dataset_dict[key].shape} {new_data_dict[key].shape}")
-                    else:
-                        logger.info(f"{status.path} {key} {len(omop_dataset_dict)} None / no data")
+                    ##if new_data_dict[key] is not None:
+                        ##logger.info(f"{status.path} {key} {len(omop_dataset_dict)} {omop_dataset_dict[key].shape} {new_data_dict[key].shape}")
+                    ##else:
+                        ##logger.info(f"{status.path} {key} {len(omop_dataset_dict)} None / no data")
 
             end_time = time.time()
             time_int  = end_time - start_time
