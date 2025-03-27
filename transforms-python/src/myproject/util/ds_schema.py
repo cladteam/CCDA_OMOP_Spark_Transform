@@ -71,15 +71,18 @@ domain_dataset_schema = {
     ]),
     'Condition': T.StructType([
         T.StructField( 'visit_occurrence_id', T.LongType(), True),
-        T.StructField( 'condition_status_concept_id', T.IntegerType(), True),
-        T.StructField( 'condition_source_concept_id', T.IntegerType(), True),
+        #T.StructField( 'condition_status_concept_id', T.IntegerType(), True),
+        T.StructField( 'condition_status_concept_id', T.LongType(), True),
+        #T.StructField( 'condition_source_concept_id', T.IntegerType(), True),
+        T.StructField( 'condition_source_concept_id', T.LongType(), True),
         T.StructField( 'condition_end_datetime', T.TimestampType(), True),
         T.StructField( 'condition_end_date', T.DateType(), True),
         T.StructField( 'condition_status_source_value', T.StringType(), True),
         T.StructField( 'provider_id', T.LongType(), True),
         T.StructField( 'visit_occurrence_id', T.LongType(), True),
         T.StructField( 'visit_detail_id', T.LongType(), True),
-        T.StructField(  'condition_type_concept_id', T.IntegerType(), True)
+        #T.StructField(  'condition_type_concept_id', T.IntegerType(), True)
+        T.StructField(  'condition_type_concept_id', T.LongType(), True)
     ]),
     'Procedure': T.StructType([
         T.StructField( 'visit_occurrence_id', T.LongType(), True),
