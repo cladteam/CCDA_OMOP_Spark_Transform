@@ -3,6 +3,7 @@ from pyspark.sql import types as T
 from pyspark.sql import Row
 from pyspark.sql import functions as F
 import io
+import re
 import time
 
 from prototype_2 import layer_datasets
@@ -31,6 +32,7 @@ def compute(ctx, output_df, xml_files):
     file_count=0
     tuple_list = []
     fs = xml_files.filesystem()
+    doc_regex = re.compile(r'(<ClinicalDocument.*?</ClinicalDocument>)', re.DOTALL)
     for status in filestatus_list:
         start_time = time.time()
         with fs.open(status.path, 'rb') as f:
@@ -40,7 +42,10 @@ def compute(ctx, output_df, xml_files):
             contents = tw.readline()
             for line in tw:
                 contents += line
-            layer_datasets.process_string(contents, status.path, False )
+
+            for match in doc_regex.finditer(contents):            
+                match_tuple = match.groups(0)
+                layer_datasets.process_string(match_tuple[0], status.path, False )
 
             end_time = time.time()
             time_int  = end_time - start_time
