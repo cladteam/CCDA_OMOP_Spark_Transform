@@ -3,8 +3,12 @@ from transforms.api import transform, Input, Output
 from pyspark.sql import types as T
 from pyspark.sql import functions as F
 
-
+import io
+import logger
 import os
+import pandas as pd
+import re
+import time
 
 from prototype_2 import layer_datasets
 from prototype_2 import codemap_xwalk
@@ -41,8 +45,12 @@ def compute(
         procedure_occurrence, provider, visit_occurrence,
     # inputs
         xml_files, 
-        metadata, visit_xwalk,
-        codemap_xwalk, valueset_xwalk ):
+        metadata, visit_xwalk_ds,
+        codemap_xwalk_ds, valueset_xwalk_ds ):
+    global codemap_xwalk
+    global ccda_value_set_mapping_table_dataset
+    global visit_concept_xwalk_mapping_dataset
+
 
     FILE_LIMIT=60 
     EXPORT_DATASETS=False
@@ -81,9 +89,9 @@ def compute(
                     else:
                         omop_dataset_dict[key]= new_data_dict[key]
                     if new_data_dict[key] is not None:
-                        logger.info(f"{file} {key} {len(omop_dataset_dict)} {omop_dataset_dict[key].shape} {new_data_dict[key].shape}")
+                        logger.info(f"{status.path} {key} {len(omop_dataset_dict)} {omop_dataset_dict[key].shape} {new_data_dict[key].shape}")
                     else:
-                        logger.info(f"{file} {key} {len(omop_dataset_dict)} None / no data")
+                        logger.info(f"{status.path} {key} {len(omop_dataset_dict)} None / no data")
 
             end_time = time.time()
             time_int  = end_time - start_time
@@ -93,7 +101,7 @@ def compute(
         if file_count > FILE_LIMIT:
             break
 
-    domain_dataset_dict = combine_datasets(omop_dataset_dict)
+    domain_dataset_dict = layer_datasets.combine_datasets(omop_dataset_dict)
 
     #care_site.write_dataframe(omop_dataset_dict['Care_Site'])
     if False:
