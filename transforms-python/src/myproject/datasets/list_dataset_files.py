@@ -9,13 +9,6 @@ import time
 from prototype_2 import layer_datasets
 
 
-    
-def create_empty_df(ctx):
-    schema = T.StructType([T.StructField("key", T.StringType(), True)])
-    df = ctx.spark_session.createDataFrame([("dummy_key",)], schema)
-    df = df.withColumn('when', F.current_timestamp())
-    return df
-
 @transform(
     output_df = Output("/All of Us-cdb223/HIN - HIE/CCDA/datasets/list_dataset_files"),
 
@@ -26,6 +19,12 @@ def create_empty_df(ctx):
     xml_files=Input("ri.foundry.main.dataset.877bc6a8-2ec1-4b21-9794-4ad02cc27e30")
 )
 def compute(ctx, output_df, xml_files):
+    """
+        This doesn't do much more than fetch the files.
+        This turns out to be useful becuase in the wrong context, like in a 
+        Jupyter notebook in a workspace, it takes quite a bit of time.
+        This code shows that it is faster here.
+    """
     filestatus_list = list(xml_files.filesystem().ls())
 
     file_limit=60
@@ -43,9 +42,14 @@ def compute(ctx, output_df, xml_files):
             for line in tw:
                 contents += line
 
-            for match in doc_regex.finditer(contents):            
-                match_tuple = match.groups(0)
-                layer_datasets.process_string(match_tuple[0], status.path, False )
+            # Process_string here doesn't have enough resources to actually succeed.
+            # It doesn't have the vocabulary map datasets and the returned data_dict isn't 
+            # processed into datafames and written to datasets.
+            # But it was only intended as a start. 
+            # see CCDA_to_OMOP_multi_transform.
+            #for match in doc_regex.finditer(contents):            
+            #    match_tuple = match.groups(0)
+            #    layer_datasets.process_string(match_tuple[0], status.path, False )
 
             end_time = time.time()
             time_int  = end_time - start_time
