@@ -114,17 +114,25 @@ def compute(
             break
 
     domain_dataset_dict = layer_datasets.combine_datasets(omop_dataset_dict)
-
-    care_site.write_dataframe(omop_dataset_dict['Care_Site'])
-    if False:
+    if 'Care_Site' in omop_dataset_dict:
+        care_site.write_dataframe(omop_dataset_dict['Care_Site'])
+    if 'Condition' in omop_dataset_dict:
         condition_occurrence.write_dataframe(omop_dataset_dict['Condition'])
+    if 'Drug' in omop_dataset_dict:
         drug_exposure.write_dataframe(omop_dataset_dict['Drug'])
+    if 'Location' in omop_dataset_dict:
         location.write_dataframe(omop_dataset_dict['Location'])
+    if 'Measurement' in omop_dataset_dict:
         measurement.write_dataframe(omop_dataset_dict['Measurement'])
+    if 'Observation' in omop_dataset_dict:
         observation.write_dataframe(omop_dataset_dict['Observation'])
+    if 'Person' in omop_dataset_dict:
         person.write_dataframe(omop_dataset_dict['Person'])
+    if 'Procedure' in omop_dataset_dict:
         procedure_occurrence.write_dataframe(omop_dataset_dict['Procedure'])
+    if 'Provider' in omop_dataset_dict:
         provider.write_dataframe(omop_dataset_dict['Provider'])
+    if 'Visit' in omop_dataset_dict:
         visit_occurrence.write_dataframe(omop_dataset_dict['Visit'])
 
 
