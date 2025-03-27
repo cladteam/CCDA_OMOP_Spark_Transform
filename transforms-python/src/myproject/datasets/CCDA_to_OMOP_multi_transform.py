@@ -15,6 +15,8 @@ from prototype_2 import layer_datasets
 from prototype_2 import codemap_xwalk
 from prototype_2 import ccda_value_set_mapping_table_dataset
 from prototype_2 import visit_concept_xwalk_mapping_dataset
+from ..util import create_ds_schema
+
 
 
 def convert_and_write(ctx, name, dataset_dict, spark_ds):
@@ -69,7 +71,7 @@ def compute(
     global ccda_value_set_mapping_table_dataset
     global visit_concept_xwalk_mapping_dataset
 
-    FILE_LIMIT=100 
+    FILE_LIMIT=10 
     EXPORT_DATASETS=False
 
     # Link concept maps
@@ -118,17 +120,18 @@ def compute(
         if file_count > FILE_LIMIT:
             break
 
-    convert_and_write(ctx, 'Care_Site', omop_dataset_dict, care_site)
-    convert_and_write(ctx, 'Condition', omop_dataset_dict, condition_occurrence)
-    convert_and_write(ctx, 'Drug', omop_dataset_dict, drug_exposure)
-    convert_and_write(ctx, 'Location', omop_dataset_dict, location)
+    create_ds_schema.foo()
+    convert_and_write(ctx, 'Care_Site',   omop_dataset_dict, care_site)
+    convert_and_write(ctx, 'Condition',   omop_dataset_dict, condition_occurrence)
+    convert_and_write(ctx, 'Drug',        omop_dataset_dict, drug_exposure)
+    convert_and_write(ctx, 'Location',    omop_dataset_dict, location)
     convert_and_write(ctx, 'Measurement', omop_dataset_dict, measurement)
     convert_and_write(ctx, 'Observation', omop_dataset_dict, observation)
-    convert_and_write(ctx, 'Person', omop_dataset_dict, person)
-    convert_and_write(ctx, 'Procedure', omop_dataset_dict, procedure_occurrence)
-    convert_and_write(ctx, 'Provider', omop_dataset_dict, provider)
-    convert_and_write(ctx, 'Visit', omop_dataset_dict, visit_occurrence)
-    convert_and_write(ctx, 'Care_Site', omop_dataset_dict, care_site)
+    convert_and_write(ctx, 'Person',      omop_dataset_dict, person)
+    convert_and_write(ctx, 'Procedure',   omop_dataset_dict, procedure_occurrence)
+    convert_and_write(ctx, 'Provider',    omop_dataset_dict, provider)
+    convert_and_write(ctx, 'Visit',       omop_dataset_dict, visit_occurrence)
+    convert_and_write(ctx, 'Care_Site',   omop_dataset_dict, care_site)
 
 
 
