@@ -16,6 +16,12 @@ from prototype_2 import codemap_xwalk
 from prototype_2 import ccda_value_set_mapping_table_dataset
 from prototype_2 import visit_concept_xwalk_mapping_dataset
 
+
+def convert_and_write(ctx, name, dataset_dict, spark_ds):
+        if name in dataset_dict:
+            spark_dff = ctx.spark_session.createDataFrame(dataset_dict[name])
+            spark_ds.write_dataframe(spark_dff)
+            
 @transform(
     care_site = Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/care_site"),
     condition_occurrence = Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/condition_occurrence"),
@@ -48,14 +54,6 @@ from prototype_2 import visit_concept_xwalk_mapping_dataset
     codemap_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/codemap_xwalk"),
     valueset_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/ccda_value_set_mapping_table_dataset")
 )
-
-
-
-def convert_and_write(ctx, name, dataset_dict, spark_ds):
-        if name in dataset_dict:
-            spark_dff = ctx.spark_session.createDataFrame(dataset_dict[name])
-            spark_ds.write_dataframe(spark_dff)
-
 def compute(
     ctx,
     # outputs
