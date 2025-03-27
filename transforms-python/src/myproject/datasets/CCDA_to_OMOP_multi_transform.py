@@ -2,6 +2,7 @@
 from transforms.api import transform, Input, Output
 from pyspark.sql import types as T
 from pyspark.sql import functions as F
+from pyspark.sql import SQLContext
 
 import io
 ##import logger
@@ -48,6 +49,13 @@ from prototype_2 import visit_concept_xwalk_mapping_dataset
     valueset_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/ccda_value_set_mapping_table_dataset")
 )
 
+
+
+def convert_and_write(ctx, name, dataset_dict, spark_ds):
+        if name in dataset_dict:
+            spark_dff = ctx.spark_session.createDataFrame(dataset_dict[name])
+            spark_ds.write_dataframe(spark_dff)
+
 def compute(
     ctx,
     # outputs
@@ -62,7 +70,6 @@ def compute(
     global codemap_xwalk
     global ccda_value_set_mapping_table_dataset
     global visit_concept_xwalk_mapping_dataset
-
 
     FILE_LIMIT=10 
     EXPORT_DATASETS=False
@@ -113,27 +120,17 @@ def compute(
         if file_count > FILE_LIMIT:
             break
 
-    domain_dataset_dict = layer_datasets.combine_datasets(omop_dataset_dict)
-    if 'Care_Site' in omop_dataset_dict:
-        care_site.write_dataframe(omop_dataset_dict['Care_Site'])
-    if 'Condition' in omop_dataset_dict:
-        condition_occurrence.write_dataframe(omop_dataset_dict['Condition'])
-    if 'Drug' in omop_dataset_dict:
-        drug_exposure.write_dataframe(omop_dataset_dict['Drug'])
-    if 'Location' in omop_dataset_dict:
-        location.write_dataframe(omop_dataset_dict['Location'])
-    if 'Measurement' in omop_dataset_dict:
-        measurement.write_dataframe(omop_dataset_dict['Measurement'])
-    if 'Observation' in omop_dataset_dict:
-        observation.write_dataframe(omop_dataset_dict['Observation'])
-    if 'Person' in omop_dataset_dict:
-        person.write_dataframe(omop_dataset_dict['Person'])
-    if 'Procedure' in omop_dataset_dict:
-        procedure_occurrence.write_dataframe(omop_dataset_dict['Procedure'])
-    if 'Provider' in omop_dataset_dict:
-        provider.write_dataframe(omop_dataset_dict['Provider'])
-    if 'Visit' in omop_dataset_dict:
-        visit_occurrence.write_dataframe(omop_dataset_dict['Visit'])
+    convert_and_write(ctx, 'Care_Site', omop_dataset_dict, care_site)
+    convert_and_write(ctx, 'Condition', omop_dataset_dict, condition_occurrence)
+    convert_and_write(ctx, 'Drug', omop_dataset_dict, drug_exposure)
+    convert_and_write(ctx, 'Location', omop_dataset_dict, location)
+    convert_and_write(ctx, 'Measurement', omop_dataset_dict, measurement)
+    convert_and_write(ctx, 'Observation', omop_dataset_dict, observation)
+    convert_and_write(ctx, 'Person', omop_dataset_dict, person)
+    convert_and_write(ctx, 'Procedure', omop_dataset_dict, procedure_occurrence)
+    convert_and_write(ctx, 'Provider', omop_dataset_dict, provider)
+    convert_and_write(ctx, 'Visit', omop_dataset_dict, visit_occurrence)
+    convert_and_write(ctx, 'Care_Site', omop_dataset_dict, care_site)
 
 
 
