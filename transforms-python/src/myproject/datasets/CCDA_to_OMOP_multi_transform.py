@@ -21,6 +21,7 @@ from ..util.ds_schema import domain_dataset_schema
 def convert_and_write(ctx, name, dataset_dict, spark_ds):
         if name in dataset_dict:
             schema = domain_dataset_schema[name]
+            spark_dff = ctx.spark_session.createDataFrame(dataset_dict['bogus'], schema)
             spark_dff = ctx.spark_session.createDataFrame(dataset_dict[name], schema)
             print(f"CHRIS: DOES THIS print APPEAR IN THE LOGS SOMEWHERE? {name}")
             print(f"{dataset_dict[name]}")
