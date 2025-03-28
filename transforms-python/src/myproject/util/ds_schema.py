@@ -6,6 +6,9 @@
 # #
 from pyspark.sql import types as T
 
+# ISSUES
+# - dates in condition
+
 domain_dataset_schema = {
 
     'Person': T.StructType([

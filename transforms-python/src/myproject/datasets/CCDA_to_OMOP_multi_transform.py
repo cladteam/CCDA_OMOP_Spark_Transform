@@ -22,6 +22,7 @@ def convert_and_write(ctx, name, dataset_dict, spark_ds):
         if name in dataset_dict:
             schema = domain_dataset_schema[name]
             spark_dff = ctx.spark_session.createDataFrame(dataset_dict[name], schema)
+            print("CHRIS: DOES THIS print APPEAR IN THE LOGS SOMEWHERE?")
             spark_ds.write_dataframe(spark_dff)
             
 @transform(
