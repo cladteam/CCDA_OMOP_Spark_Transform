@@ -58,7 +58,8 @@ domain_dataset_schema = {
     #T.StructField('condition_end_date', T.DateType(), True),              # 6
     #T.StructField('condition_end_date', T.StringType(), True),              # 6
     T.StructField('condition_end_date', T.LongType(), True),              # 6
-    T.StructField('condition_end_datetime', T.TimestampType(), True),     # 7
+    #T.StructField('condition_end_datetime', T.TimestampType(), True),     # 7
+    T.StructField('condition_end_datetime', T.LongType(), True),     # 7
     T.StructField('condition_type_concept_id', T.IntegerType(), True),    # 8
     T.StructField('stop_reason', T.StringType(), True),                   #10
     T.StructField('condition_source_value', T.StringType(), True),        #14
