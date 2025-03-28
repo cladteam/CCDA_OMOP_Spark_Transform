@@ -21,7 +21,6 @@ from ..util.ds_schema import domain_dataset_schema
 def convert_and_write(ctx, name, dataset_dict, spark_ds):
         if name in dataset_dict:
             schema = domain_dataset_schema[name]
-            spark_dff = ctx.spark_session.createDataFrame(dataset_dict['bogus'], schema)
             spark_dff = ctx.spark_session.createDataFrame(dataset_dict[name], schema)
             print(f"CHRIS: DOES THIS print APPEAR IN THE LOGS SOMEWHERE? {name}")
             print(f"{dataset_dict[name]}")
@@ -117,7 +116,7 @@ def compute(
                         ##logger.info(f"{status.path} {key} {len(omop_dataset_dict)} None / no data")
 
             end_time = time.time()
-            time_int  = end_time - start_time
+            time_int = end_time - start_time
             string_length  =  len(contents)
             tuple_list.append([status.path, status.size, time_int, string_length, contents])
         file_count += 1
