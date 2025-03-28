@@ -52,10 +52,12 @@ domain_dataset_schema = {
     T.StructField('visit_occurrence_id', T.LongType(), True),             #12
     T.StructField('condition_concept_id', T.IntegerType(), True),         # 3
     #T.StructField('condition_start_date', T.DateType(), True),            # 4
-    T.StructField('condition_start_date', T.StringType(), True),            # 4
+    #T.StructField('condition_start_date', T.StringType(), True),            # 4
+    T.StructField('condition_start_date', T.LongType(), True),            # 4
     T.StructField('condition_start_datetime', T.TimestampType(), True),   # 5
     #T.StructField('condition_end_date', T.DateType(), True),              # 6
-    T.StructField('condition_end_date', T.StringType(), True),              # 6
+    #T.StructField('condition_end_date', T.StringType(), True),              # 6
+    T.StructField('condition_end_date', T.LongType(), True),              # 6
     T.StructField('condition_end_datetime', T.TimestampType(), True),     # 7
     T.StructField('condition_type_concept_id', T.IntegerType(), True),    # 8
     T.StructField('stop_reason', T.StringType(), True),                   #10
