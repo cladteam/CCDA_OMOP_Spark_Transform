@@ -39,6 +39,7 @@ glog=0.7.1=hbabe93e_0 @ linux-64
 h2=4.2.0=pyhd8ed1ab_0 @ noarch
 hpack=4.1.0=pyhd8ed1ab_0 @ noarch
 hyperframe=6.1.0=pyhd8ed1ab_0 @ noarch
+icu=75.1=he02047a_0 @ linux-64
 idna=3.10=pyhd8ed1ab_1 @ noarch
 keyutils=1.6.1=h166bdaf_0 @ linux-64
 krb5=1.21.3=h659f571_0 @ linux-64
@@ -85,7 +86,7 @@ libthrift=0.21.0=h0e7cc3e_0 @ linux-64
 libutf8proc=2.8.0=hf23e847_1 @ linux-64
 libuuid=2.38.1=h0b41bf4_0 @ linux-64
 libxcrypt=4.4.36=hd590300_1 @ linux-64
-libxml2=2.13.6=h0d44e9d_0 @ linux-64
+libxml2=2.13.7=h8d12d68_0 @ linux-64
 libzlib=1.3.1=hb9d3cd8_2 @ linux-64
 lz4-c=1.9.4=h6a678d5_1 @ linux-64
 ncurses=6.5=h2d0b736_3 @ linux-64
@@ -129,5 +130,18 @@ yaml=0.2.5=h7f98852_2 @ linux-64
 zstandard=0.23.0=py311h9ecbd09_1 @ linux-64
 zstd=1.5.7=hb8e6e7a_2 @ linux-64
 
+[Pip dependencies]
+duckdb==1.2.1
+lxml==5.3.1
+numpy==2.2.4
+pandas==2.2.3
+parsimonious==0.8.1
+python-dateutil==2.9.0.post0
+pytz==2025.2
+six==1.17.0
+typeguard==4.4.2
+typing-extensions==4.13.0
+tzdata==2025.2
+
 [Conda lock version]
-v2 - 9cfcca6d22b9898f93d19c4bfd2785f534b4620b9268ff181fb410403df7331c
+v2 - fe291cac9f2498ea836a1b9e6720c2d36163c008bb11d846bb4850aa756cb5ef
