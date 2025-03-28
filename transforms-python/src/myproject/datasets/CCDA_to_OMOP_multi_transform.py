@@ -21,14 +21,10 @@ from ..util.ds_schema import domain_dataset_schema
 def convert_and_write(ctx, name, dataset_dict, spark_ds):
         if name in dataset_dict:
             schema = domain_dataset_schema[name]
-            spark_dff = ctx.spark_session.createDataFrame(dataset_dict['bogus'], schema)
             spark_dff = ctx.spark_session.createDataFrame(dataset_dict[name], schema)
-            print(f"CHRIS: DOES THIS print APPEAR IN THE LOGS SOMEWHERE? {name}")
-            print(f"{dataset_dict[name]}")
-            print(f"{spark_ds}")
             spark_ds.write_dataframe(spark_dff)
-            
-@configure(profile=['EXECUTOR_MEMORY_LARGE', 'EXECUTOR_MEMORY_MEDIUM', 'DRIVER_MEMORY_LARGE'])
+
+@configure(profile=['EXECUTOR_MEMORY_LARGE', 'EXECUTOR_MEMORY_MEDIUM', 'DRIVER_MEMORY_LARGE'] )
 @transform(
     care_site = Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/care_site"),
     condition_occurrence = Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/condition_occurrence"),
@@ -118,7 +114,7 @@ def compute(
                         ##logger.info(f"{status.path} {key} {len(omop_dataset_dict)} None / no data")
 
             end_time = time.time()
-            time_int  = end_time - start_time
+            time_int = end_time - start_time
             string_length  =  len(contents)
             tuple_list.append([status.path, status.size, time_int, string_length, contents])
         file_count += 1
@@ -126,7 +122,7 @@ def compute(
             break
 
 #    convert_and_write(ctx, 'Care_Site',   omop_dataset_dict, care_site)
-##   convert_and_write(ctx, 'Condition',   omop_dataset_dict, condition_occurrence)
+    convert_and_write(ctx, 'Condition',   omop_dataset_dict, condition_occurrence)
 #    convert_and_write(ctx, 'Drug',        omop_dataset_dict, drug_exposure)
 #    convert_and_write(ctx, 'Location',    omop_dataset_dict, location)
 #    convert_and_write(ctx, 'Measurement', omop_dataset_dict, measurement)
