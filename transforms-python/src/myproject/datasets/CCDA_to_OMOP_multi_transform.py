@@ -125,7 +125,7 @@ def compute(
             break
 
 #    convert_and_write(ctx, 'Care_Site',   omop_dataset_dict, care_site)
-##   convert_and_write(ctx, 'Condition',   omop_dataset_dict, condition_occurrence)
+    convert_and_write(ctx, 'Condition',   omop_dataset_dict, condition_occurrence)
 #    convert_and_write(ctx, 'Drug',        omop_dataset_dict, drug_exposure)
 #    convert_and_write(ctx, 'Location',    omop_dataset_dict, location)
 #    convert_and_write(ctx, 'Measurement', omop_dataset_dict, measurement)
