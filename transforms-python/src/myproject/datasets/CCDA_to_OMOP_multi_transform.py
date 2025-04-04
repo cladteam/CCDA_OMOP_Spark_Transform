@@ -60,7 +60,7 @@ def compute(
     global ccda_value_set_mapping_table_dataset
     global visit_concept_xwalk_mapping_dataset
 
-    FILE_LIMIT=100 
+    FILE_LIMIT=10 
     EXPORT_DATASETS=False
 
     # Link concept maps
