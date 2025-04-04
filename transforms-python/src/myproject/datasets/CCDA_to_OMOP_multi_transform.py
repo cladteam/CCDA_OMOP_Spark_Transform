@@ -25,7 +25,7 @@ def convert_and_write(ctx, name, dataset_dict, spark_ds):
             spark_dff = ctx.spark_session.createDataFrame(dataset_dict[name], schema)
             spark_ds.write_dataframe(spark_dff)
 
-## @configure(profile=['EXECUTOR_MEMORY_LARGE', 'EXECUTOR_MEMORY_MEDIUM', 'DRIVER_MEMORY_LARGE'] )
+@configure(profile=['EXECUTOR_MEMORY_LARGE', 'EXECUTOR_MEMORY_MEDIUM', 'DRIVER_MEMORY_LARGE'] )
 @transform(
     care_site = Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/care_site"),
     condition_occurrence = Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/condition_occurrence"),
