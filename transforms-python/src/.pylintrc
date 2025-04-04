@@ -2,6 +2,7 @@
 good-names = _, i, j, k, df
 
 [MASTER]
+disable=all
 ignore=lib
 
 [MESSAGES CONTROL]
