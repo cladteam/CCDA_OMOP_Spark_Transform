@@ -48,31 +48,31 @@ domain_dataset_schema = {
 #   T.StructField('payload', T.StringType(), True),
 #   T.StructField('data_partner_id', T.IntegerType(), True),
 
-    T.StructField('condition_occurrence_id', T.LongType(), True),         # 1
-    T.StructField('person_id', T.LongType(), True),                       # 2
-    T.StructField('condition_concept_id', T.IntegerType(), True),         # 3
+    T.StructField('condition_occurrence_id',      T.LongType(), True),         # 1
+    T.StructField('person_id',                    T.LongType(), True),                       # 2
+    T.StructField('condition_concept_id',         T.IntegerType(), True),         # 3
 
-    #T.StructField('condition_start_date', T.DateType(), True),            # 4
-    T.StructField('condition_start_date', T.StringType(), True),            # 4
+    T.StructField('condition_start_date',         T.DateType(), True),            # 4
+    #T.StructField('condition_start_date', T.StringType(), True),         # 4
 
-    #T.StructField('condition_start_datetime', T.TimestampType(), True),   # 5
-    T.StructField('condition_start_datetime', T.StringType(), True),   # 5
+    T.StructField('condition_start_datetime',     T.TimestampType(), True),   # 5
+    #T.StructField('condition_start_datetime', T.StringType(), True),     # 5
 
-    #T.StructField('condition_end_date', T.DateType(), True),              # 6
-    T.StructField('condition_end_date', T.StringType(), True),              # 6
+    T.StructField('condition_end_date',           T.DateType(), True),              # 6
+    #T.StructField('condition_end_date', T.StringType(), True),           # 6
 
-    #T.StructField('condition_end_datetime', T.TimestampType(), True),     # 7
-    T.StructField('condition_end_datetime', T.StringType(), True),     # 7
+    T.StructField('condition_end_datetime',       T.TimestampType(), True),     # 7
+    #T.StructField('condition_end_datetime', T.StringType(), True),       # 7
 
-    T.StructField('condition_type_concept_id', T.IntegerType(), True),    # 8
-    T.StructField('condition_status_concept_id', T.IntegerType(), True),  # 9
-    T.StructField('stop_reason', T.StringType(), True),                   #10
-    T.StructField('provider_id', T.LongType(), True),                     #11
-    T.StructField('visit_occurrence_id', T.LongType(), True),             #12
-    T.StructField('visit_detail_id', T.LongType(), True),                #13
-    T.StructField('condition_source_value', T.StringType(), True),        #14
-    T.StructField('condition_source_concept_id', T.IntegerType(), True),  #15
-    T.StructField('condition_status_source_value', T.StringType(), True), #16
+    T.StructField('condition_type_concept_id',     T.IntegerType(), True),    # 8
+    T.StructField('condition_status_concept_id',   T.IntegerType(), True),  # 9
+    T.StructField('stop_reason',                   T.StringType(), True),                   #10
+    T.StructField('provider_id',                   T.LongType(), True),                     #11
+    T.StructField('visit_occurrence_id',           T.LongType(), True),             #12
+    T.StructField('visit_detail_id',               T.LongType(), True),                 #13
+    T.StructField('condition_source_value',        T.StringType(), True),        #14
+    T.StructField('condition_source_concept_id',   T.IntegerType(), True),  #15
+    T.StructField('condition_status_source_value', T.StringType(), True)  #16
 
 #   T.StructField('condition_concept_name', T.StringType(), True),
 #   T.StructField('condition_type_concept_name', T.StringType(), True),
