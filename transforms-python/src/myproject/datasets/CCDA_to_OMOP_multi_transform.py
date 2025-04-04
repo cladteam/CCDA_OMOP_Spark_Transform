@@ -61,6 +61,7 @@ def compute(
     global visit_concept_xwalk_mapping_dataset
 
     FILE_LIMIT=10 
+    SKIP=0
     EXPORT_DATASETS=False
 
     # Link concept maps
@@ -73,6 +74,7 @@ def compute(
     # Process Files 
     filestatus_list = list(xml_files.filesystem().ls())
     file_count=0
+    skip_count=0
     tuple_list = [] # for a status df
     omop_dataset_dict = {}
     fs = xml_files.filesystem()
