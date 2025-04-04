@@ -14,6 +14,7 @@ from prototype_2 import layer_datasets
 from prototype_2 import codemap_xwalk
 from prototype_2 import ccda_value_set_mapping_table_dataset
 from prototype_2 import visit_concept_xwalk_mapping_dataset
+from prototype_2 import ddl
 from ..util.ds_schema import domain_dataset_schema
 
 
@@ -59,7 +60,7 @@ def compute(
     global ccda_value_set_mapping_table_dataset
     global visit_concept_xwalk_mapping_dataset
 
-    FILE_LIMIT=10 
+    FILE_LIMIT=100 
     EXPORT_DATASETS=False
 
     # Link concept maps
@@ -88,13 +89,14 @@ def compute(
                 match_tuple = match.groups(0)
                 new_data_dict = layer_datasets.process_string(match_tuple[0], status.path, False )
 
-                # build up the omop_dataset from new_data_dict
-                for key in new_data_dict:
-                    if key in omop_dataset_dict and omop_dataset_dict[key] is not None:
-                        if new_data_dict[key] is  not None:
-                            omop_dataset_dict[key] = pd.concat([ omop_dataset_dict[key], new_data_dict[key] ])
+                # build up the omop_dataset by domain name from new_data_dict's by config_name
+                for config_key in new_data_dict:
+                    domain_key = ddl.config_to_domain_name_dict[config_key]
+                    if domain_key in omop_dataset_dict and omop_dataset_dict[domain_key] is not None:
+                        if new_data_dict[config_key] is  not None:
+                            omop_dataset_dict[domain_key] = pd.concat([ omop_dataset_dict[domain_key], new_data_dict[config_key]])
                     else:
-                        omop_dataset_dict[key]= new_data_dict[key]
+                        omop_dataset_dict[domain_key]= new_data_dict[config_key]
                     ##if new_data_dict[key] is not None:
                         ##logger.info(f"{status.path} {key} {len(omop_dataset_dict)} {omop_dataset_dict[key].shape} {new_data_dict[key].shape}")
                     ##else:
