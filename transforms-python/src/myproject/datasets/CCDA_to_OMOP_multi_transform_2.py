@@ -72,7 +72,7 @@ def just_convert(ctx, domain_name, dict_of_lists_by_domain):
 def compute(ctx,
     care_site, condition_occurrence,  drug_exposure, location, 
     measurement, observation, person,
-    procedure_occurrence, provider, visit_occurrence, processing_status,
+    procedure_occurrence, provider, visit_occurrence, 
     xml_files,
     metadata, visit_xwalk_ds, codemap_xwalk_ds, valueset_xwalk_ds
     ):
