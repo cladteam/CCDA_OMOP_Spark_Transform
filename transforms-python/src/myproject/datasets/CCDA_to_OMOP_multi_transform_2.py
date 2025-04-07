@@ -48,7 +48,11 @@ def just_convert(ctx, domain_name, dict_of_lists_by_domain):
             return spark_dff
 
     return None
+    
 
+###@configure(profile=['EXECUTOR_MEMORY_LARGE', 'EXECUTOR_MEMORY_MEDIUM', 'DRIVER_MEMORY_LARGE', 'NUM_EXECUTORS_16' ]
+@configure(profile=['DRIVER_MEMORY_LARGE', 'NUM_EXECUTORS_16' ])
+# https://stackoverflow.com/questions/70792919/how-do-i-know-my-foundry-job-is-using-aqe
 
 @transform(
     care_site = Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/care_site"),
