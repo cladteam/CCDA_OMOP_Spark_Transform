@@ -136,9 +136,10 @@ def compute(ctx,
         # flatMap() takes a file, a function to process it, and returns an (single) RDD
         # the problem is that process_file returns may different kinds of rows.
         # How much distribution magic is built into flatMap()????
-
-        #rdd = xml_files.rdd.flatMap(process_file)
-        rdd = xml_files.dataframe().flatMap(process_file)
+        msg = f"xml_files type {type(xml_files)}"
+        raise Exception(msg)
+        rdd = xml_files.rdd.flatMap(process_file) # no such object RDD
+        #rdd = xml_files.dataframe().flatMap(process_file) # shcema not found
         processed_df  = rdd.toDF(domain_dataset_schema(domain_name))
         domain_dfs[domain_name].write_dataframe(processed_df)
 
