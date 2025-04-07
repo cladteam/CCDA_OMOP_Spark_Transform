@@ -137,7 +137,8 @@ def compute(ctx,
         # the problem is that process_file returns may different kinds of rows.
         # How much distribution magic is built into flatMap()????
 
-        rdd = xml_files.rdd.flatMap(process_file)
+        #rdd = xml_files.rdd.flatMap(process_file)
+        rdd = xml_files.dataframe().flatMap(process_file)
         processed_df  = rdd.toDF(domain_dataset_schema(domain_name))
         domain_dfs[domain_name].write_dataframe(processed_df)
 
