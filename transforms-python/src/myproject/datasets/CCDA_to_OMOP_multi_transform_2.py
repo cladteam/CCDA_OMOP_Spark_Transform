@@ -128,6 +128,7 @@ def compute(ctx,
                 #    for dict in new_dict[domain_name]:
                 #        yield(Row(**dict))
                 # Just try to make this work on Person, a single schema
+                correct_types_in_record_list('Person', new_dict['Person'])
                 for dict in new_dict['Person']:
                     yield(Row(**dict))
 
@@ -144,12 +145,3 @@ def compute(ctx,
         rdd = files_df.rdd.flatMap(process_file)  # Q: do we cross from driver to many executors here?
         processed_df  = rdd.toDF(domain_dataset_schema[domain_name])
         domain_dfs[domain_name].write_dataframe(processed_df)
-
-        
-    #just_convert(ctx, domain_name, new_dict) ???????????????????????????
-        #filestatus_list = list(xml_files.filesystem().ls())
-        #fs = xml_files.filesystem()
-
-
-
-
