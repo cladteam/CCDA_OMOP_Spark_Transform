@@ -35,11 +35,6 @@ mappings:
   - "BUILD"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.e328942e-bd13-43f6-9ab0-21a6ebac16cd"
-- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/processing_stastus"
-  modes:
-  - "BUILD"
-  path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.359d13c1-0391-4d18-823e-52d2c30742e3"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/provider"
   modes:
   - "BUILD"
