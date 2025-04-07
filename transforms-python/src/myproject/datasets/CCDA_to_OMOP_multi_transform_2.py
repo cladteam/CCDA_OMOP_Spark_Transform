@@ -142,7 +142,7 @@ def compute(ctx,
 
         files_df = xml_files.filesystem().files('**/*.xml')
         rdd = files_df.rdd.flatMap(process_file) 
-        processed_df  = rdd.toDF(domain_dataset_schema(domain_name))
+        processed_df  = rdd.toDF(domain_dataset_schema[domain_name])
         domain_dfs[domain_name].write_dataframe(processed_df)
 
         
