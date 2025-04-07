@@ -132,14 +132,16 @@ def compute(ctx,
                     yield(Row(**dict))
 
 
-    for domain_name in domain_dfs.keys(): 
+    ##for domain_name in domain_dfs.keys(): 
+    domain_name = 'Person'
+    if True:
         # flatMap() takes a file, a function to process it, and returns an (single) RDD
         # the problem is that process_file returns may different kinds of rows.
         # How much distribution magic is built into flatMap()????
-        msg = f"xml_files type {type(xml_files)}"
-        raise Exception(msg)
-        rdd = xml_files.rdd.flatMap(process_file) # no such object RDD
-        #rdd = xml_files.dataframe().flatMap(process_file) # shcema not found
+
+
+        files_df = xml_files.filesystem().files('**/*.xml')
+        rdd = files_df.rdd.flatMap(process_file) 
         processed_df  = rdd.toDF(domain_dataset_schema(domain_name))
         domain_dfs[domain_name].write_dataframe(processed_df)
 
