@@ -108,8 +108,8 @@ def compute(ctx,
         # Q: what actually IS the input here? In the other code I have to call 
         #      df.filesystem().ls() to get the list of file status things
         # yields a dictionary of lists of Rows
-        msg = f"WHAT TYPE {type(file_status)} {file_status}"
-        raise Exception(msg)
+        ##msg = f"WHAT TYPE {type(file_status)} {file_status}"  # pyspark.sql.types.Row
+        ##raise Exception(msg)
 
         with fs.open(file_status.path, 'rb') as f:
             br = io.BufferedReader(f)
@@ -141,7 +141,7 @@ def compute(ctx,
 
 
         files_df = xml_files.filesystem().files('**/*.xml')
-        rdd = files_df.rdd.flatMap(process_file) 
+        rdd = files_df.rdd.flatMap(process_file)  # Q: do we cross from driver to many executors here?
         processed_df  = rdd.toDF(domain_dataset_schema[domain_name])
         domain_dfs[domain_name].write_dataframe(processed_df)
 
