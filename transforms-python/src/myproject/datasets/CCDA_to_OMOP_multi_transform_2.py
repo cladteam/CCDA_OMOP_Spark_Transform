@@ -35,7 +35,18 @@ from prototype_2.domain_dataframe_column_types import domain_dataframe_column_ty
 # NB The code in here still doesn't deal with the issue that we're creating multiple types of rows 
 # for each input file. At this point, I'm just doing the Person table to see if we're able to
 # distribute processing.
-
+#
+# Ran Cedars Sinai with just Person domain on April 7 for 7153 rows.
+#
+# 3 ways to move forward
+# 1. Create multiple transforms that each run the document conversion, but only one of the tables is harvested
+#    through the rdd.flatmap. One way to get multiple sets of NUM_EXECTORS, but wastes
+# 2. Find a way for the executor to produce multiple RDDs. It doesn't make sense for this to exist.
+# 3. Save the omop_dict by flattenting it as a generic storage, and convert to OMOP tables after?
+#    a. omop_dict is domain --> [ field --> value ]
+#    b. conversion would be to select a domain and build records from each list
+#    Q: can you have a transform with multiple outputs that runs on executors not the director?
+#       (see #1
 
 
 def just_convert(ctx, domain_name, dict_of_lists_by_domain):
