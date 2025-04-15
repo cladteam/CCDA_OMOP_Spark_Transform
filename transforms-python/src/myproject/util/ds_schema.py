@@ -10,41 +10,53 @@ from pyspark.sql import types as T
 # ISSUES
 # - dates in condition
 
+domain_key_fields = {
+    'Person': 'person_id',
+    'Condition':  'condition_occurrence_id',
+    'Device': 'device_exposure_id',
+    'Drug':  'drug_exposure_id',
+    'Measurement':  'measurement_id',
+    'Observation': 'observation_id',
+    'Procedure': 'procedure_id',
+    'Visit':   'visit_occurrence_id',
+    'Care_Site': 'care_site_id',
+    'Location': 'location_id',
+    'Provider': 'procedure_id'
+}
+
 domain_dataset_schema = {
 
     'Person': T.StructType([
 #   T.StructField('payload', T.StringType(), True),
 #    T.StructField('data_partner_id', T.IntegerType(), True),
 #   T.StructField('global_person_id', T.StringType(), True),
- 
-   
-    T.StructField('person_id', T.LongType(), True),                     # 1
-    T.StructField('gender_concept_id', T.IntegerType(), True),          # 2
-    T.StructField('year_of_birth', T.IntegerType(), True),              # 3
-    T.StructField('month_of_birth', T.IntegerType(), True),             # 4
-    T.StructField('day_of_birth', T.IntegerType(), True),               # 5
-    T.StructField('birth_datetime', T.TimestampType(), True),           # 6
-    T.StructField('race_concept_id', T.IntegerType(), True),            # 7
-    T.StructField('ethnicity_concept_id', T.IntegerType(), True),       # 8
-    T.StructField('location_id', T.LongType(), True),                   # 9
-    T.StructField('provider_id', T.LongType(), True),                   #10
-    T.StructField('care_site_id', T.LongType(), True),                  #11
-    T.StructField('person_source_value', T.StringType(), True),         #12
-    T.StructField('gender_source_value', T.StringType(), True),         #13
-    T.StructField('gender_source_concept_id', T.IntegerType(), True),   #14
-    T.StructField('race_source_value', T.StringType(), True),           #15
-    T.StructField('race_source_concept_id', T.IntegerType(), True),     #16
-    T.StructField('ethnicity_source_value', T.StringType(), True),      #17
-    T.StructField('ethnicity_source_concept_id', T.IntegerType(), True) #18 
+    T.StructField('person_id', T.LongType(), True),                     # 1 !
+    T.StructField('gender_concept_id', T.IntegerType(), True),          # 2 !
+    T.StructField('year_of_birth', T.IntegerType(), True),              # 3 !
+    T.StructField('month_of_birth', T.IntegerType(), True),             # 4 !
+    T.StructField('day_of_birth', T.IntegerType(), True),               # 5 !
+    T.StructField('birth_datetime', T.TimestampType(), True),           # 6 !
+    T.StructField('race_concept_id', T.IntegerType(), True),            # 7 !
+    T.StructField('ethnicity_concept_id', T.IntegerType(), True),       # 8 !
+    T.StructField('location_id', T.LongType(), True),                   # 9 !
+    T.StructField('provider_id', T.LongType(), True),                   #10 !
+    T.StructField('care_site_id', T.LongType(), True),                  #11 !
+    T.StructField('person_source_value', T.StringType(), True),         #12 !
+    T.StructField('gender_source_value', T.StringType(), True),         #13 !
+    T.StructField('gender_source_concept_id', T.IntegerType(), True),   #14 !
+    T.StructField('race_source_value', T.StringType(), True),           #15 !
+    T.StructField('race_source_concept_id', T.IntegerType(), True),     #16 !
+    T.StructField('ethnicity_source_value', T.StringType(), True),      #17 !
+    T.StructField('ethnicity_source_concept_id', T.IntegerType(), True) #18 !
 #   T.StructField('gender_concept_name', T.StringType(), True),
 #   T.StructField('ethnicity_concept_name', T.StringType(), True),
 #   T.StructField('race_concept_name', T.StringType(), True),
 #   T.StructField('gender_source_concept_name', T.StringType(), True),
-#   T.StructField('ethnicity_source_concept_name', T.StringType(), True),
+#   T.StructField('ethnicity_source_concept_name', T.StringType(), True),  
 #   T.StructField('race_source_concept_name', T.StringType(), True)
     ]),
 
-    'Condition': T.StructType([ # 22
+    'Condition': T.StructType([ 
 #   T.StructField('payload', T.StringType(), True),
 #   T.StructField('data_partner_id', T.IntegerType(), True),
 
@@ -93,12 +105,12 @@ domain_dataset_schema = {
     T.StructField('cause_concept_name', T.StringType(), True),
     T.StructField('death_type_concept_name', T.StringType(), True),
     T.StructField('cause_source_concept_name', T.StringType(), True)
-     ]),
+    ]),
 
     'Device': T.StructType([
     T.StructField('visit_detail_id', T.LongType(), True),
-    T.StructField('payload', T.StringType(), True),
-    T.StructField('data_partner_id', T.IntegerType(), True),
+#    T.StructField('payload', T.StringType(), True),
+#    T.StructField('data_partner_id', T.IntegerType(), True),
     T.StructField('visit_occurrence_id', T.LongType(), True),
     T.StructField('provider_id', T.LongType(), True),
     T.StructField('person_id', T.LongType(), True),
@@ -113,9 +125,9 @@ domain_dataset_schema = {
     T.StructField('quantity', T.IntegerType(), True),
     T.StructField('device_source_value', T.StringType(), True),
     T.StructField('device_source_concept_id', T.IntegerType(), True),
-    T.StructField('device_concept_name', T.StringType(), True),
-    T.StructField('device_type_concept_name', T.StringType(), True),
-    T.StructField('device_source_concept_name', T.StringType(), True)
+#    T.StructField('device_concept_name', T.StringType(), True),
+#    T.StructField('device_type_concept_name', T.StringType(), True),
+#    T.StructField('device_source_concept_name', T.StringType(), True)
      ]), 
 
     'Drug': T.StructType([
@@ -376,5 +388,4 @@ domain_dataset_schema = {
 #   T.StructField('specialty_source_concept_name', T.StringType(), True),
 #   T.StructField('gender_source_concept_name', T.StringType(), True)
     ])
-
 }
