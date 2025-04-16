@@ -54,7 +54,7 @@ def flatten_and_stringify_record_dict(domain_name, record_dict):
     return eav_list
 
 
-@configure(profile=['DRIVER_MEMORY_LARGE', 'NUM_EXECUTORS_64' ])
+@configure(profile=['DRIVER_MEMORY_EXTRA_LARGE', 'DRIVER_MEMORY_OVERHEAD_LARGE', 'NUM_EXECUTORS_64' ])
 # https://stackoverflow.com/questions/70792919/how-do-i-know-my-foundry-job-is-using-aqe
 
 @transform(
