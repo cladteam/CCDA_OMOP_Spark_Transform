@@ -7,6 +7,7 @@ import io
 # import logger
 import re
 
+from prototype_2 import value_transformations
 from prototype_2 import layer_datasets
 from prototype_2 import set_codemap_xwalk
 from prototype_2 import set_ccda_value_set_mapping_table_dataset
@@ -83,6 +84,13 @@ def compute(ctx, omop_eav_dict, xml_files,
     set_codemap_xwalk(codemap_xwalk_ds)
     set_ccda_value_set_mapping_table_dataset(valueset_xwalk_ds)
     set_visit_concept_xwalk_mapping_dataset(visit_xwalk_ds)
+
+    # TEST!!!
+    test_value = value_transformations.codemap_xwalk_concept_id({'vocabulary_id': '2.16.840.1.113883.6.96', 'concept_code': '608837004', 'default': 'XXX'})
+    if test_value is None or test_value == 'XXX' or test_value == 'None':
+        raise Exception("codemap_xwalk test failed with some form of None")
+    if test_value != '1340204':
+        raise Exception("codemap_xwalk test failed to deliver correct code
 
     doc_regex = re.compile(r'(<ClinicalDocument.*?</ClinicalDocument>)', re.DOTALL)
     fs = xml_files.filesystem()
