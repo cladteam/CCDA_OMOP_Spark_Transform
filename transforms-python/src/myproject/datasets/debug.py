@@ -12,7 +12,6 @@ from prototype_2 import set_visit_concept_xwalk_mapping_dataset
 @transform(
     output_df = Output("/All of Us-cdb223/HIN - HIE/CCDA/scratch/Chris/debug_output"),
 
-    xml_files=Input("ri.foundry.main.dataset.8c8ff8f9-d429-4396-baed-a3de9c945f49"),
     visit_xwalk_ti = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/visit_concept_xwalk_mapping_dataset"),
     codemap_xwalk_ti = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/codemap_xwalk"),
     valueset_xwalk_ti = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/ccda_value_set_mapping_table_dataset"),
