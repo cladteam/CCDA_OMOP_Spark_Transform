@@ -8,9 +8,9 @@ import io
 import re
 
 from prototype_2 import layer_datasets
-from prototype_2 import codemap_xwalk
-from prototype_2 import ccda_value_set_mapping_table_dataset
-from prototype_2 import visit_concept_xwalk_mapping_dataset
+from prototype_2 import set_codemap_xwalk
+from prototype_2 import set_ccda_value_set_mapping_table_dataset
+from prototype_2 import set_visit_concept_xwalk_mapping_dataset
 from ..util.correct_types import correct_types_in_record_list
 from ..util.ds_schema import domain_key_fields
 from prototype_2.domain_dataframe_column_types import domain_dataframe_column_types
@@ -68,15 +68,21 @@ def flatten_and_stringify_record_dict(domain_name, record_dict):
     codemap_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/codemap_xwalk"),
     valueset_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/ccda_value_set_mapping_table_dataset"),
 )
-def compute(ctx, omop_eav_dict,  xml_files,
+def compute(ctx, omop_eav_dict, xml_files,
     metadata, visit_xwalk_ds, codemap_xwalk_ds, valueset_xwalk_ds ):
 
+    # THIS DID NOT WORK?
     global codemap_xwalk
     global ccda_value_set_mapping_table_dataset
     global visit_concept_xwalk_mapping_dataset
     codemap_xwalk = codemap_xwalk_ds
     ccda_value_set_mapping_table_dataset = valueset_xwalk_ds
     visit_concept_xwalk_mapping_dataset = visit_xwalk_ds
+
+    # TRY THIS
+    set_codemap_xwalk(codemap_xwalk_ds)
+    set_ccda_value_set_mapping_table_dataset(valueset_xwalk_ds)
+    set_visit_concept_xwalk_mapping_dataset(visit_xwalk_ds)
 
     doc_regex = re.compile(r'(<ClinicalDocument.*?</ClinicalDocument>)', re.DOTALL)
     fs = xml_files.filesystem()
@@ -104,7 +110,8 @@ def compute(ctx, omop_eav_dict,  xml_files,
                             for eav_record in eav_list:
                                 yield(Row(**eav_record))
 
-    files_df = xml_files.filesystem().files('**/*.xml')
+### NOTE THE LIMIT
+    files_df = xml_files.filesystem().files('**/*.xml').limit(10)
     rdd = files_df.rdd.flatMap(process_file)
     processed_df = rdd.toDF(omop_dict_schema)
     omop_eav_dict.write_dataframe(processed_df) 

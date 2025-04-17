@@ -25,14 +25,14 @@ brotli-python=1.1.0=py311hfdbb021_2 @ linux-64
 bzip2=1.0.8=h4bc722e_7 @ linux-64
 c-ares=1.34.5=hb9d3cd8_0 @ linux-64
 ca-certificates=2025.1.31=hbcca054_0 @ linux-64
-ccda-omop-conversion-package=1.0.53=py_0 @ noarch
+ccda-omop-conversion-package=1.0.54=py_0 @ noarch
 certifi=2025.1.31=pyhd8ed1ab_0 @ noarch
 cffi=1.17.1=py311hf29c0ef_0 @ linux-64
 charset-normalizer=3.4.1=pyhd8ed1ab_0 @ noarch
 conjure-python-client=2.12.0=pyhd8ed1ab_1 @ noarch
 decorator=5.2.1=pyhd8ed1ab_0 @ noarch
 foundry-data-sidecar-api=0.781.0=py_0 @ noarch
-foundry-transforms-lib-python=0.833.0=py_0 @ noarch
+foundry-transforms-lib-python=0.834.0=py_0 @ noarch
 future=1.0.0=pyhd8ed1ab_2 @ noarch
 gflags=2.2.2=h5888daf_1005 @ linux-64
 glog=0.7.1=hbabe93e_0 @ linux-64
@@ -54,7 +54,7 @@ libbrotlidec=1.1.0=hb9d3cd8_2 @ linux-64
 libbrotlienc=1.1.0=hb9d3cd8_2 @ linux-64
 libcblas=3.9.0=31_he106b2a_openblas @ linux-64
 libcrc32c=1.1.2=h9c3ff4c_0 @ linux-64
-libcurl=8.13.0=h332b0f4_0 @ linux-64
+libcurl=8.12.1=h332b0f4_0 @ linux-64
 libedit=3.1.20250104=pl5321h7949ede_0 @ linux-64
 libev=4.33=hd590300_2 @ linux-64
 libevent=2.1.12=hdbd6064_1 @ linux-64
@@ -122,29 +122,16 @@ setuptools=70.0.0=pyhd8ed1ab_0 @ noarch
 six=1.17.0=pyhd8ed1ab_0 @ noarch
 snappy=1.2.1=h8bd8927_1 @ linux-64
 tk=8.6.13=noxft_h4845f30_101 @ linux-64
-transforms-expectations=0.756.0=py_0 @ noarch
-transforms-preview=0.756.0=py_0 @ noarch
-transforms-verbs=0.756.0=py_0 @ noarch
+transforms-expectations=0.759.0=py_0 @ noarch
+transforms-preview=0.759.0=py_0 @ noarch
+transforms-verbs=0.759.0=py_0 @ noarch
 transforms=2.239.1=py_0 @ noarch
 tzdata=2025b=h78e105d_0 @ noarch
 urllib3=2.4.0=pyhd8ed1ab_0 @ noarch
 wheel=0.45.1=pyhd8ed1ab_1 @ noarch
 yaml=0.2.5=h7f98852_2 @ linux-64
-zstandard=0.23.0=py311h9ecbd09_1 @ linux-64
-zstd=1.5.7=hb8e6e7a_2 @ linux-64
-
-[Pip dependencies]
-duckdb==1.2.2
-lxml==5.3.2
-numpy==2.2.4
-pandas==2.2.3
-parsimonious==0.8.1
-python-dateutil==2.9.0.post0
-pytz==2025.2
-six==1.17.0
-typeguard==4.4.2
-typing-extensions==4.13.2
-tzdata==2025.2
+zstandard=0.23.0=py311hbc35293_1 @ linux-64
+zstd=1.5.6=ha6fb4c9_0 @ linux-64
 
 [Conda lock version]
-v2 - 048c0eaf6a46db58dfd21170d23414cdcd3eb38c7ffaf50a0935d07ba8c7d843
+v2 - 6a1ce8855c28d9d3d585010b91ae73449a6ec572ab340e46bf2d0ab719a0ed9c
