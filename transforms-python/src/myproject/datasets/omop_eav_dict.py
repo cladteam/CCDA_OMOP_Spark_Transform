@@ -89,8 +89,8 @@ def compute(ctx, omop_eav_dict, xml_files,
     test_value = value_transformations.codemap_xwalk_concept_id({'vocabulary_oid': '2.16.840.1.113883.6.96', 'concept_code': '608837004', 'default': 'XXX'})
     if test_value is None or test_value == 'XXX' or test_value == 'None':
         raise Exception("codemap_xwalk test failed with some form of None")
-    if test_value != '1340204':
-        msg = f"codemap_xwalk test failed to deliver correct code {test_value}"
+    if test_value != '1340204': # 1,340,204
+        msg = f"codemap_xwalk test failed to deliver correct code {test_value} {type(test_value)}"
         raise Exception(msg)
 
     doc_regex = re.compile(r'(<ClinicalDocument.*?</ClinicalDocument>)', re.DOTALL)
