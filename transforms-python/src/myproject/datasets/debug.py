@@ -24,10 +24,10 @@ def compute(ctx, output_df,
                                & (codemap_xwalk_ds['src_code']  == '608837004') ]
 
     test_col = test_df['target_concept_id']
-    msg = f"type is {type(test_col)}  {test_col}"
-    raise Exception(msg)
 
-    test_value = None
+    test_value = test_col[0]
+    msg = f"type is {type(test_value)}  {test_value}"
+    raise Exception(msg)
 
     if test_value is None or test_value == 'XXX' or test_value == 'None':
         raise Exception("codemap_xwalk test failed with some form of None")
