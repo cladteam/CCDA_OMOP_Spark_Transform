@@ -33,12 +33,12 @@ requirements:
     - transforms-preview
     - transforms-verbs
     - foundry-transforms-lib-python
-    - ccda-omop-conversion-package=1.0.62
+    - ccda-omop-conversion-package=1.0.63
     - numpy
 
 test:
   requires:
-    - ccda-omop-conversion-package 1.0.62
+    - ccda-omop-conversion-package 1.0.63
 
 build:
   script: python setup.py install --single-version-externally-managed --record=record.txt
