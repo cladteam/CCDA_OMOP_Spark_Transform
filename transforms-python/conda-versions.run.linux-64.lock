@@ -55,7 +55,7 @@ libbrotlidec=1.1.0=hb9d3cd8_2 @ linux-64
 libbrotlienc=1.1.0=hb9d3cd8_2 @ linux-64
 libcblas=3.9.0=31_he106b2a_openblas @ linux-64
 libcrc32c=1.1.2=h9c3ff4c_0 @ linux-64
-libcurl=8.12.1=h332b0f4_0 @ linux-64
+libcurl=8.13.0=h332b0f4_0 @ linux-64
 libedit=3.1.20250104=pl5321h7949ede_0 @ linux-64
 libev=4.33=hd590300_2 @ linux-64
 libevent=2.1.12=hf998b51_1 @ linux-64
@@ -131,8 +131,21 @@ tzdata=2025b=h78e105d_0 @ noarch
 urllib3=2.4.0=pyhd8ed1ab_0 @ noarch
 wheel=0.45.1=pyhd8ed1ab_1 @ noarch
 yaml=0.2.5=h7f98852_2 @ linux-64
-zstandard=0.23.0=py311hbc35293_1 @ linux-64
-zstd=1.5.6=ha6fb4c9_0 @ linux-64
+zstandard=0.23.0=py311h9ecbd09_1 @ linux-64
+zstd=1.5.7=hb8e6e7a_2 @ linux-64
+
+[Pip dependencies]
+duckdb==1.2.2
+lxml==5.3.2
+numpy==2.2.4
+pandas==2.2.3
+parsimonious==0.8.1
+python-dateutil==2.9.0.post0
+pytz==2025.2
+six==1.17.0
+typeguard==4.4.2
+typing-extensions==4.13.2
+tzdata==2025.2
 
 [Conda lock version]
-v2 - 40b8d90a63c06cc0aaaf4b7f0e3fc53aca9ed3033d4bf7dee440596c5bd4b495
+v2 - f565b9b9852b18b79f1bf74c847a0ae7d19752799d1d67606abc51bd9b6c6c81
