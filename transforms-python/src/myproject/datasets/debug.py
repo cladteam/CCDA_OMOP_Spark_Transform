@@ -25,10 +25,13 @@ def compute(ctx, output_df,
 
     #test_col = test_df['target_concept_id']  #does return a column..
     test_df2 = test_df.select('target_concept_id') # returns a DF
-    x = test_df2.collect()
-    msg = f"type is {type(x)}  {x}"
-    raise Exception(msg)
+    x = test_df2.collect() # a row
+    #msg = f"type is {type(x)}  {x}"
+    #raise Exception(msg)
 
+    test_value = x[0]
+    msg = f"type is {type(test_value)}  {test_value}"
+    raise Exception(msg)
 
 
     test_value = None
