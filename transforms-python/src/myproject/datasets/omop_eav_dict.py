@@ -73,17 +73,17 @@ def compute(ctx, omop_eav_dict, xml_files,
     metadata, visit_xwalk_ds, codemap_xwalk_ds, valueset_xwalk_ds ):
 
     # THIS DID NOT WORK?
-    global codemap_xwalk
-    global ccda_value_set_mapping_table_dataset
-    global visit_concept_xwalk_mapping_dataset
-    codemap_xwalk = codemap_xwalk_ds
-    ccda_value_set_mapping_table_dataset = valueset_xwalk_ds
-    visit_concept_xwalk_mapping_dataset = visit_xwalk_ds
+    #global codemap_xwalk
+    #global ccda_value_set_mapping_table_dataset
+    #global visit_concept_xwalk_mapping_dataset
+    #codemap_xwalk = codemap_xwalk_ds
+    #ccda_value_set_mapping_table_dataset = valueset_xwalk_ds
+    #visit_concept_xwalk_mapping_dataset = visit_xwalk_ds
 
     # TRY THIS
-    set_codemap_xwalk(codemap_xwalk_ds)
-    set_ccda_value_set_mapping_table_dataset(valueset_xwalk_ds)
-    set_visit_concept_xwalk_mapping_dataset(visit_xwalk_ds)
+    set_codemap_xwalk(codemap_xwalk_ds.dataframe())
+    set_ccda_value_set_mapping_table_dataset(valueset_xwalk_ds.dataframe())
+    set_visit_concept_xwalk_mapping_dataset(visit_xwalk_ds.dataframe())
 
     # TEST: here outside the flatmap, running on the director
     test_value = value_transformations.codemap_xwalk_concept_id({'vocabulary_oid': '2.16.840.1.113883.6.96', 'concept_code': '608837004', 'default': 'XXX'})
