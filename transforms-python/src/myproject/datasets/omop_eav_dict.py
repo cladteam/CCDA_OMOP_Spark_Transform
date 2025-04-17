@@ -90,7 +90,8 @@ def compute(ctx, omop_eav_dict, xml_files,
     if test_value is None or test_value == 'XXX' or test_value == 'None':
         raise Exception("codemap_xwalk test failed with some form of None")
     if test_value != '1340204':
-        raise Exception("codemap_xwalk test failed to deliver correct code")
+        msg = f"codemap_xwalk test failed to deliver correct code {test_value}"
+        raise Exception(msg)
 
     doc_regex = re.compile(r'(<ClinicalDocument.*?</ClinicalDocument>)', re.DOTALL)
     fs = xml_files.filesystem()
