@@ -13,14 +13,14 @@ from prototype_2 import set_visit_concept_xwalk_mapping_dataset
     output_df = Output("/All of Us-cdb223/HIN - HIE/CCDA/scratch/Chris/debug_output"),
 
     xml_files=Input("ri.foundry.main.dataset.8c8ff8f9-d429-4396-baed-a3de9c945f49"),
-    metadata = Input("/All of Us-cdb223/HIN - HIE/sharedResources/FullyIdentiifed/ccda/ccda_response_metadata"),
-    visit_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/visit_concept_xwalk_mapping_dataset"),
-    codemap_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/codemap_xwalk"),
-    valueset_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/ccda_value_set_mapping_table_dataset"),
+    visit_xwalk_ti = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/visit_concept_xwalk_mapping_dataset"),
+    codemap_xwalk_ti = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/codemap_xwalk"),
+    valueset_xwalk_ti = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/ccda_value_set_mapping_table_dataset"),
 )
 def compute(ctx, output_df,
-            visit_xwalk_ds, codemap_xwalk_ds, valueset_xwalk_ds ):
+            visit_xwalk_ti, codemap_xwalk_ti, valueset_xwalk_ti ):
 
+    codemap_xwalk_ds = codemap_xwalk_ti.dataframe()
     test_row = codemap_xwalk_ds[ (codemap_xwalk_ds['src_vocab_code_system'] == '2.16.840.1.113883.6.96') \
                               & (codemap_xwalk_ds['src_code']  == '608837004') ]
     test_value = test_row['target_concept_id']
