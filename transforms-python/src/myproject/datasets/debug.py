@@ -27,10 +27,10 @@ def compute(ctx, output_df,
     #msg = f"type is {type(test_value)}  {test_value}"
     #raise Exception(msg)
 
-    test_value = test_row['target_concept_id'].iloc[0][0]
+    test_value = test_row['target_concept_id'].iloc[0,0]
     msg = f"type is {type(test_value)}  {test_value}"
     raise Exception(msg)
-    
+
     if test_value is None or test_value == 'XXX' or test_value == 'None':
         raise Exception("codemap_xwalk test failed with some form of None")
     if test_value != '1340204':
