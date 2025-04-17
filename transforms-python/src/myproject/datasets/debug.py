@@ -22,13 +22,16 @@ def compute(ctx, output_df,
     codemap_xwalk_ds = codemap_xwalk_ti.dataframe()
     test_row = codemap_xwalk_ds[ (codemap_xwalk_ds['src_vocab_code_system'] == '2.16.840.1.113883.6.96') \
                                & (codemap_xwalk_ds['src_code']  == '608837004') ]
+    msg = f"type is {type(test_row)}  {test_row}"
+    raise Exception(msg)
+
     # pyspark Column 
     #test_value = test_row['target_concept_id'].iloc[0]
     #msg = f"type is {type(test_value)}  {test_value}"
     #raise Exception(msg)
 
-    #test_value = test_row['target_concept_id'].iloc[0,0]
-    test_value = test_row.loc['target_concept_id']
+    test_column = test_row['target_concept_id'].iloc[0]
+    test_value = test_column
     msg = f"type is {type(test_value)}  {test_value}"
     raise Exception(msg)
 
