@@ -25,7 +25,7 @@ def compute(ctx, output_df,
 
 
     # *****
-    ##x = test_df.first()['target_concept_id']
+    x = test_df.first()['target_concept_id']
     # XX x = test_df.first().[0]
     # XX x = test_df.first().getAttr(0)
     msg = f"type is {type(x)}  {x}"

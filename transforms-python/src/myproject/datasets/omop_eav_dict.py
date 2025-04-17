@@ -27,7 +27,7 @@ omop_dict_schema = T.StructType([
     T.StructField('key_type', T.StringType(), True),                     # 1
     T.StructField('key_value', T.StringType(), True),                     # 1
     T.StructField('field_name', T.StringType(), True),                     # 1
-    T.StructField('field_value', T.StringType(), True),                     # 1
+    T.StructField('field_value', T.StringType(), True)                     # 1
 ])
 
 def concat_key(domain_name, record_dict):
