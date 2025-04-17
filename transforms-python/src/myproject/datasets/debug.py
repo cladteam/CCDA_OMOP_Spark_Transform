@@ -27,7 +27,8 @@ def compute(ctx, output_df,
     #msg = f"type is {type(test_value)}  {test_value}"
     #raise Exception(msg)
 
-    test_value = test_row['target_concept_id'].iloc[0,0]
+    #test_value = test_row['target_concept_id'].iloc[0,0]
+    test_value = test_row.loc['target_concept_id']
     msg = f"type is {type(test_value)}  {test_value}"
     raise Exception(msg)
 
