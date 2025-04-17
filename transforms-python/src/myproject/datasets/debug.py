@@ -23,18 +23,24 @@ def compute(ctx, output_df,
     test_df = codemap_xwalk_ds[ (codemap_xwalk_ds['src_vocab_code_system'] == '2.16.840.1.113883.6.96') \
                                & (codemap_xwalk_ds['src_code']  == '608837004') ]
 
-    #test_col = test_df['target_concept_id']  #does return a column..
-    test_df2 = test_df.select('target_concept_id') # returns a DF
-    x = test_df2.collect() # a row
-    #msg = f"type is {type(x)}  {x}"
+
+    # *****
+    ##x = test_df.first()['target_concept_id']
+    # XX x = test_df.first().[0]
+    # XX x = test_df.first().getAttr(0)
+    msg = f"type is {type(x)}  {x}"
+    raise Exception(msg)
+    # ******
+
+    # Collect works, but on the driver?
+    ## test_df2 = test_df.select('target_concept_id') # returns a DF
+    ## x = test_df2.collect() # a row
+    ## test_value = x[0]['target_concept_id']
+    #test_value =test_df.select('target_concept_id').collect()[0]['target_concept_id']
+    #msg = f"type is {type(test_value)}  {test_value}"
     #raise Exception(msg)
 
-    test_value = x[0]
-    msg = f"type is {type(test_value)}  {test_value}"
-    raise Exception(msg)
-
-
-    test_value = None
+    test_value=None
     if test_value is None or test_value == 'XXX' or test_value == 'None':
         raise Exception("codemap_xwalk test failed with some form of None")
     if test_value != '1340204':

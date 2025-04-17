@@ -33,7 +33,7 @@ requirements:
     - transforms-preview
     - transforms-verbs
     - foundry-transforms-lib-python
-    - ccda-omop-conversion-package=1.0.64
+    - ccda-omop-conversion-package=1.0.65
     - numpy
 
 test:
