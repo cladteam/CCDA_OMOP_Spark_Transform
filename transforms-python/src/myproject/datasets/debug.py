@@ -20,20 +20,14 @@ def compute(ctx, output_df,
             visit_xwalk_ti, codemap_xwalk_ti, valueset_xwalk_ti ):
 
     codemap_xwalk_ds = codemap_xwalk_ti.dataframe()
-    test_row = codemap_xwalk_ds[ (codemap_xwalk_ds['src_vocab_code_system'] == '2.16.840.1.113883.6.96') \
+    test_df = codemap_xwalk_ds[ (codemap_xwalk_ds['src_vocab_code_system'] == '2.16.840.1.113883.6.96') \
                                & (codemap_xwalk_ds['src_code']  == '608837004') ]
-    msg = f"type is {type(test_row)}  {test_row}"
+
+    test_col = test_df['target_concept_id']
+    msg = f"type is {type(test_col)}  {test_col}"
     raise Exception(msg)
 
-    # pyspark Column 
-    #test_value = test_row['target_concept_id'].iloc[0]
-    #msg = f"type is {type(test_value)}  {test_value}"
-    #raise Exception(msg)
-
-    test_column = test_row['target_concept_id'].iloc[0]
-    test_value = test_column
-    msg = f"type is {type(test_value)}  {test_value}"
-    raise Exception(msg)
+    test_value = None
 
     if test_value is None or test_value == 'XXX' or test_value == 'None':
         raise Exception("codemap_xwalk test failed with some form of None")
