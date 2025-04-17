@@ -23,6 +23,9 @@ def compute(ctx, output_df,
     test_row = codemap_xwalk_ds[ (codemap_xwalk_ds['src_vocab_code_system'] == '2.16.840.1.113883.6.96') \
                                & (codemap_xwalk_ds['src_code']  == '608837004') ]
     test_value = test_row['target_concept_id'].iloc[0]
+    msg = f"type is {type(test_value)}  {test_value}"
+    raise Exception(msg)
+    #test_value = test_row['target_concept_id'].iloc[0]
     if test_value is None or test_value == 'XXX' or test_value == 'None':
         raise Exception("codemap_xwalk test failed with some form of None")
     if test_value != '1340204':
