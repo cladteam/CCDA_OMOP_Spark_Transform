@@ -16,6 +16,9 @@ from prototype_2 import ddl
 from prototype_2 import set_codemap_xwalk_dict
 from prototype_2 import set_ccda_value_set_mapping_table_dict
 from prototype_2 import set_visit_concept_xwalk_mapping_dict
+from prototype_2 import get_codemap_xwalk_dict
+from prototype_2 import get_ccda_value_set_mapping_table_dict
+from prototype_2 import get_visit_concept_xwalk_mapping_dict
 
 
 # Ultimate EAV or RDF triple
@@ -122,6 +125,14 @@ def compute(ctx, omop_eav_dict, xml_files,
     set_codemap_xwalk_dict(codemap_dict)
     set_ccda_value_set_mapping_table_dict(visit_map_dict)
     set_visit_concept_xwalk_mapping_dict(valueset_map_dict)
+
+    if get_codemap_xwalk_dict() is None:
+        raise Exception("no codemap")
+    if get_ccda_value_set_mapping_table_dict() is None:
+        raise Exception("no value set map")
+    if get_visit_concept_xwalk_mapping_dict() is None:
+        raise Exception("no value set map")
+
     test_maps()
 
     doc_regex = re.compile(r'(<ClinicalDocument.*?</ClinicalDocument>)', re.DOTALL)
