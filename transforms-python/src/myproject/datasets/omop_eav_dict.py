@@ -58,7 +58,7 @@ def flatten_and_stringify_record_dict(domain_name, record_dict):
 def get_codemap_dict(codemap_ds):
     #  df = codemap_xwalk[ (codemap_xwalk['src_vocab_code_system'] == vocabulary_oid) & (codemap_xwalk['src_code']  == concept_code) ]
     #  'source_concept_id, 'target_domain_id','target_concept_id'
-    narrow = codemap_ds.select(['src_vocab_code_system', 'src_code', 'source_concept_id', 'target_domain_id', 'target_concept_id']).collect()
+    narrow = codemap_ds.dataframe().select(['src_vocab_code_system', 'src_code', 'source_concept_id', 'target_domain_id', 'target_concept_id']).collect()
     codemap_dict = {}
     for row in narrow:
         codemap_dict[(row['src_vocab_code_system'], row['src_code'])] = {
@@ -68,7 +68,7 @@ def get_codemap_dict(codemap_ds):
 
 
 def get_valueset_dict(codemap_ds):
-    narrow = codemap_ds.select(['code_system', 'src_cd', 'source_concept_id', 'target_domain_id', 'target_concept_id']).collect()
+    narrow = codemap_ds.dataframe().select(['code_system', 'src_cd', 'source_concept_id', 'target_domain_id', 'target_concept_id']).collect()
     codemap_dict = {}
     for row in narrow:
         codemap_dict[(row['code_system'], row['src_cd'])] = {
@@ -78,7 +78,7 @@ def get_valueset_dict(codemap_ds):
 
 
 def get_visit_dict(codemap_ds):
-    narrow = codemap_ds.select(['code_system', 'src_cd', 'source_concept_id', 'target_domain_id', 'target_concept_id']).collect()
+    narrow = codemap_ds.dataframe().select(['code_system', 'src_cd', 'source_concept_id', 'target_domain_id', 'target_concept_id']).collect()
     codemap_dict = {}
     for row in narrow:
         codemap_dict[(row['code_system'], row['src_cd'])] = {
