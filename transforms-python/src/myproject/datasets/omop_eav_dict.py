@@ -121,6 +121,13 @@ def compute(ctx, omop_eav_dict, xml_files,
     valueset_map_dict =get_valueset_dict(valueset_xwalk_ds)
     visit_map_dict = get_visit_dict(visit_xwalk_ds)
 
+    if codemap_dict() is None:
+        raise Exception("no codemap dict")
+    if value_set_map_dict() is None:
+        raise Exception("no value set map dict")
+    if visit_map_dict() is None:
+        raise Exception("no value set map dict")
+
     # make dicts available for test below, this won't work for the process_file() function.
     set_codemap_xwalk_dict(codemap_dict)
     set_ccda_value_set_mapping_table_dict(visit_map_dict)
