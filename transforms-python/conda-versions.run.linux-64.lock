@@ -134,4 +134,8 @@ zstandard=0.23.0=py311hbc35293_1 @ linux-64
 zstd=1.5.6=ha6fb4c9_0 @ linux-64
 
 [Conda lock version]
+<<<<<<< HEAD
 v2 - 8c0cdd67caa0cfed45273e0cfcd9cccf4ed2776e4987091bf5246e5b65e72adb
+=======
+v2 - 8885eb570dcf296604ac51914ce810562fc9ae5629b47208d99b0c08ccee6f12
+>>>>>>> 1727c069a4e9d8a9e9ea07c298f281c68068585a
