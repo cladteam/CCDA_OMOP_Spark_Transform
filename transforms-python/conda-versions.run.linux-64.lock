@@ -57,7 +57,7 @@ libcrc32c=1.1.2=h9c3ff4c_0 @ linux-64
 libcurl=8.12.1=h332b0f4_0 @ linux-64
 libedit=3.1.20250104=pl5321h7949ede_0 @ linux-64
 libev=4.33=hd590300_2 @ linux-64
-libevent=2.1.12=hf998b51_1 @ linux-64
+libevent=2.1.12=hdbd6064_1 @ linux-64
 libexpat=2.7.0=h5888daf_0 @ linux-64
 libffi=3.4.6=h2dba641_1 @ linux-64
 libgcc-ng=14.2.0=h69a702a_2 @ linux-64
@@ -147,9 +147,4 @@ typing-extensions==4.13.2
 tzdata==2025.2
 
 [Conda lock version]
-<<<<<<< HEAD
-v2 - 8c0cdd67caa0cfed45273e0cfcd9cccf4ed2776e4987091bf5246e5b65e72adb
-
-=======
 v2 - e9a1801912bbae57799d3ed5f5fa1d943186569037e1490e0f47ef31167b8713
->>>>>>> 798359420871a9f81cbf90a98d0e08462abf3ec0
