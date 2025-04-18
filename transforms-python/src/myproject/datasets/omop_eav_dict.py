@@ -69,6 +69,7 @@ def get_codemap_dict(codemap_ds):
             'target_domain_id': row['target_domain_id'],
             'target_concept_id': row['target_concept_id'] }
 
+    return codemap_dict
 
 def get_valueset_dict(codemap_ds):
     narrow = codemap_ds.dataframe().select(['codeSystem', 'src_cd', 'target_domain_id', 'target_concept_id']).collect()
@@ -79,6 +80,8 @@ def get_valueset_dict(codemap_ds):
             'target_domain_id': row['target_domain_id'],
             'target_concept_id': row['target_concept_id'] }
 
+    return codemap_dict
+
 
 def get_visit_dict(codemap_ds):
     narrow = codemap_ds.dataframe().select(['codeSystem', 'src_cd', 'target_domain_id', 'target_concept_id']).collect()
@@ -88,6 +91,8 @@ def get_visit_dict(codemap_ds):
             'source_concept_id': None,
             'target_domain_id': row['target_domain_id'],
             'target_concept_id': row['target_concept_id'] }
+
+    return codemap_dict
 
 def test_maps():
     # TEST: here outside the flatmap, running on the director
@@ -118,20 +123,20 @@ def compute(ctx, omop_eav_dict, xml_files,
     metadata, visit_xwalk_ds, codemap_xwalk_ds, valueset_xwalk_ds ):
 
     codemap_dict = get_codemap_dict(codemap_xwalk_ds)
-    valueset_map_dict =get_valueset_dict(valueset_xwalk_ds)
+    value_set_map_dict = get_valueset_dict(valueset_xwalk_ds)
     visit_map_dict = get_visit_dict(visit_xwalk_ds)
 
-    if codemap_dict() is None:
+    if codemap_dict is None:
         raise Exception("no codemap dict")
-    if value_set_map_dict() is None:
+    if value_set_map_dict is None:
         raise Exception("no value set map dict")
-    if visit_map_dict() is None:
+    if visit_map_dict is None:
         raise Exception("no value set map dict")
 
     # make dicts available for test below, this won't work for the process_file() function.
     set_codemap_xwalk_dict(codemap_dict)
-    set_ccda_value_set_mapping_table_dict(visit_map_dict)
-    set_visit_concept_xwalk_mapping_dict(valueset_map_dict)
+    set_ccda_value_set_mapping_table_dict(value_set_map_dict)
+    set_visit_concept_xwalk_mapping_dict(visit_map_dict)
 
     if get_codemap_xwalk_dict() is None:
         raise Exception("no codemap")
@@ -159,7 +164,7 @@ def compute(ctx, omop_eav_dict, xml_files,
 
                 new_dict = layer_datasets.process_string_to_dict(\
                     xml_content, file_status.path, False, \
-                    codemap_dict, visit_map_dict, valueset_map_dict )
+                    codemap_dict, visit_map_dict, value_set_map_dict )
 
                 for config_name in new_dict.keys():
                     if new_dict[config_name] is not None:
