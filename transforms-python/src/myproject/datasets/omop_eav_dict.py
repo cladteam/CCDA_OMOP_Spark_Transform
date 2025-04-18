@@ -159,6 +159,8 @@ def compute(ctx, omop_eav_dict, xml_files,
     doc_regex = re.compile(r'(<ClinicalDocument.*?</ClinicalDocument>)', re.DOTALL)
     fs = xml_files.filesystem()
 
+    codemap_broadcast = ctx.broadcast(codemap_dict)  # BROADCAST
+
     def process_file(file_status):
         with fs.open(file_status.path, 'rb') as f:
             br = io.BufferedReader(f)
@@ -173,7 +175,8 @@ def compute(ctx, omop_eav_dict, xml_files,
 
                 new_dict = layer_datasets.process_string_to_dict(\
                     xml_content, file_status.path, False, \
-                    codemap_dict, visit_map_dict, value_set_map_dict )
+                    codemap_broadcast, visit_map_dict, value_set_map_dict )  # broadcast?
+                    ##codemap_dict, visit_map_dict, value_set_map_dict )  # closure
 
                 for config_name in new_dict.keys():
                     if new_dict[config_name] is not None:
