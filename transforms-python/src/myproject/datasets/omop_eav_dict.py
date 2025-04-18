@@ -9,9 +9,6 @@ import re
 
 from prototype_2 import value_transformations
 from prototype_2 import layer_datasets
-from prototype_2 import set_codemap_xwalk
-from prototype_2 import set_ccda_value_set_mapping_table_dataset
-from prototype_2 import set_visit_concept_xwalk_mapping_dataset
 from ..util.correct_types import correct_types_in_record_list
 from ..util.ds_schema import domain_key_fields
 from prototype_2.domain_dataframe_column_types import domain_dataframe_column_types
