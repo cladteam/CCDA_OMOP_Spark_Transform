@@ -147,5 +147,9 @@ typing-extensions==4.13.2
 tzdata==2025.2
 
 [Conda lock version]
+<<<<<<< HEAD
 v2 - 8c0cdd67caa0cfed45273e0cfcd9cccf4ed2776e4987091bf5246e5b65e72adb
 
+=======
+v2 - e9a1801912bbae57799d3ed5f5fa1d943186569037e1490e0f47ef31167b8713
+>>>>>>> 798359420871a9f81cbf90a98d0e08462abf3ec0
