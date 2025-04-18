@@ -57,7 +57,7 @@ libcrc32c=1.1.2=h9c3ff4c_0 @ linux-64
 libcurl=8.12.1=h332b0f4_0 @ linux-64
 libedit=3.1.20250104=pl5321h7949ede_0 @ linux-64
 libev=4.33=hd590300_2 @ linux-64
-libevent=2.1.12=hdbd6064_1 @ linux-64
+libevent=2.1.12=hf998b51_1 @ linux-64
 libexpat=2.7.0=h5888daf_0 @ linux-64
 libffi=3.4.6=h2dba641_1 @ linux-64
 libgcc-ng=14.2.0=h69a702a_2 @ linux-64
@@ -133,9 +133,19 @@ yaml=0.2.5=h7f98852_2 @ linux-64
 zstandard=0.23.0=py311hbc35293_1 @ linux-64
 zstd=1.5.6=ha6fb4c9_0 @ linux-64
 
+[Pip dependencies]
+duckdb==1.2.2
+lxml==5.3.2
+numpy==2.2.4
+pandas==2.2.3
+parsimonious==0.8.1
+python-dateutil==2.9.0.post0
+pytz==2025.2
+six==1.17.0
+typeguard==4.4.2
+typing-extensions==4.13.2
+tzdata==2025.2
+
 [Conda lock version]
-<<<<<<< HEAD
 v2 - 8c0cdd67caa0cfed45273e0cfcd9cccf4ed2776e4987091bf5246e5b65e72adb
-=======
-v2 - 8885eb570dcf296604ac51914ce810562fc9ae5629b47208d99b0c08ccee6f12
->>>>>>> 1727c069a4e9d8a9e9ea07c298f281c68068585a
+
