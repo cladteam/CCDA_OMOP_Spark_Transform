@@ -16,6 +16,9 @@ from ..util.correct_types import correct_types_in_record_list
 from ..util.ds_schema import domain_key_fields
 from prototype_2.domain_dataframe_column_types import domain_dataframe_column_types
 from prototype_2 import ddl
+from prototype_2 import set_codemap_xwalk_dict
+from prototype_2 import set_ccda_value_set_mapping_table_dict
+from prototype_2 import set_visit_concept_xwalk_mapping_dict
 
 
 # Ultimate EAV or RDF triple
@@ -46,13 +49,55 @@ def flatten_and_stringify_record_dict(domain_name, record_dict):
     eav_list = []
     for key, value in record_dict.items():
         eav_list.append({
-            'domain_name': domain_name, 
-            'key_type': key_type, 
-            'key_value': record_key, 
-            'field_name': key, 
+            'domain_name': domain_name,
+            'key_type': key_type,
+            'key_value': record_key,
+            'field_name': key,
             'field_value': str(value)
             })
     return eav_list
+
+
+def get_codemap_dict(codemap_ds):
+    #  df = codemap_xwalk[ (codemap_xwalk['src_vocab_code_system'] == vocabulary_oid) & (codemap_xwalk['src_code']  == concept_code) ]
+    #  'source_concept_id, 'target_domain_id','target_concept_id'
+    narrow = codemap_ds.select(['src_vocab_code_system', 'src_code', 'source_concept_id', 'target_domain_id', 'target_concept_id']).collect()
+    codemap_dict = {}
+    for row in narrow:
+        codemap_dict[(row['src_vocab_code_system'], row['src_code'])] = {
+            'source_concept_id': row['source_concept_id'],
+            'target_domain_id': row['target_domain_id'],
+            'target_concept_id': row['target_concept_id'] }
+
+
+def get_valueset_dict(codemap_ds):
+    narrow = codemap_ds.select(['code_system', 'src_cd', 'source_concept_id', 'target_domain_id', 'target_concept_id']).collect()
+    codemap_dict = {}
+    for row in narrow:
+        codemap_dict[(row['code_system'], row['src_cd'])] = {
+            'source_concept_id': row['source_concept_id'],
+            'target_domain_id': row['target_domain_id'],
+            'target_concept_id': row['target_concept_id'] }
+
+
+def get_visit_dict(codemap_ds):
+    narrow = codemap_ds.select(['code_system', 'src_cd', 'source_concept_id', 'target_domain_id', 'target_concept_id']).collect()
+    codemap_dict = {}
+    for row in narrow:
+        codemap_dict[(row['code_system'], row['src_cd'])] = {
+            'source_concept_id': row['source_concept_id'],
+            'target_domain_id': row['target_domain_id'],
+            'target_concept_id': row['target_concept_id'] }
+
+def test_maps():
+    # TEST: here outside the flatmap, running on the director
+    test_value = value_transformations.codemap_xwalk_concept_id({'vocabulary_oid': '2.16.840.1.113883.6.96', 'concept_code': '608837004', 'default': 'XXX'})
+    if test_value is None or test_value == 'XXX' or test_value == 'None':
+        raise Exception("codemap_xwalk test failed with some form of None")
+    if test_value != 1340204: 
+        msg = f"codemap_xwalk test failed to deliver correct code {test_value} {type(test_value)}"
+        raise Exception(msg)
+
 
 
 @configure(profile=['DRIVER_MEMORY_EXTRA_LARGE', 'DRIVER_MEMORY_OVERHEAD_LARGE', 'NUM_EXECUTORS_64' ])
@@ -72,26 +117,15 @@ def flatten_and_stringify_record_dict(domain_name, record_dict):
 def compute(ctx, omop_eav_dict, xml_files,
     metadata, visit_xwalk_ds, codemap_xwalk_ds, valueset_xwalk_ds ):
 
-    # THIS DID NOT WORK?
-    #global codemap_xwalk
-    #global ccda_value_set_mapping_table_dataset
-    #global visit_concept_xwalk_mapping_dataset
-    #codemap_xwalk = codemap_xwalk_ds
-    #ccda_value_set_mapping_table_dataset = valueset_xwalk_ds
-    #visit_concept_xwalk_mapping_dataset = visit_xwalk_ds
+    codemap_dict = get_codemap_dict(codemap_xwalk_ds)
+    valueset_map_dict =get_valueset_dict(valueset_xwalk_ds)
+    visit_map_dict = get_visit_dict(visit_xwalk_ds)
 
-    # TRY THIS
-    set_codemap_xwalk(codemap_xwalk_ds.dataframe())
-    set_ccda_value_set_mapping_table_dataset(valueset_xwalk_ds.dataframe())
-    set_visit_concept_xwalk_mapping_dataset(visit_xwalk_ds.dataframe())
-
-    # TEST: here outside the flatmap, running on the director
-    test_value = value_transformations.codemap_xwalk_concept_id({'vocabulary_oid': '2.16.840.1.113883.6.96', 'concept_code': '608837004', 'default': 'XXX'})
-    if test_value is None or test_value == 'XXX' or test_value == 'None':
-        raise Exception("codemap_xwalk test failed with some form of None")
-    if test_value != 1340204: 
-        msg = f"codemap_xwalk test failed to deliver correct code {test_value} {type(test_value)}"
-        raise Exception(msg)
+    # make dicts available for test below, this won't work for the process_file() function.
+    set_codemap_xwalk_dict(codemap_dict)
+    set_ccda_value_set_mapping_table_dict(visit_map_dict)
+    set_visit_concept_xwalk_mapping_dict(valueset_map_dict)
+    test_maps()
 
     doc_regex = re.compile(r'(<ClinicalDocument.*?</ClinicalDocument>)', re.DOTALL)
     fs = xml_files.filesystem()
@@ -108,7 +142,9 @@ def compute(ctx, omop_eav_dict, xml_files,
                 match_tuple = match.groups(0)
                 xml_content = match_tuple[0]
 
-                new_dict = layer_datasets.process_string_to_dict(xml_content, file_status.path, False )
+                new_dict = layer_datasets.process_string_to_dict(\
+                    xml_content, file_status.path, False, \
+                    codemap_dict, visit_map_dict, valueset_map_dict )
 
                 for config_name in new_dict.keys():
                     if new_dict[config_name] is not None:
@@ -120,7 +156,7 @@ def compute(ctx, omop_eav_dict, xml_files,
                                 yield(Row(**eav_record))
 
 ### NOTE THE LIMIT
-    files_df = xml_files.filesystem().files('**/*.xml').limit(10)
+    files_df = xml_files.filesystem().files('**/*.xml')
     rdd = files_df.rdd.flatMap(process_file)
     processed_df = rdd.toDF(omop_dict_schema)
     omop_eav_dict.write_dataframe(processed_df) 
