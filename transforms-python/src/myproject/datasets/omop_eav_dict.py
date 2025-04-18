@@ -96,7 +96,12 @@ def get_visit_dict(codemap_ds):
 
 def test_maps():
     # TEST: here outside the flatmap, running on the director
-    test_value = value_transformations.codemap_xwalk_concept_id({'vocabulary_oid': '2.16.840.1.113883.6.96', 'concept_code': 608837004, 'default': -999})
+    test_value = None
+    try:
+        test_value = value_transformations.codemap_xwalk_concept_id({'vocabulary_oid': '2.16.840.1.113883.6.96', 'concept_code': 608837004, 'default': -999})
+    except KeyError as e:
+        msg=f"codemap keys: {get_codemap_xwalk_dict().keys()}"
+        raise Exception(msg)
     if test_value is None or test_value == 'XXX' or test_value == 'None':
         raise Exception("codemap_xwalk test failed with some form of None")
     if test_value != 1340204: 
