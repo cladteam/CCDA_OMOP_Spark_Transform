@@ -55,11 +55,6 @@ mappings:
   - "BUILD"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.32d99372-4048-4a45-92a6-59d337d482ad"
-- alias: "/All of Us-cdb223/HIN - HIE/CCDA/scratch/Chris/debug_output"
-  modes:
-  - "BUILD"
-  path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.bbc0dbce-aa9e-48fd-a90c-5587384f74b8"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/ccda_value_set_mapping_table_dataset"
   modes:
   - "READ"
