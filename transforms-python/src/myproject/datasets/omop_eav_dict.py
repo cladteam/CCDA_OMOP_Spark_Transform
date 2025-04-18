@@ -110,7 +110,9 @@ def test_maps():
 
 
 
-@configure(profile=['DRIVER_MEMORY_EXTRA_LARGE', 'DRIVER_MEMORY_OVERHEAD_LARGE', 'NUM_EXECUTORS_64' ])
+#@configure(profile=['DRIVER_MEMORY_EXTRA_LARGE', 'DRIVER_MEMORY_OVERHEAD_LARGE', 'NUM_EXECUTORS_64' ])
+#@configure(profile=['DRIVER_MEMORY_EXTRA_LARGE', 'EXECUTOR_MEMORY_LARGE', 'NUM_EXECUTORS_64' ])
+@configure(profile=['DRIVER_MEMORY_EXTRA_LARGE', 'EXECUTOR_MEMORY_LARGE', 'NUM_EXECUTORS_16' ])
 # https://stackoverflow.com/questions/70792919/how-do-i-know-my-foundry-job-is-using-aqe
 
 @transform(
@@ -183,7 +185,7 @@ def compute(ctx, omop_eav_dict, xml_files,
                                 yield(Row(**eav_record))
 
 ### NOTE THE LIMIT
-    files_df = xml_files.filesystem().files('**/*.xml')
+    files_df = xml_files.filesystem().files('**/*.xml').limit(10)
     rdd = files_df.rdd.flatMap(process_file)
     processed_df = rdd.toDF(omop_dict_schema)
     omop_eav_dict.write_dataframe(processed_df) 
