@@ -121,13 +121,14 @@ def get_visit_dict(codemap_ds):
     #xml_files=Input("/All of Us-cdb223/HIN - HIE/sharedResources/FullyIdentiifed/ccda/ccda_cedars_response_files"),
     #xml_files=Input("ri.foundry.main.dataset.ca873ab5-748b-4f53-9ae4-0c819c7fa3d4"),
     xml_files=Input("ri.foundry.main.dataset.8c8ff8f9-d429-4396-baed-a3de9c945f49"),
-    metadata = Input("/All of Us-cdb223/HIN - HIE/sharedResources/FullyIdentiifed/ccda/ccda_response_metadata"),
+#    metadata = Input("/All of Us-cdb223/HIN - HIE/sharedResources/FullyIdentiifed/ccda/ccda_response_metadata"),
     visit_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/visit_concept_xwalk_mapping_dataset"),
     codemap_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/codemap_xwalk"),
     valueset_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/ccda_value_set_mapping_table_dataset"),
 )
 def compute(ctx, omop_eav_dict, xml_files,
-    metadata, visit_xwalk_ds, codemap_xwalk_ds, valueset_xwalk_ds ):
+    #metadata, 
+    visit_xwalk_ds, codemap_xwalk_ds, valueset_xwalk_ds ):
 
     codemap_dict = get_codemap_dict(codemap_xwalk_ds)
     value_set_map_dict = get_valueset_dict(valueset_xwalk_ds)
