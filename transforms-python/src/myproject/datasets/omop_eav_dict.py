@@ -13,12 +13,12 @@ from ..util.correct_types import correct_types_in_record_list
 from ..util.ds_schema import domain_key_fields
 from prototype_2.domain_dataframe_column_types import domain_dataframe_column_types
 from prototype_2 import ddl
-from prototype_2 import set_codemap_xwalk_dict
-from prototype_2 import set_ccda_value_set_mapping_table_dict
-from prototype_2 import set_visit_concept_xwalk_mapping_dict
-from prototype_2 import get_codemap_xwalk_dict
-from prototype_2 import get_ccda_value_set_mapping_table_dict
-from prototype_2 import get_visit_concept_xwalk_mapping_dict
+#from prototype_2 import set_codemap_xwalk_dict
+#from prototype_2 import set_ccda_value_set_mapping_table_dict
+#from prototype_2 import set_visit_concept_xwalk_mapping_dict
+#from prototype_2 import get_codemap_xwalk_dict
+#from prototype_2 import get_ccda_value_set_mapping_table_dict
+#from prototype_2 import get_visit_concept_xwalk_mapping_dict
 
 
 # Ultimate EAV or RDF triple
@@ -94,19 +94,19 @@ def get_visit_dict(codemap_ds):
 
     return codemap_dict
 
-def test_maps():
-    # TEST: here outside the flatmap, running on the director
-    test_value = None
-    try:
-        test_value = value_transformations.codemap_xwalk_concept_id({'vocabulary_oid': '2.16.840.1.113883.6.96', 'concept_code': 608837004, 'default': -999})
-    except KeyError as e:
-        msg=f"codemap keys: {get_codemap_xwalk_dict().keys()}"
-        raise Exception(msg)
-    if test_value is None or test_value == 'XXX' or test_value == 'None':
-        raise Exception("codemap_xwalk test failed with some form of None")
-    if test_value != 1340204: 
-        msg = f"codemap_xwalk test failed to deliver correct code {test_value} {type(test_value)}"
-        raise Exception(msg)
+#def test_maps():
+#    # TEST: here outside the flatmap, running on the director
+#    test_value = None
+#    try:
+#        test_value = value_transformations.codemap_xwalk_concept_id({'vocabulary_oid': '2.16.840.1.113883.6.96', 'concept_code': 608837004, 'default': -999})
+#    except KeyError as e:
+#        msg=f"codemap keys: {get_codemap_xwalk_dict().keys()}"
+#        raise Exception(msg)
+#    if test_value is None or test_value == 'XXX' or test_value == 'None':
+#        raise Exception("codemap_xwalk test failed with some form of None")
+#    if test_value != 1340204: 
+#        msg = f"codemap_xwalk test failed to deliver correct code {test_value} {type(test_value)}"
+#        raise Exception(msg)
 
 
 
@@ -134,32 +134,33 @@ def compute(ctx, omop_eav_dict, xml_files,
     visit_map_dict = get_visit_dict(visit_xwalk_ds)
 
 
-    if True:
-        # make dicts available for test below, this won't work for the process_file() function.
-        if codemap_dict is None:
-            raise Exception("no codemap dict")
-        set_codemap_xwalk_dict(codemap_dict)
-        if get_codemap_xwalk_dict() is None:
-            raise Exception("no codemap in the package")
-
-        if value_set_map_dict is None:
-            raise Exception("no value set map dict")
-        set_ccda_value_set_mapping_table_dict(value_set_map_dict)
-        if get_ccda_value_set_mapping_table_dict() is None:
-            raise Exception("no value set map in the package")
-
-        if visit_map_dict is None:
-            raise Exception("no value set map dict")
-        set_visit_concept_xwalk_mapping_dict(visit_map_dict)
-        if get_visit_concept_xwalk_mapping_dict() is None:
-            raise Exception("no value set map in the package")
-
-        test_maps()
+#    if False:
+#        # make dicts available for test below, this won't work for the process_file() function.
+#        if codemap_dict is None:
+#            raise Exception("no codemap dict")
+#        set_codemap_xwalk_dict(codemap_dict)
+#        if get_codemap_xwalk_dict() is None:
+#            raise Exception("no codemap in the package")
+#
+#        if value_set_map_dict is None:
+#            raise Exception("no value set map dict")
+#        set_ccda_value_set_mapping_table_dict(value_set_map_dict)
+#        if get_ccda_value_set_mapping_table_dict() is None:
+#            raise Exception("no value set map in the package")
+#
+#        if visit_map_dict is None:
+#            raise Exception("no value set map dict")
+#        set_visit_concept_xwalk_mapping_dict(visit_map_dict)
+#        if get_visit_concept_xwalk_mapping_dict() is None:
+#            raise Exception("no value set map in the package")
+#        test_maps()
 
     doc_regex = re.compile(r'(<ClinicalDocument.*?</ClinicalDocument>)', re.DOTALL)
     fs = xml_files.filesystem()
 
     codemap_broadcast = ctx.broadcast(codemap_dict)  # BROADCAST
+    visitmap_broadcast = ctx.broadcast(value_set_map_dict)  # BROADCAST
+    valuemap_broadcast = ctx.broadcast(visit_map_dict)  # BROADCAST
 
     def process_file(file_status):
         with fs.open(file_status.path, 'rb') as f:
@@ -175,7 +176,7 @@ def compute(ctx, omop_eav_dict, xml_files,
 
                 new_dict = layer_datasets.process_string_to_dict(\
                     xml_content, file_status.path, False, \
-                    codemap_broadcast.value, visit_map_dict, value_set_map_dict )  # broadcast?
+                    codemap_broadcast.value, visitmap_broadcast.value, valuemap_broadcast.value )  # broadcast?
                     ##codemap_dict, visit_map_dict, value_set_map_dict )  # closure
 
                 for config_name in new_dict.keys():
