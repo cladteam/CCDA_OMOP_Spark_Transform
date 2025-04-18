@@ -133,5 +133,18 @@ yaml=0.2.5=h7f98852_2 @ linux-64
 zstandard=0.23.0=py311hbc35293_1 @ linux-64
 zstd=1.5.6=ha6fb4c9_0 @ linux-64
 
+[Pip dependencies]
+duckdb==1.2.2
+lxml==5.3.2
+numpy==2.2.4
+pandas==2.2.3
+parsimonious==0.8.1
+python-dateutil==2.9.0.post0
+pytz==2025.2
+six==1.17.0
+typeguard==4.4.2
+typing-extensions==4.13.2
+tzdata==2025.2
+
 [Conda lock version]
-v2 - 4fe500f608dfe8cba18191580b34faa8dc194321d8ab00ee0fdcb76e2a33a90a
+v2 - e7cc12d8d31abadd9bdec355c0b693ce952dfa89fd4d1fe074a735426aedc58b
