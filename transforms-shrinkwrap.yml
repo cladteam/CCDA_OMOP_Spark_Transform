@@ -70,11 +70,6 @@ mappings:
   - "READ"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.832f8106-d7ee-4364-9082-d48c49302dd8"
-- alias: "/All of Us-cdb223/HIN - HIE/sharedResources/FullyIdentiifed/ccda/ccda_response_metadata"
-  modes:
-  - "READ"
-  path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.672dd7ae-bbd4-43e8-9b8b-b5c7e8711e79"
 - alias: "ri.foundry.main.dataset.001d3357-81c1-4d8c-a44b-e2a63a9b7a4c"
   modes:
   - "BUILD"
