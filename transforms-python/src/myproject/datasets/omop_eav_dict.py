@@ -175,7 +175,7 @@ def compute(ctx, omop_eav_dict, xml_files,
 
                 new_dict = layer_datasets.process_string_to_dict(\
                     xml_content, file_status.path, False, \
-                    codemap_broadcast, visit_map_dict, value_set_map_dict )  # broadcast?
+                    codemap_broadcast.value, visit_map_dict, value_set_map_dict )  # broadcast?
                     ##codemap_dict, visit_map_dict, value_set_map_dict )  # closure
 
                 for config_name in new_dict.keys():
