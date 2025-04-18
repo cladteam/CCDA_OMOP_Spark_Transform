@@ -158,9 +158,9 @@ def compute(ctx, omop_eav_dict, xml_files,
     doc_regex = re.compile(r'(<ClinicalDocument.*?</ClinicalDocument>)', re.DOTALL)
     fs = xml_files.filesystem()
 
-    codemap_broadcast = ctx.broadcast(codemap_dict)  # BROADCAST
-    visitmap_broadcast = ctx.broadcast(value_set_map_dict)  # BROADCAST
-    valuemap_broadcast = ctx.broadcast(visit_map_dict)  # BROADCAST
+    codemap_broadcast = ctx.spark_session.sparkContext.broadcast(codemap_dict)  # BROADCAST
+    visitmap_broadcast = ctx.spark_session.sparkContext.broadcast(value_set_map_dict)  # BROADCAST
+    valuemap_broadcast = ctx.spark_session.sparkContext.broadcast(visit_map_dict)  # BROADCAST
 
     def process_file(file_status):
         with fs.open(file_status.path, 'rb') as f:
