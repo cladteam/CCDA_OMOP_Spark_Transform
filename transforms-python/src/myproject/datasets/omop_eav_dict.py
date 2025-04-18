@@ -71,7 +71,7 @@ def get_valueset_dict(codemap_ds):
     narrow = codemap_ds.dataframe().select(['codeSystem', 'src_cd', 'target_domain_id', 'target_concept_id']).collect()
     codemap_dict = {}
     for row in narrow:
-        codemap_dict[(row['code_system'], row['src_cd'])] = {
+        codemap_dict[(row['codeSystem'], row['src_cd'])] = {
             'source_concept_id': None,
             'target_domain_id': row['target_domain_id'],
             'target_concept_id': row['target_concept_id'] }
@@ -81,7 +81,7 @@ def get_visit_dict(codemap_ds):
     narrow = codemap_ds.dataframe().select(['codeSystem', 'src_cd', 'source_concept_id', 'target_domain_id', 'target_concept_id']).collect()
     codemap_dict = {}
     for row in narrow:
-        codemap_dict[(row['code_system'], row['src_cd'])] = {
+        codemap_dict[(row['codeSystem'], row['src_cd'])] = {
             'source_concept_id': row['source_concept_id'],
             'target_domain_id': row['target_domain_id'],
             'target_concept_id': row['target_concept_id'] }
