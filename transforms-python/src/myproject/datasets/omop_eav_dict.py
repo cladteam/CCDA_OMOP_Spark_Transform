@@ -127,7 +127,7 @@ def compute(ctx, omop_eav_dict, xml_files,
     visit_map_dict = get_visit_dict(visit_xwalk_ds)
 
 
-    if False:
+    if True:
         # make dicts available for test below, this won't work for the process_file() function.
         if codemap_dict is None:
             raise Exception("no codemap dict")
