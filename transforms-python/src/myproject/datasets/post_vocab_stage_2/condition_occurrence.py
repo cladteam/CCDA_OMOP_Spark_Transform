@@ -13,8 +13,8 @@ def compute(source_df, codemap):
     df = source_df.withColumn('condition_concept_source_system', split_source_value.getItem(0)) \
                   .withColumn('condition_concept_source_code', split_source_value.getItem(1))
 
-    df = df.join(codemap, df.condition_concept_source_system == codemap.src_vocab_code_system & \
-                          df.condition_concept_source_code == codemap.src_code)
+    df = df.join(codemap, (df.condition_concept_source_system == codemap.src_vocab_code_system) & \
+                          (df.condition_concept_source_code == codemap.src_code) )
     df = df.select('condition_source_value', 'condition_concept_source_system', 'condition_concept_source_code', \
                         'target_concept_id', 'target_domain_id', 'source_concept_id')
     return df
