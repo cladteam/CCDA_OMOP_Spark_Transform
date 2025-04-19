@@ -11,7 +11,8 @@ from transforms.api import transform_df, Input, Output
 def compute(source_df):
     #split_source_value = F.split(source_df['condition_source_value'], '|')
     split_source_value = F.split(source_df.condition_source_value, '|')
-    df = source_df.withColumn('condition_concept_source_system', split_source_value.getItem(0)) 
+    df = source_df.withColumn('split', split_source_value)
+    df =        df.withColumn('condition_concept_source_system', split_source_value.getItem(0)) 
     df =        df.withColumn('condition_concept_source_code', split_source_value.getItem(1))
     return df.select('condition_source_value', 'condition_concept_source_system', 'condition_concept_source_code')
 
