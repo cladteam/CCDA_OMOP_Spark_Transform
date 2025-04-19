@@ -12,7 +12,7 @@ def compute(source_df, codemap):
     split_source_value = F.split(source_df.condition_source_value, '\\|') # splits on a regex, escape the 'or'
     df = source_df.withColumn('condition_concept_source_system', split_source_value.getItem(0)) \
                 .withColumn('condition_concept_source_code', split_source_value.getItem(1)) \
-                .join(codemap, source_df.condition_concept_source_sytem == codemap.src_vocab_code_system and \
+                .join(codemap, source_df.condition_concept_source_system == codemap.src_vocab_code_system and \
                                source_df.condition_concept_source_code == codemap.src_code) \
                 .select('condition_source_value', 'condition_concept_source_system', 'condition_concept_source_code', \
                         'target_concept_id', 'target_domain_id', 'source_concept_id')
