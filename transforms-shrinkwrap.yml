@@ -35,6 +35,11 @@ mappings:
   - "BUILD"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.fa4869f2-c211-4437-8af8-6b284bea126c"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/condition_occurrence"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.774d45b3-9cdf-486d-9f16-1a6b9ce7037b"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/procedure_occurrence"
   modes:
   - "BUILD"
@@ -93,5 +98,6 @@ mappings:
 - alias: "ri.foundry.main.dataset.e34c8928-d1c1-4b4e-8026-e6024e6afdbb"
   modes:
   - "BUILD"
+  - "READ"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.e34c8928-d1c1-4b4e-8026-e6024e6afdbb"
