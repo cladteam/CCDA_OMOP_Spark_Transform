@@ -1,6 +1,10 @@
 from pyspark.sql import functions as F
 from transforms.api import transform_df, Input, Output
 
+# This uses the source value as a source for concept code and vocabulary OID to 
+# map and get a concept_id. It's a hack because I haven't gotten the mapping to
+# work within the Python CCDA transforms, and we're running short on time.
+
 #https://stackoverflow.com/questions/39235704/split-spark-dataframe-string-column-into-multiple-columns
 
 @transform_df(
@@ -24,7 +28,7 @@ def compute(source_df, codemap):
         'condition_type_concept_id', 'condition_status_concept_id', 'stop_reason',
         'provider_id', 'visit_occurrence_id', 'visit_detail_id',
         'condition_source_value', 'condition_source_concept_id', 'condition_status_source_value'
-   ])
+    ])
     
     return df
 
