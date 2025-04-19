@@ -121,16 +121,17 @@ def get_visit_dict(codemap_ds):
     #xml_files=Input("/All of Us-cdb223/HIN - HIE/sharedResources/FullyIdentiifed/ccda/ccda_cedars_response_files"),
     #xml_files=Input("ri.foundry.main.dataset.ca873ab5-748b-4f53-9ae4-0c819c7fa3d4"),
     xml_files=Input("ri.foundry.main.dataset.8c8ff8f9-d429-4396-baed-a3de9c945f49"),
-#    metadata = Input("/All of Us-cdb223/HIN - HIE/sharedResources/FullyIdentiifed/ccda/ccda_response_metadata"),
     visit_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/visit_concept_xwalk_mapping_dataset"),
-    codemap_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/codemap_xwalk"),
+    ## codemap_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/codemap_xwalk"),
     valueset_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/ccda_value_set_mapping_table_dataset"),
 )
-def compute(ctx, omop_eav_dict, xml_files,
-    #metadata, 
-    visit_xwalk_ds, codemap_xwalk_ds, valueset_xwalk_ds ):
+def compute(ctx, omop_eav_dict, 
+    xml_files,
+    visit_xwalk_ds, 
+    ## codemap_xwalk_ds, 
+    valueset_xwalk_ds ):
 
-    codemap_dict = get_codemap_dict(codemap_xwalk_ds)
+    ## codemap_dict = get_codemap_dict(codemap_xwalk_ds)
     value_set_map_dict = get_valueset_dict(valueset_xwalk_ds)
     visit_map_dict = get_visit_dict(visit_xwalk_ds)
 
@@ -159,7 +160,7 @@ def compute(ctx, omop_eav_dict, xml_files,
     doc_regex = re.compile(r'(<ClinicalDocument.*?</ClinicalDocument>)', re.DOTALL)
     fs = xml_files.filesystem()
 
-    codemap_broadcast = ctx.spark_session.sparkContext.broadcast(codemap_dict)  # BROADCAST
+    ## codemap_broadcast = ctx.spark_session.sparkContext.broadcast(codemap_dict)  # BROADCAST
     visitmap_broadcast = ctx.spark_session.sparkContext.broadcast(value_set_map_dict)  # BROADCAST
     valuemap_broadcast = ctx.spark_session.sparkContext.broadcast(visit_map_dict)  # BROADCAST
 
@@ -175,9 +176,10 @@ def compute(ctx, omop_eav_dict, xml_files,
                 match_tuple = match.groups(0)
                 xml_content = match_tuple[0]
 
-                new_dict = layer_datasets.process_string_to_dict(\
+                new_dict = layer_datasets.process_string_to_dict_no_codemap(\
                     xml_content, file_status.path, False, \
-                    codemap_broadcast.value, visitmap_broadcast.value, valuemap_broadcast.value )  # broadcast?
+                    ## codemap_broadcast.value, 
+                    visitmap_broadcast.value, valuemap_broadcast.value )  # broadcast?
                     ##codemap_dict, visit_map_dict, value_set_map_dict )  # closure
 
                 for config_name in new_dict.keys():
