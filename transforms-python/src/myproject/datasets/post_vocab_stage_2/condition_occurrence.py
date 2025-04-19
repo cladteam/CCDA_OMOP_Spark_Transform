@@ -8,7 +8,8 @@ from transforms.api import transform_df, Input, Output
     #,codemap_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/codemap_xwalk")
 )
 def compute(source_df):
-    split_source_value = F.split(source_df['condition_source_value'], '|')
+    #split_source_value = F.split(source_df['condition_source_value'], '|')
+    split_source_value = F.split(source_df.condition_source_value, '|')
     source_df.withColumn('condition_concept_source_system', split_source_value.getItem(0)) \
              .withColumn('condition_concept_source_code', split_source_value.getItem(1))
     return source_df
