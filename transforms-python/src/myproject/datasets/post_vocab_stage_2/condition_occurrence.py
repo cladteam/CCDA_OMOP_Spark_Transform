@@ -18,8 +18,10 @@ def compute(source_df, codemap):
 
     #df = df.join(codemap, (df.condition_concept_source_system == codemap.src_vocab_code_system) & \
     #                      (df.condition_concept_source_code == codemap.src_code) ) 
-    df = df.select('condition_source_value', 'condition_concept_source_system', 'condition_concept_source_code', \
-                        'target_concept_id', 'target_domain_id', 'source_concept_id')
-    #       .limit(100)
+    #df = df.select('condition_source_value', 'condition_concept_source_system', 'condition_concept_source_code', \
+    #                    'target_concept_id', 'target_domain_id', 'source_concept_id')
+    
+    df = df.select('condition_source_value', 'condition_concept_source_system', 'condition_concept_source_code')
+
     return df
 
