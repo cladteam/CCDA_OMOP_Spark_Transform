@@ -1,5 +1,10 @@
 ---
 mappings:
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/care_site"
+  modes:
+  - "READ"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.001d3357-81c1-4d8c-a44b-e2a63a9b7a4c"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/device_exposure"
   modes:
   - "BUILD"
@@ -15,6 +20,7 @@ mappings:
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/location"
   modes:
   - "BUILD"
+  - "READ"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.1ed07a69-4970-4b8d-b67c-e0557606ff33"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/measurement"
@@ -37,13 +43,49 @@ mappings:
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/person"
   modes:
   - "BUILD"
+  - "READ"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.fa4869f2-c211-4437-8af8-6b284bea126c"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/care_site"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.faf65238-d633-4385-b553-27e4b4c12694"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/condition_occurrence"
   modes:
   - "BUILD"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.774d45b3-9cdf-486d-9f16-1a6b9ce7037b"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/location"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.5074cf0d-1c05-4cea-be66-38f91a62fd7a"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/measurement"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.f2098ec2-4cfd-4826-bc4b-28abee58c390"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/observation"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.724fd1c6-8a5b-43f4-87d0-9c881b3a5892"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/person"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.75a0b9d8-8939-4a09-af96-f46afec91a00"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/provider"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.f9048d29-0f7f-4f43-8287-2d25e080ccf8"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/visit_occurrence"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.da6de828-320b-4a2f-86e9-887180aff45c"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/procedure_occurrence"
   modes:
   - "BUILD"
@@ -53,6 +95,7 @@ mappings:
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/provider"
   modes:
   - "BUILD"
+  - "READ"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.673b0f9d-76b9-4c03-8382-bb566451cd8e"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/visit_occurrence"
@@ -61,6 +104,11 @@ mappings:
   - "READ"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.f3d88333-9315-4a11-963a-6703a72cfd8a"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/OMOP_spark/post_vocab_stage_2/procedure_occurrence"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.3d3caf42-e517-4af0-96be-a98d82cdf445"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/datasets/list_dataset_files"
   modes:
   - "BUILD"
@@ -76,26 +124,6 @@ mappings:
   - "BUILD"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.32dbea4a-a914-4930-902c-c53f5f1101d9"
-- alias: "/All of Us-cdb223/HIN - HIE/CCDA/datasets/post_vocab_stage_2/measurement"
-  modes:
-  - "BUILD"
-  path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.b14fb0ad-e101-490c-9d47-c6849b976b65"
-- alias: "/All of Us-cdb223/HIN - HIE/CCDA/datasets/post_vocab_stage_2/observation"
-  modes:
-  - "BUILD"
-  path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.b18d3501-4536-42e5-8927-043a2f3116ce"
-- alias: "/All of Us-cdb223/HIN - HIE/CCDA/datasets/post_vocab_stage_2/procedure_occurrence"
-  modes:
-  - "BUILD"
-  path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.6e4e9e88-e718-4759-8c8a-8ad15e5777c8"
-- alias: "/All of Us-cdb223/HIN - HIE/CCDA/datasets/post_vocab_stage_2/visit_occurrence"
-  modes:
-  - "BUILD"
-  path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.eae10607-b22c-44ed-b3c6-179851c45260"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/ccda_value_set_mapping_table_dataset"
   modes:
   - "READ"
