@@ -14,9 +14,9 @@ def compute(measurements, codemap):
 
     df = df.alias('m')\
            .join(codemap.alias('cm'), \
-            F.col('m.measurement_concept_source_system') == F.col('cm.src_vocab_code_system') & \
-            F.col('m.measurement_concept_source_code') == F.col('cm.src_code') ) \
-            .select('m.*', 'cm.target_concept_id', 'cm.target_domain_id', 'cm.source_concept_id') 
+               on = (F.col('m.measurement_concept_source_system') == F.col('cm.src_vocab_code_system') & \
+                     F.col('m.measurement_concept_source_code') == F.col('cm.src_code') ) ) \
+           .select('m.*', 'cm.target_concept_id', 'cm.target_domain_id', 'cm.source_concept_id') 
 
     df = df.withColumn('measurement_concept_id', df.target_concept_id)
     df = df.withColumn('measurement_source_concept_id', df.source_concept_id)
