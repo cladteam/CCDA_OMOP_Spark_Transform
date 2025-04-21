@@ -17,6 +17,7 @@ def compute(source_df, codemap):
 
     df = df.withColumn('place_of_service_concept_id', df.source_concept_id)
 
-    df = df.drop(['place_of_service_source_system', 'place_of_serivce_source_code'])
+    df = df.drop('place_of_service_source_system')
+    df = df.drop('place_of_serivce_source_code')
 
     return df
