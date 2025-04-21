@@ -1,4 +1,3 @@
-
 from transforms.api import transform, Input, Output, configure
 from pyspark.sql import types as T
 from pyspark.sql import Row
