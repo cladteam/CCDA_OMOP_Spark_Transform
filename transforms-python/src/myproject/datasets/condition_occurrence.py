@@ -4,8 +4,8 @@ from ..util import ds_schema
 from pyspark.sql import types as T
 
 @transform_df(
-    Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/stage_2/condition_occurrence"),
-    omop_eav_dict = Input("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/stage_1/omop_eav_dict"),
+    Output("ri.foundry.main.dataset.e34c8928-d1c1-4b4e-8026-e6024e6afdbb"),
+    omop_eav_dict = Input("ri.foundry.main.dataset.7510d9f2-9597-477c-8f03-e290d81d8d23"),
 )
 def compute(ctx, omop_eav_dict):
     df = omop_eav_dict.select('key_value', 'field_name', 'field_value') \

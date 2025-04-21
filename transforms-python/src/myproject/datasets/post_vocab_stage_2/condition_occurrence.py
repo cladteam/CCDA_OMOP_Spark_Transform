@@ -8,8 +8,8 @@ from transforms.api import transform_df, Input, Output
 #https://stackoverflow.com/questions/39235704/split-spark-dataframe-string-column-into-multiple-columns
 
 @transform_df(
-    Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/stage_3/condition_occurrence"),
-    source_df=Input("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/stage_2/condition_occurrence"),
+    Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/condition_occurrence"),
+    source_df=Input("ri.foundry.main.dataset.e34c8928-d1c1-4b4e-8026-e6024e6afdbb"),
     codemap = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/codemap_xwalk")
 )
 def compute(source_df, codemap):
@@ -19,7 +19,7 @@ def compute(source_df, codemap):
 
     df = df.join(codemap, (df.condition_concept_source_system == codemap.src_vocab_code_system) & \
                           (df.condition_concept_source_code == codemap.src_code),
-                          "left outer" ) 
+                          "leftouter")
 
     df = df.withColumn('condition_concept_id', df.source_concept_id)
 

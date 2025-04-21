@@ -3,8 +3,8 @@ from transforms.api import transform_df, Input, Output
 
 
 @transform_df(
-    Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/stage_3/observation"),
-    observations = Input("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/stage_2/observation"),
+    Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/observation"),
+    observations = Input("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/observation"),
     codemap = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/codemap_xwalk")
 )
 def compute(observations, codemap):
@@ -16,7 +16,7 @@ def compute(observations, codemap):
            .join(codemap.alias('cm'), \
                  (df.observation_concept_source_system == codemap.src_vocab_code_system) & \
                  (df.observation_concept_source_code == codemap.src_code),\
-                 "left outer" ) \
+                 "leftouter") \
            .select('o.*', 'cm.target_concept_id', 'cm.target_domain_id', 'cm.source_concept_id') 
 
     df = df.withColumn('observation_concept_id', df.source_concept_id)

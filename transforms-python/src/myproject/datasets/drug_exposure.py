@@ -5,8 +5,8 @@ from ..util import ds_schema
 
 
 @transform_df(
-    Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/stage_2/drug_exposure"),
-    omop_eav_dict = Input("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/stage_1/omop_eav_dict"),
+    Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/drug_exposure"),
+    omop_eav_dict = Input("ri.foundry.main.dataset.7510d9f2-9597-477c-8f03-e290d81d8d23"),
 )
 def compute(ctx, omop_eav_dict):
     df = omop_eav_dict.select('key_value', 'field_name', 'field_value') \

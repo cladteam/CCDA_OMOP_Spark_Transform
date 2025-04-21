@@ -3,8 +3,8 @@ from transforms.api import transform_df, Input, Output
 
 
 @transform_df(
-    Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/stage_3/care_site"),
-    source_df=Input("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/stage_2/care_site"),
+    Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/care_site"),
+    source_df=Input("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/care_site"),
     codemap=Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/codemap_xwalk")
 )
 def compute(source_df, codemap):
@@ -14,7 +14,7 @@ def compute(source_df, codemap):
 
     df = df.join(codemap, (df.place_of_service_source_system == codemap.src_vocab_code_system) & \
                           (df.place_of_service_source_code == codemap.src_code),
-                          "left outer" ) 
+                          "leftouter")
 
     df = df.withColumn('place_of_service_concept_id', df.source_concept_id)
 
