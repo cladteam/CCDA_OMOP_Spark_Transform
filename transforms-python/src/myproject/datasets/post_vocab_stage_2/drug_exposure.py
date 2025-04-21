@@ -3,7 +3,7 @@ from transforms.api import transform_df, Input, Output
 
 
 @transform_df(
-    Output("/All of Us-cdb223/HIN - HIE/CCDA/datasets/post_vocab_stage_2/drug_exposure"),
+    Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/drug_exposure"),
     drugs = Input("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/drug_exposure"),
     codemap = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/codemap_xwalk")
 )
