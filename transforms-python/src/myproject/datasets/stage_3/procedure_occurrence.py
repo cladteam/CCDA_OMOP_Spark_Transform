@@ -4,7 +4,7 @@ from transforms.api import transform_df, Input, Output
 
 @transform_df(
     Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/stage_3/procedure_occurrence"),
-    procedures = Input("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/stage_2/mapped_vocab_code_system"),
+    procedures = Input("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/stage_2/procedure_occurrence"),
     codemap = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/codemap_xwalk")
 )
 def compute(procedures, codemap):
