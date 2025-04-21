@@ -12,8 +12,11 @@ def compute(observations, codemap):
     df = observations.withColumn('observation_concept_source_system', split_source_value.getItem(1)) \
                      .withColumn('observation_concept_source_code', split_source_value.getItem(0))
 
-    df = df.join(codemap, (df.observation_concept_source_system == codemap.src_vocab_code_system) & \
-                          (df.observation_concept_source_code == codemap.src_code) ) 
+    df = df.alias('o') \
+           .join(codemap.alias('cm'), \
+                 (df.observation_concept_source_system == codemap.src_vocab_code_system) & \
+                 (df.observation_concept_source_code == codemap.src_code) ) \
+           .select('o.*', 'cm.target_concept_id', 'cm.target_domain_id', 'cm.source_concept_id') 
 
     df = df.withColumn('observation_concept_id', df.source_concept_id)
 
