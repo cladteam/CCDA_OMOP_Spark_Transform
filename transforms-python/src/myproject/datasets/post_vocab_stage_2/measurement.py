@@ -17,7 +17,8 @@ def compute(measurements, codemap):
 
     df = df.withColumn('measurement_concept_id', df.source_concept_id)
 
-    df = df.drop(['measurement_concept_source_system','measurement_concept_source_code'])
+    df = df.drop('measurement_concept_source_system')
+    df = df.drop('measurement_concept_source_code')
 
     ### MISSING BIG SELECT
 
