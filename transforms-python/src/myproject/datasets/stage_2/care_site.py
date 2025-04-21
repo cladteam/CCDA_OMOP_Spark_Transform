@@ -4,8 +4,8 @@ from transforms.api import transform_df, Input, Output
 from ..util import ds_schema
 
 @transform_df(
-    Output("ri.foundry.main.dataset.001d3357-81c1-4d8c-a44b-e2a63a9b7a4c"),
-    omop_eav_dict = Input("ri.foundry.main.dataset.7510d9f2-9597-477c-8f03-e290d81d8d23"),
+    Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/stage_2/care_site"),
+    omop_eav_dict = Input("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/stage_1/omop_eav_dict"),
 )
 def compute(ctx, omop_eav_dict):
    # OMOP_EAV_DICT is domain_name, key_type, key_value, field_name, field_value
