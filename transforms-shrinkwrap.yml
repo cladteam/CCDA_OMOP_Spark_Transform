@@ -6,6 +6,11 @@ mappings:
   - "READ"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.7208706d-8f54-408c-bbcd-932388d67e7f"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/stage_1/omop_eav_dict_2"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.ee71a431-77f6-4bb0-a033-041ee41991c5"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/stage_2/care_site"
   modes:
   - "BUILD"
