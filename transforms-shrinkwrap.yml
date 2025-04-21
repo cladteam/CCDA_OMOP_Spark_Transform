@@ -1,5 +1,10 @@
 ---
 mappings:
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentfiedData/OMOP_spark/post_vocab_stage_2/device_exposure"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.eb7ce0de-640f-4fad-b625-851674dac0d4"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/care_site"
   modes:
   - "READ"
@@ -56,6 +61,11 @@ mappings:
   - "BUILD"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.774d45b3-9cdf-486d-9f16-1a6b9ce7037b"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/drug_exposure"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.d270da4d-d543-4041-8587-a4312075b401"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/location"
   modes:
   - "BUILD"
@@ -76,6 +86,11 @@ mappings:
   - "BUILD"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.75a0b9d8-8939-4a09-af96-f46afec91a00"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/procedure_occurrence"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.503e0eda-6b31-46cc-94a5-b4f16c20be65"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/provider"
   modes:
   - "BUILD"
@@ -104,26 +119,11 @@ mappings:
   - "READ"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.f3d88333-9315-4a11-963a-6703a72cfd8a"
-- alias: "/All of Us-cdb223/HIN - HIE/CCDA/OMOP_spark/post_vocab_stage_2/procedure_occurrence"
-  modes:
-  - "BUILD"
-  path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.3d3caf42-e517-4af0-96be-a98d82cdf445"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/datasets/list_dataset_files"
   modes:
   - "BUILD"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.32d99372-4048-4a45-92a6-59d337d482ad"
-- alias: "/All of Us-cdb223/HIN - HIE/CCDA/datasets/post_vocab_stage_2/device_exposure"
-  modes:
-  - "BUILD"
-  path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.c3e51695-6f95-4a4d-949d-a7cd736a2bf7"
-- alias: "/All of Us-cdb223/HIN - HIE/CCDA/datasets/post_vocab_stage_2/drug_exposure"
-  modes:
-  - "BUILD"
-  path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.32dbea4a-a914-4930-902c-c53f5f1101d9"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/ccda_value_set_mapping_table_dataset"
   modes:
   - "READ"
