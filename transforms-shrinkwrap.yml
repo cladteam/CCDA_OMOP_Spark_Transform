@@ -1,10 +1,5 @@
 ---
 mappings:
-- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentfiedData/OMOP_spark/stage_3/device_exposure"
-  modes:
-  - "BUILD"
-  path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.ead99151-7ae1-4f8a-a0f7-f707fa4b7e75"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/stage_1/omop_eav_dict"
   modes:
   - "BUILD"
@@ -87,6 +82,11 @@ mappings:
   - "BUILD"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.d10356ae-5a18-4a87-9a90-6e6dc626d9ec"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/stage_3/device_exposure"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.5f26e79a-e8c4-4dd6-bc55-19ea3e543e7a"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/stage_3/drug_exposure"
   modes:
   - "BUILD"
