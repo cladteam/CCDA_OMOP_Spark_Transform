@@ -14,7 +14,7 @@ def compute(procedures, codemap):
 
     df = df.join(codemap, (df.procedure_concept_source_system == codemap.src_vocab_code_system) & \
                           (df.procedure_concept_source_code == codemap.src_code),
-                          "leftouter")
+                          "left outer" ) 
 
     df = df.withColumn('procedure_concept_id', df.source_concept_id)
 

@@ -16,7 +16,7 @@ def compute(measurements, codemap):
            .join(codemap.alias('cm'), \
                  (df.measurement_concept_source_system == codemap.src_vocab_code_system) & \
                  (df.measurement_concept_source_code == codemap.src_code),
-                 "leftouter") \
+                 "left outer" ) \
            .select('m.*', 'cm.target_concept_id', 'cm.target_domain_id', 'cm.source_concept_id') 
 
         #    .select('m.*', 'cm.target_concept_id', 'cm.target_domain_id', 'cm.source_concept_id') 
