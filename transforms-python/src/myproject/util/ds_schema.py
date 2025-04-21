@@ -47,7 +47,10 @@ domain_dataset_schema = {
     T.StructField('race_source_value', T.StringType(), True),           #15 !
     T.StructField('race_source_concept_id', T.IntegerType(), True),     #16 !
     T.StructField('ethnicity_source_value', T.StringType(), True),      #17 !
-    T.StructField('ethnicity_source_concept_id', T.IntegerType(), True) #18 !
+    T.StructField('ethnicity_source_concept_id', T.IntegerType(), True), #18 !
+
+    T.StructField('filename', T.StringType(), True),      #19 !
+    
 #   T.StructField('gender_concept_name', T.StringType(), True),
 #   T.StructField('ethnicity_concept_name', T.StringType(), True),
 #   T.StructField('race_concept_name', T.StringType(), True),
