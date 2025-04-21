@@ -14,9 +14,12 @@ def compute(measurements, codemap):
 
     df = df.join(codemap, (df.measurement_concept_source_system == codemap.src_vocab_code_system) & \
                           (df.measurement_concept_source_code == codemap.src_code) ) \
-            .select(df['*'], df['source_concept_id'])
+            .select(df['*'], codemap['target_concept_id', 'target_domain_id', 'source_concept_id'])
 
-    df = df.withColumn('measurement_concept_id', df.source_concept_id)
+    df = df.withColumn('measurement_concept_id', df.target_concept_id)
+    df = df.withColumn('measurement_source_concept_id', df.source_concept_id)
+
+   ## df = df.withColumn('measurement_domain_id', df.target_domain_id)
 
     df = df.drop('measurement_concept_source_system')
     df = df.drop('measurement_concept_source_code')
