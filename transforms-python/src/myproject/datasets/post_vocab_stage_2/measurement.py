@@ -13,7 +13,8 @@ def compute(measurements, codemap):
                      .withColumn('measurement_concept_source_code', split_source_value.getItem(0))
 
     df = df.join(codemap, (df.measurement_concept_source_system == codemap.src_vocab_code_system) & \
-                          (df.measurement_concept_source_code == codemap.src_code) ) 
+                          (df.measurement_concept_source_code == codemap.src_code) ) \
+            .select(df['*'], df['source_concept_id'])
 
     df = df.withColumn('measurement_concept_id', df.source_concept_id)
 
