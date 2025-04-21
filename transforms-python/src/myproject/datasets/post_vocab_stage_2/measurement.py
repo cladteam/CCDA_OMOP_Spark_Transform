@@ -12,9 +12,11 @@ def compute(measurements, codemap):
     df = measurements.withColumn('measurement_concept_source_system', split_source_value.getItem(1)) \
                      .withColumn('measurement_concept_source_code', split_source_value.getItem(0))
 
-    df = df.join(codemap, (df.measurement_concept_source_system == codemap.src_vocab_code_system) & \
-                          (df.measurement_concept_source_code == codemap.src_code) ) \
-            .select('measurement.*', 'codemap.target_concept_id', 'codemap.target_domain_id', 'codemap.source_concept_id') 
+    df = df.alias('m') \
+           .join(codemap.alias('cm'), \
+                 (df.measurement_concept_source_system == codemap.src_vocab_code_system) & \
+                 (df.measurement_concept_source_code == codemap.src_code) ) \
+           .select('m.*', 'cm.target_concept_id', 'cm.target_domain_id', 'cm.source_concept_id') 
         #    .select('m.*', 'cm.target_concept_id', 'cm.target_domain_id', 'cm.source_concept_id') 
         ##    .select(df['*'], codemap['target_concept_id', 'target_domain_id', 'source_concept_id'])
 
