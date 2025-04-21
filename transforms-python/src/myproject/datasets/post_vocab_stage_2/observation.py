@@ -15,7 +15,8 @@ def compute(observations, codemap):
     df = df.alias('o') \
            .join(codemap.alias('cm'), \
                  (df.observation_concept_source_system == codemap.src_vocab_code_system) & \
-                 (df.observation_concept_source_code == codemap.src_code) ) \
+                 (df.observation_concept_source_code == codemap.src_code),\
+                 "left outer" ) \
            .select('o.*', 'cm.target_concept_id', 'cm.target_domain_id', 'cm.source_concept_id') 
 
     df = df.withColumn('observation_concept_id', df.source_concept_id)

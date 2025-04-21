@@ -13,7 +13,8 @@ def compute(drugs, codemap):
                   .withColumn('drug_concept_source_code', split_source_value.getItem(0))
 
     df = df.join(codemap, (df.drug_concept_source_system == codemap.src_vocab_code_system) & \
-                          (df.drug_concept_source_code == codemap.src_code) ) 
+                          (df.drug_concept_source_code == codemap.src_code),
+                          "left outer"  ) 
 
     df = df.withColumn('drug_concept_id', df.source_concept_id)
 

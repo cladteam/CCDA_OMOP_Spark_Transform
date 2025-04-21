@@ -13,7 +13,8 @@ def compute(source_df, codemap):
                   .withColumn('place_of_service_source_code', split_source_value.getItem(0))
 
     df = df.join(codemap, (df.place_of_service_source_system == codemap.src_vocab_code_system) & \
-                          (df.place_of_service_source_code == codemap.src_code) ) 
+                          (df.place_of_service_source_code == codemap.src_code),
+                          "left outer" ) 
 
     df = df.withColumn('place_of_service_concept_id', df.source_concept_id)
 

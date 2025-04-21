@@ -18,7 +18,8 @@ def compute(source_df, codemap):
                   .withColumn('condition_concept_source_code', split_source_value.getItem(0))
 
     df = df.join(codemap, (df.condition_concept_source_system == codemap.src_vocab_code_system) & \
-                          (df.condition_concept_source_code == codemap.src_code) ) 
+                          (df.condition_concept_source_code == codemap.src_code),
+                          "left outer" ) 
 
     df = df.withColumn('condition_concept_id', df.source_concept_id)
 
