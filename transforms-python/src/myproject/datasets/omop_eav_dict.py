@@ -4,21 +4,13 @@ from pyspark.sql import types as T
 from pyspark.sql import Row
 
 import io
-# import logger
 import re
 
-from prototype_2 import value_transformations
-from prototype_2 import layer_datasets
 from ..util.correct_types import correct_types_in_record_list
 from ..util.ds_schema import domain_key_fields
+from prototype_2 import layer_datasets
 from prototype_2.domain_dataframe_column_types import domain_dataframe_column_types
 from prototype_2 import ddl
-#from prototype_2 import set_codemap_xwalk_dict
-#from prototype_2 import set_ccda_value_set_mapping_table_dict
-#from prototype_2 import set_visit_concept_xwalk_mapping_dict
-#from prototype_2 import get_codemap_xwalk_dict
-#from prototype_2 import get_ccda_value_set_mapping_table_dict
-#from prototype_2 import get_visit_concept_xwalk_mapping_dict
 
 
 # Ultimate EAV or RDF triple
@@ -94,32 +86,15 @@ def get_visit_dict(codemap_ds):
 
     return codemap_dict
 
-#def test_maps():
-#    # TEST: here outside the flatmap, running on the director
-#    test_value = None
-#    try:
-#        test_value = value_transformations.codemap_xwalk_concept_id({'vocabulary_oid': '2.16.840.1.113883.6.96', 'concept_code': 608837004, 'default': -999})
-#    except KeyError as e:
-#        msg=f"codemap keys: {get_codemap_xwalk_dict().keys()}"
-#        raise Exception(msg)
-#    if test_value is None or test_value == 'XXX' or test_value == 'None':
-#        raise Exception("codemap_xwalk test failed with some form of None")
-#    if test_value != 1340204: 
-#        msg = f"codemap_xwalk test failed to deliver correct code {test_value} {type(test_value)}"
-#        raise Exception(msg)
-
-
-
 #@configure(profile=['DRIVER_MEMORY_EXTRA_LARGE', 'DRIVER_MEMORY_OVERHEAD_LARGE', 'NUM_EXECUTORS_64' ])
 #@configure(profile=['DRIVER_MEMORY_EXTRA_LARGE', 'EXECUTOR_MEMORY_LARGE', 'NUM_EXECUTORS_64' ])
-@configure(profile=['DRIVER_MEMORY_EXTRA_LARGE', 'EXECUTOR_MEMORY_LARGE', 'NUM_EXECUTORS_16' ])
+@configure(profile=['DRIVER_MEMORY_LARGE', 'EXECUTOR_MEMORY_MEDIUM', 'NUM_EXECUTORS_64' ])
+#@configure(profile=['DRIVER_MEMORY_EXTRA_LARGE', 'EXECUTOR_MEMORY_LARGE', 'NUM_EXECUTORS_16' ])
 # https://stackoverflow.com/questions/70792919/how-do-i-know-my-foundry-job-is-using-aqe
 
 @transform(
     omop_eav_dict = Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict"),
 
-    #xml_files=Input("/All of Us-cdb223/HIN - HIE/sharedResources/FullyIdentiifed/ccda/ccda_cedars_response_files"),
-    #xml_files=Input("ri.foundry.main.dataset.ca873ab5-748b-4f53-9ae4-0c819c7fa3d4"),
     xml_files=Input("ri.foundry.main.dataset.8c8ff8f9-d429-4396-baed-a3de9c945f49"),
     visit_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/visit_concept_xwalk_mapping_dataset"),
     ## codemap_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/codemap_xwalk"),
@@ -135,27 +110,6 @@ def compute(ctx, omop_eav_dict,
     value_set_map_dict = get_valueset_dict(valueset_xwalk_ds)
     visit_map_dict = get_visit_dict(visit_xwalk_ds)
 
-
-#    if False:
-#        # make dicts available for test below, this won't work for the process_file() function.
-#        if codemap_dict is None:
-#            raise Exception("no codemap dict")
-#        set_codemap_xwalk_dict(codemap_dict)
-#        if get_codemap_xwalk_dict() is None:
-#            raise Exception("no codemap in the package")
-#
-#        if value_set_map_dict is None:
-#            raise Exception("no value set map dict")
-#        set_ccda_value_set_mapping_table_dict(value_set_map_dict)
-#        if get_ccda_value_set_mapping_table_dict() is None:
-#            raise Exception("no value set map in the package")
-#
-#        if visit_map_dict is None:
-#            raise Exception("no value set map dict")
-#        set_visit_concept_xwalk_mapping_dict(visit_map_dict)
-#        if get_visit_concept_xwalk_mapping_dict() is None:
-#            raise Exception("no value set map in the package")
-#        test_maps()
 
     doc_regex = re.compile(r'(<ClinicalDocument.*?</ClinicalDocument>)', re.DOTALL)
     fs = xml_files.filesystem()
@@ -179,8 +133,7 @@ def compute(ctx, omop_eav_dict,
                 new_dict = layer_datasets.process_string_to_dict_no_codemap(\
                     xml_content, file_status.path, False, \
                     ## codemap_broadcast.value, 
-                    visitmap_broadcast.value, valuemap_broadcast.value )  # broadcast?
-                    ##codemap_dict, visit_map_dict, value_set_map_dict )  # closure
+                    visitmap_broadcast.value, valuemap_broadcast.value )  
 
                 for config_name in new_dict.keys():
                     if new_dict[config_name] is not None:
@@ -191,8 +144,7 @@ def compute(ctx, omop_eav_dict,
                             for eav_record in eav_list:
                                 yield(Row(**eav_record))
 
-### NOTE THE LIMIT
-    files_df = xml_files.filesystem().files('**/*.xml').limit(10)
+    files_df = xml_files.filesystem().files('**/*.xml')
     rdd = files_df.rdd.flatMap(process_file)
     processed_df = rdd.toDF(omop_dict_schema)
     omop_eav_dict.write_dataframe(processed_df) 
