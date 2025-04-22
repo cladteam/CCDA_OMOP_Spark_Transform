@@ -16,7 +16,7 @@ def compute(source_df, codemap):
                           (df.place_of_service_source_code == codemap.src_code),
                           "leftouter")
 
-    df = df.withColumn('place_of_service_concept_id', df.source_concept_id)
+    df = df.withColumn('place_of_service_concept_id', df.target_concept_id)
 
     df = df.drop('place_of_service_source_system')
     df = df.drop('place_of_serivce_source_code')

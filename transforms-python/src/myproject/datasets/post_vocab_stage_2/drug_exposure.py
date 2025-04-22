@@ -16,7 +16,8 @@ def compute(drugs, codemap):
                           (df.drug_concept_source_code == codemap.src_code),
                           "leftouter")
 
-    df = df.withColumn('drug_concept_id', df.source_concept_id)
+    df = df.withColumn('drug_concept_id', df.target_concept_id)
+    df = df.withColumn('drug_source_concept_id', df.source_concept_id)
 
     df = df.select([ 
         'visit_detail_id', 'sig', 'verbatim_end_date',

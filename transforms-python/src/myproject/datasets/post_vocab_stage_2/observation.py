@@ -19,7 +19,8 @@ def compute(observations, codemap):
                  "leftouter") \
            .select('o.*', 'cm.target_concept_id', 'cm.target_domain_id', 'cm.source_concept_id') 
 
-    df = df.withColumn('observation_concept_id', df.source_concept_id)
+    df = df.withColumn('observation_concept_id', df.target_concept_id)
+    df = df.withColumn('observation_source_concept_id', df.source_concept_id)
 
     df = df.select([
         'visit_detail_id', 'visit_occurrence_id', 'provider_id', 'value_as_number', 'person_id', 

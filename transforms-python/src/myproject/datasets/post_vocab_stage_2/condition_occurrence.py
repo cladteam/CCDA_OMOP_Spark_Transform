@@ -21,7 +21,8 @@ def compute(source_df, codemap):
                           (df.condition_concept_source_code == codemap.src_code),
                           "leftouter")
 
-    df = df.withColumn('condition_concept_id', df.source_concept_id)
+    df = df.withColumn('condition_concept_id', df.target_concept_id)
+    df = df.withColumn('condition_source_concept_id', df.source_concept_id)
 
     df = df.select([
         'condition_occurrence_id', 'person_id', 'condition_concept_id', 'condition_start_date',

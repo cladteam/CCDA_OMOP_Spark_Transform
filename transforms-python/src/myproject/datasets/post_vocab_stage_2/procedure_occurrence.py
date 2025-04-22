@@ -16,7 +16,8 @@ def compute(procedures, codemap):
                           (df.procedure_concept_source_code == codemap.src_code),
                           "leftouter")
 
-    df = df.withColumn('procedure_concept_id', df.source_concept_id)
+    df = df.withColumn('procedure_concept_id', df.target_concept_id)
+    df = df.withColumn('procedure_source_concept_id', df.source_concept_id)
 
     df = df.select([
         'visit_detail_id', 'procedure_source_concept_id', 'procedure_concept_id', 'visit_occurrence_id',
