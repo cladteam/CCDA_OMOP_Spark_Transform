@@ -21,4 +21,9 @@ def compute(source_df, codemap):
     df = df.drop('place_of_service_source_system')
     df = df.drop('place_of_serivce_source_code')
 
+
+    df = df.select(['location_id', 'care_site_id', 'care_site_name', 'place_of_service_concept_id',
+                    'care_site_source_value', 'place_of_service_source_value',
+                    'filename'])
+
     return df

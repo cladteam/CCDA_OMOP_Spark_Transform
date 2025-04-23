@@ -14,6 +14,7 @@ def compute(visits):
         'care_site_id', 'provider_id', 'visit_concept_id', 'visit_start_date', 'visit_start_datetime',
         'visit_end_date', 'visit_end_datetime', 'visit_type_concept_id', 'admitting_source_value',
         'discharge_to_source_value', 
+        'filename'
     ]) 
 
     return df

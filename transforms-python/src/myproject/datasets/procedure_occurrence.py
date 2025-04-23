@@ -34,7 +34,8 @@ def compute(ctx, omop_eav_dict):
         'visit_detail_id', 'procedure_source_concept_id', 'procedure_concept_id', 'visit_occurrence_id',
         'person_id', 'procedure_occurrence_id', 'provider_id', 'modifier_concept_id',
         'procedure_date', 'procedure_datetime', 'procedure_type_concept_id',
-        'quantity', 'procedure_source_value', 'modifier_source_value'
+        'quantity', 'procedure_source_value', 'modifier_source_value',
+        'filename'
     ])
         
 

@@ -49,7 +49,8 @@ def compute(ctx, omop_eav_dict):
    # by the ingest code for AoU and Data Counts.
 
     fields = [ 'care_site_id', 'care_site_name', 'place_of_service_concept_id',
-           'location_id', 'care_site_source_value', 'place_of_service_source_value'
+           'location_id', 'care_site_source_value', 'place_of_service_source_value',
+           'filename'
     ]
 
     df = omop_eav_dict.select('key_value', 'field_name', 'field_value') \
@@ -65,8 +66,9 @@ def compute(ctx, omop_eav_dict):
         .withColumn('location_id', df['location_id'].cast(T.LongType())) \
         .withColumn('place_of_service_concept_id', df['place_of_service_concept_id'].cast(T.IntegerType())) 
 
-    df = df.select(['location_id', 'care_site_id', 'care_site_name', 'place_of_service_concept_id', 
-                    'care_site_source_value', 'place_of_service_source_value'])
+    df = df.select(['location_id', 'care_site_id', 'care_site_name', 'place_of_service_concept_id',
+                    'care_site_source_value', 'place_of_service_source_value',
+                    'filename'])
 
 
     new_df = ctx.spark_session.createDataFrame(df.rdd, ds_schema.domain_dataset_schema['Care_Site'])

@@ -142,7 +142,7 @@ def compute(ctx, omop_eav_dict,
                             eav_list = flatten_and_stringify_record_dict(domain_name, record_dict)
                             for eav_record in eav_list:
                                 yield(Row(**eav_record))
-
+                                
     files_df = xml_files.filesystem().files('**/*.xml')
     rdd = files_df.rdd.flatMap(process_file)
     processed_df = rdd.toDF(omop_dict_schema)

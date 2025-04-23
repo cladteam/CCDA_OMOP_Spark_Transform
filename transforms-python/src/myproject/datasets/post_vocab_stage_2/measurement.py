@@ -30,6 +30,28 @@ def compute(measurements, codemap):
     df = df.drop('measurement_concept_source_system')
     df = df.drop('measurement_concept_source_code')
 
+    df = df.select([
+    'visit_detail_id', 'visit_occurrence_id', 'provider_id', 'value_as_number', 'person_id', 
+    'measurement_id', 'measurement_concept_id', 'measurement_source_value',
+    'measurement_source_concept_id', 'measurement_date',  'measurement_datetime', 'measurement_time',
+    'measurement_type_concept_id', 
+    'range_high', 'range_low',
+    ##'value_as_string', 
+    'value_as_concept_id',
+    'operator_concept_id',
+    #'qualifier_concept_id', 'qualifier_source_value', 
+    'unit_concept_id',
+    'unit_source_value',
+    'value_source_value',
+    # "measurement_concept_name": T.StringType(),
+    # "measurement_type_concept_name": T.StringType(),
+    # "operator_concept_name": T.StringType(),
+    # "value_as_concept_name": T.StringType(),
+    # "unit_concept_name": T.StringType(),
+    #"measurement_source_concept_name": T.StringType()
+    'filename'
+    ])
+
     ### MISSING BIG SELECT
 
     return df

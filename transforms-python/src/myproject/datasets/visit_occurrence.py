@@ -37,7 +37,8 @@ def compute(ctx, omop_eav_dict):
         'preceding_visit_occurrence_id', 'discharge_to_concept_id', 'admitting_source_concept_id',
         'care_site_id', 'provider_id', 'visit_concept_id', 'visit_start_date', 'visit_start_datetime',
         'visit_end_date', 'visit_end_datetime', 'visit_type_concept_id', 'admitting_source_value',
-        'discharge_to_source_value', 
+        'discharge_to_source_value',
+        'filename'
     ])
 
     df = ctx.spark_session.createDataFrame(df.rdd, ds_schema.domain_dataset_schema['Visit'])

@@ -19,11 +19,15 @@ def compute(procedures, codemap):
     df = df.withColumn('procedure_concept_id', df.target_concept_id)
     df = df.withColumn('procedure_source_concept_id', df.source_concept_id)
 
+    df = df.drop('procedure_concept_source_system')
+    df = df.drop('procedure_concept_source_code')
+
     df = df.select([
         'visit_detail_id', 'procedure_source_concept_id', 'procedure_concept_id', 'visit_occurrence_id',
         'person_id', 'procedure_occurrence_id', 'provider_id', 'modifier_concept_id',
         'procedure_date', 'procedure_datetime', 'procedure_type_concept_id',
-        'quantity', 'procedure_source_value', 'modifier_source_value'
+        'quantity', 'procedure_source_value', 'modifier_source_value',
+        'filename'
     ]) 
 
     return df

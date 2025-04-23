@@ -19,6 +19,9 @@ def compute(drugs, codemap):
     df = df.withColumn('drug_concept_id', df.target_concept_id)
     df = df.withColumn('drug_source_concept_id', df.source_concept_id)
 
+    df = df.drop('drug_concept_source_system')
+    df = df.drop('drug_concept_source_code')
+
     df = df.select([ 
         'visit_detail_id', 'sig', 'verbatim_end_date',
         'visit_occurrence_id', 'provider_id', 'days_supply', 'quantity',
@@ -27,7 +30,8 @@ def compute(drugs, codemap):
         'drug_exposure_end_date', 'drug_exposure_end_datetime',
         'drug_type_concept_id', 'stop_reason', 'refills', 'route_concept_id', 'lot_number',
         'drug_source_value', 'drug_source_concept_id', 'route_source_value',
-        'dose_unit_source_value'
+        'dose_unit_source_value',
+        'filename'
     ])
 
     

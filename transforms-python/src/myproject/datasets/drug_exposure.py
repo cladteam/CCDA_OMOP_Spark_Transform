@@ -44,7 +44,8 @@ def compute(ctx, omop_eav_dict):
         'drug_exposure_end_date', 'drug_exposure_end_datetime',
         'drug_type_concept_id', 'stop_reason', 'refills', 'route_concept_id', 'lot_number',
         'drug_source_value', 'drug_source_concept_id', 'route_source_value',
-        'dose_unit_source_value'
+        'dose_unit_source_value',
+        'filename'
     ])
 
     df = ctx.spark_session.createDataFrame(df.rdd, ds_schema.domain_dataset_schema['Drug'])

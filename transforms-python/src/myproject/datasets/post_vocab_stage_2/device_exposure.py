@@ -19,7 +19,8 @@ def compute(devices, codemap):
     df = df.withColumn('condition_source_concept_id', df.source_concept_id)
     df = df.withColumn('condition_concept_id', df.target_concept_id)
 
-    df = df.drop(['device_concept_source_system','device_concept_source_code'])
+    df = df.drop('device_concept_source_system')
+    df = df.drop('device_concept_source_code')
 
     #### MISSING SELECT ? TODO
     return df
