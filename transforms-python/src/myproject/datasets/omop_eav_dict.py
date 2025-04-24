@@ -86,7 +86,7 @@ def get_visit_dict(codemap_ds):
 
     return codemap_dict
 
-@configure(profile=['DRIVER_MEMORY_EXTRA_LARGE', 'DRIVER_MEMORY_OVERHEAD_LARGE', 'NUM_EXECUTORS_64' ])
+@configure(profile=['DRIVER_MEMORY_EXTRA_LARGE', 'DRIVER_MEMORY_OVERHEAD_LARGE','EXECUTOR_MEMORY_LARGE', 'NUM_EXECUTORS_64' ])
 #@configure(profile=['DRIVER_MEMORY_EXTRA_LARGE', 'EXECUTOR_MEMORY_LARGE', 'NUM_EXECUTORS_64' ])
 #@configure(profile=['DRIVER_MEMORY_EXTRA_LARGE', 'EXECUTOR_MEMORY_LARGE', 'NUM_EXECUTORS_16' ])
 # https://stackoverflow.com/questions/70792919/how-do-i-know-my-foundry-job-is-using-aqe
