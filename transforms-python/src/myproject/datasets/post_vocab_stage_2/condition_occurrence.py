@@ -7,6 +7,9 @@ from transforms.api import transform_df, Input, Output
 
 #https://stackoverflow.com/questions/39235704/split-spark-dataframe-string-column-into-multiple-columns
 
+
+# expected domain is 'Condition'
+
 @transform_df(
     Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/condition_occurrence"),
     source_df=Input("ri.foundry.main.dataset.e34c8928-d1c1-4b4e-8026-e6024e6afdbb"),
@@ -23,9 +26,12 @@ def compute(source_df, codemap):
 
     df = df.withColumn('condition_concept_id', df.target_concept_id)
     df = df.withColumn('condition_source_concept_id', df.source_concept_id)
+    df = df.withColumn('condition_domain_id', df.target_domain_id)
 
     df = df.drop('condition_concept_source_system')
     df = df.drop('condition_concept_source_code')
+
+    df = df.filter(df['condition_domain_id'] == 'Condition')
 
     df = df.select([
         'condition_occurrence_id', 'person_id', 'condition_concept_id', 'condition_start_date',
@@ -35,6 +41,6 @@ def compute(source_df, codemap):
         'condition_source_value', 'condition_source_concept_id', 'condition_status_source_value',
         'filename'
     ])
-    
+
     return df
 
