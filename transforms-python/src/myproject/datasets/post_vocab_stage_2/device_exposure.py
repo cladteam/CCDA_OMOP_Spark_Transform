@@ -3,9 +3,9 @@ from transforms.api import transform_df, Input, Output
 
 
 @transform_df(
-    Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentfiedData/OMOP_spark/post_vocab_stage_2/device_exposure"),
-    devices = Input("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/device_exposure"),
-    codemap = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/codemap_xwalk")
+    Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/device_exposure"),
+    devices=Input("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/device_exposure"),
+    codemap=Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/codemap_xwalk")
 )
 def compute(devices, codemap):
     split_source_value = F.split(devices.condition_source_value, '\\|') # splits on a regex, escape the 'or'
@@ -26,5 +26,11 @@ def compute(devices, codemap):
     df = df.drop('device_concept_source_code')
     df = df.drop('device_domain_id')
 
-    #### MISSING SELECT ? TODO
+    df = df.select(['device_exposure_id', 'device_exposure_start_date'
+     'device_exposure_start_datetime', 'device_exposure_end_date', 'device_exposure_end_datetime',
+     'unique_device_id', 'device_type_concept_id', 'quantity', 'provider_id', 'visit_detail_id',
+     'device_source_value', 'device_concept_system', 'device_status', 'device_concept_id',
+     'device_source_concept_id', 'person_id', 'visit_occurrence_id',
+     'filename'])  # noqa: None
+
     return df

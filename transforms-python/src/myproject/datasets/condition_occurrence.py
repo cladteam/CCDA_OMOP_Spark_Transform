@@ -5,7 +5,7 @@ from pyspark.sql import types as T
 
 @transform_df(
     Output("ri.foundry.main.dataset.e34c8928-d1c1-4b4e-8026-e6024e6afdbb"),
-    omop_eav_dict = Input("ri.foundry.main.dataset.7510d9f2-9597-477c-8f03-e290d81d8d23"),
+    omop_eav_dict=Input("ri.foundry.main.dataset.7510d9f2-9597-477c-8f03-e290d81d8d23"),
 )
 def compute(ctx, omop_eav_dict):
     df = omop_eav_dict.select('key_value', 'field_name', 'field_value') \
@@ -29,6 +29,7 @@ def compute(ctx, omop_eav_dict):
         .withColumn('provider_id', df['provider_id'].cast(T.LongType())) \
         .withColumn('visit_occurrence_id', df['visit_occurrence_id'].cast(T.LongType())) \
         .withColumn('visit_detail_id', df['visit_detail_id'].cast(T.LongType())) \
+        .withColumn('condition_source_value', df['condition_source_value'].cast(T.StringType())) \
         .withColumn('condition_source_concept_id', df['condition_source_concept_id'].cast(T.IntegerType()))
         # condition_source_value
         # condition_status_source_value

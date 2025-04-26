@@ -6,7 +6,7 @@ from ..util import ds_schema
 
 @transform_df(
     Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/device_exposure"),
-    omop_eav_dict = Input("ri.foundry.main.dataset.7510d9f2-9597-477c-8f03-e290d81d8d23")
+    omop_eav_dict=Input("ri.foundry.main.dataset.7510d9f2-9597-477c-8f03-e290d81d8d23")
 )
 def compute(ctx, omop_eav_dict):
     df = omop_eav_dict.select('key_value', 'field_name', 'field_value') \
@@ -29,6 +29,7 @@ def compute(ctx, omop_eav_dict):
         .withColumn('device_exposure_end_date', F.to_date(F.col('device_exposure_end_date'))) \
         .withColumn('device_exposure_end_datetime', F.to_timestamp(F.col('device_exposure_end_datetime'))) \
         .withColumn('device_type_concept_id', df['device_type_concept_id'].cast(T.IntegerType())) \
+        .withColumn('unique_device_id', df['unique_device_id'].cast(T.IntegerType())) \
         .withColumn('quantity', df['quantity'].cast(T.IntegerType())) \
         .withColumn('device_source_value', df['device_source_value'].cast(T.StringType())) \
         .withColumn('device_source_concept_id', df['device_source_concept_id'].cast(T.IntegerType())) \
@@ -45,6 +46,4 @@ def compute(ctx, omop_eav_dict):
     ])
 
     df = ctx.spark_session.createDataFrame(df.rdd, ds_schema.domain_dataset_schema['Device'])
-    return(df)
-
- 
+    return (df)
