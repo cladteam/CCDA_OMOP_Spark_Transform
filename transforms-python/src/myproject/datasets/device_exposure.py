@@ -39,9 +39,8 @@ def compute(ctx, omop_eav_dict):
         'person_id', 'device_exposure_id', 'device_concept_id',
         'device_exposure_start_date', 'device_exposure_start_datetime',
         'device_exposure_end_date', 'device_exposure_end_datetime',
-        'device_type_concept_id', 'unique_device_id', 
-        'quantity', 
-        'device_source_value', 'device_source_concept_id',
+        'device_type_concept_id', 'unique_device_id',
+        'quantity', 'device_source_value', 'device_source_concept_id',
         'filename'
     ])
 
