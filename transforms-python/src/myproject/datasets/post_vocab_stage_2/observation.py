@@ -21,6 +21,9 @@ def compute(observations, codemap):
 
     df = df.withColumn('observation_concept_id', df.target_concept_id)
     df = df.withColumn('observation_source_concept_id', df.source_concept_id)
+    df = df.withColumn('observation_domain_id', df.target_domain_id)
+    
+    df = df.filter(df['observation_domain_id'] == 'Observation')
 
     df = df.drop('observation_concept_source_system')
     df = df.drop('observation_concept_source_code')

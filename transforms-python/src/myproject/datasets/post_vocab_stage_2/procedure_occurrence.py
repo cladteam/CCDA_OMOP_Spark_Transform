@@ -18,6 +18,9 @@ def compute(procedures, codemap):
 
     df = df.withColumn('procedure_concept_id', df.target_concept_id)
     df = df.withColumn('procedure_source_concept_id', df.source_concept_id)
+    df = df.withColumn('procedure_domain_id', df.target_domain_id)
+    
+    df = df.filter(df['procedure_domain_id'] == 'Procedure')
 
     df = df.drop('procedure_concept_source_system')
     df = df.drop('procedure_concept_source_code')

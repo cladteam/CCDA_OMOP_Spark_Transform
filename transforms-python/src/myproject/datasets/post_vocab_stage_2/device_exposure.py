@@ -16,11 +16,15 @@ def compute(devices, codemap):
                           (df.device_concept_source_code == codemap.src_code),
                           "leftouter")
 
-    df = df.withColumn('condition_source_concept_id', df.source_concept_id)
-    df = df.withColumn('condition_concept_id', df.target_concept_id)
+    df = df.withColumn('device_source_concept_id', df.source_concept_id)
+    df = df.withColumn('device_concept_id', df.target_concept_id)
+    df = df.withColumn('device_domain_id', df.target_domain_id)
+
+    df = df.filter(df['device_domain_id'] == 'Device')
 
     df = df.drop('device_concept_source_system')
     df = df.drop('device_concept_source_code')
+    df = df.drop('device_domain_id')
 
     #### MISSING SELECT ? TODO
     return df

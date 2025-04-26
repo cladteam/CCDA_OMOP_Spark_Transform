@@ -24,8 +24,9 @@ def compute(measurements, codemap):
 
     df = df.withColumn('measurement_concept_id', df.target_concept_id)
     df = df.withColumn('measurement_source_concept_id', df.source_concept_id)
+    df = df.withColumn('measurement_domain_id', df.target_domain_id)
 
-   ## df = df.withColumn('measurement_domain_id', df.target_domain_id)
+    df = df.filter(df['measurement_domain_id'] == 'Measurement')
 
     df = df.drop('measurement_concept_source_system')
     df = df.drop('measurement_concept_source_code')

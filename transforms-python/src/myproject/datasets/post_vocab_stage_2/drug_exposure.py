@@ -18,6 +18,9 @@ def compute(drugs, codemap):
 
     df = df.withColumn('drug_concept_id', df.target_concept_id)
     df = df.withColumn('drug_source_concept_id', df.source_concept_id)
+    df = df.withColumn('drug_domain_id', df.target_domain_id)
+
+    df = df.filter(df['drug_domain_id'] == 'Drug')
 
     df = df.drop('drug_concept_source_system')
     df = df.drop('drug_concept_source_code')
