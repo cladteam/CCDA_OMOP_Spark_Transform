@@ -102,7 +102,7 @@ def compute(ctx,
     rdd = input_files_df.rdd.flatMap(process_file) # AttributeError: 'list' object has no attribute 'rdd'
 
     processed_df = rdd.toDF(omop_dict_schema)
-    processed_df = processed_df.distinct()
+###    processed_df = processed_df.distinct() 3x slower, do in individual tables?
     omop_eav_dict.write_dataframe(processed_df)
 
     # Append rows to record of previous files
