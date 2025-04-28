@@ -41,7 +41,7 @@ def compute(devices, codemap):
 ##        'device_concept_system', 
 ##        'device_status', 
         'device_concept_id',               #s
-        'device_source_concept_id',        #s   id?
+        'device_source_concept_id',        #s  
         'person_id',                       #s
         'visit_occurrence_id',             #s
         'filename']) 
