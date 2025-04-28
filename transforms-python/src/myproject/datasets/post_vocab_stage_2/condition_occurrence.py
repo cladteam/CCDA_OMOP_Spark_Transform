@@ -12,7 +12,7 @@ from transforms.api import transform_df, Input, Output
 
 @transform_df(
     Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/condition_occurrence"),
-    source_df=Input("ri.foundry.main.dataset.e34c8928-d1c1-4b4e-8026-e6024e6afdbb"),
+    source_df = Input("/All of Us-cdb223/HIN - HIE/CCDA/datasets/uniquify_stage_1/condition_occurrence"),
     codemap = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/codemap_xwalk")
 )
 def compute(source_df, codemap):

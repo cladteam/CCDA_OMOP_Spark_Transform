@@ -4,7 +4,7 @@ from transforms.api import transform_df, Input, Output
 
 @transform_df(
     Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post_vocab_stage_2/care_site"),
-    source_df=Input("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/care_site"),
+    source_df = Input("/All of Us-cdb223/HIN - HIE/CCDA/datasets/uniquify_stage_1/care_site"),
     codemap=Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/codemap_xwalk")
 )
 def compute(source_df, codemap):
