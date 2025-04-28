@@ -26,7 +26,7 @@ def compute(devices, codemap):
     df = df.drop('device_concept_source_code')
     df = df.drop('device_domain_id')
 
-    df = df.select(['device_exposure_id', 'device_exposure_start_date'
+    df = df.select(['device_exposure_id', 'device_exposure_start_date',
      'device_exposure_start_datetime', 'device_exposure_end_date', 'device_exposure_end_datetime',
      'unique_device_id', 'device_type_concept_id', 'quantity', 'provider_id', 'visit_detail_id',
      'device_source_value', 'device_concept_system', 'device_status', 'device_concept_id',
