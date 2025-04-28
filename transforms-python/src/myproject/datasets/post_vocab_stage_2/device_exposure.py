@@ -26,11 +26,24 @@ def compute(devices, codemap):
     df = df.drop('device_concept_source_code')
     df = df.drop('device_domain_id')
 
-    df = df.select(['device_exposure_id', 'device_exposure_start_date',
-     'device_exposure_start_datetime', 'device_exposure_end_date', 'device_exposure_end_datetime',
-     'unique_device_id', 'device_type_concept_id', 'quantity', 'provider_id', 'visit_detail_id',
-     'device_source_value', 'device_concept_system', 'device_status', 'device_concept_id',
-     'device_source_concept_id', 'person_id', 'visit_occurrence_id',
-     'filename'])  # noqa: None
+    df = df.select([
+        'device_exposure_id',             #s
+        'device_exposure_start_date',     #s
+        'device_exposure_start_datetime', #s
+        'device_exposure_end_date',       #s
+        'device_exposure_end_datetime',   #s
+        'unique_device_id',               #s
+        'device_type_concept_id',         #s
+        'quantity',                       #s
+        'provider_id',                    #s
+        'visit_detail_id',                #s
+        'device_source_value',            #s
+##        'device_concept_system', 
+##        'device_status', 
+        'device_concept_id',               #s
+        'device_source_concept_id',        #s   id?
+        'person_id',                       #s
+        'visit_occurrence_id',             #s
+        'filename']) 
 
     return df
