@@ -1,5 +1,10 @@
-# from pyspark.sql import functions as F
+from pyspark.sql import functions as F
+from pyspark.sql.window import Window
+from pyspark.sql.types import TimestampType, StringType
 from transforms.api import transform_df, Input, Output
+from .stage_functions import choose_most_data
+
+
 
 
 @transform_df(
@@ -7,4 +12,15 @@ from transforms.api import transform_df, Input, Output
     source_df = Input("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/device_exposure")
 )
 def compute(source_df):
-    return source_df.dropDuplicates()
+
+    # Step 1: Remove exact duplicates across all columns
+    df_deduplicate = source_df.dropDuplicates()
+
+    # Step 2: Deduplicate based on primary key and preference fields
+    df_deduplicate_by_primary_key = choose_most_data(
+        df_deduplicate,
+        primary_key_fields="device_exposure_id",
+        preference_fields=["visit_occurrence_id"]
+    )
+
+    return df_deduplicate_by_primary_key
