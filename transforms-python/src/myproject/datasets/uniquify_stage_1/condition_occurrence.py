@@ -13,8 +13,9 @@ def compute(source_df):
 
     df_deduplicated = choose_most_data(
         source_df,
-        primary_key_fields=["condition_occurrence_id" , "person_id", "condition_concept_id", 
-                          "condition_start_date", "visit_occurrence_id", "condition_source_value", "filename"]
+        primary_key_fields=["condition_occurrence_id" , "person_id", "condition_concept_id",  
+                   "condition_start_date", "visit_occurrence_id", "condition_source_value",  
+                   "filename"],
         preference_fields=["visit_occurrence_id" ]
     )
 
