@@ -34,7 +34,7 @@ record_schema = T.StructType([
 ])
 
 
-#@incremental(semantic_version=1, snapshot_inputs=["input_files"] )
+@incremental(semantic_version=1, snapshot_inputs=["input_files"] )
 @configure(profile=['DRIVER_MEMORY_EXTRA_LARGE', 'EXECUTOR_MEMORY_LARGE', 'NUM_EXECUTORS_64'])
 @transform(
     omop_eav_dict = Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_saturday"),
@@ -49,10 +49,10 @@ def compute(ctx,
     ):
 
     # Killswitch
-#    if not ctx.is_incremental:
-#        omop_eav_dict.abort()
-#        previous_files.abort()
-#        raise Exception("not incremental build, self destructing")
+    if not ctx.is_incremental:
+        omop_eav_dict.abort()
+        previous_files.abort()
+        raise Exception("not incremental build, self destructing")
 #        return
 
     omop_eav_dict.set_mode("modify")
