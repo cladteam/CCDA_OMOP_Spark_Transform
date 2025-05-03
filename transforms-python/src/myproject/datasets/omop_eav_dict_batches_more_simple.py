@@ -35,7 +35,7 @@ def make_distinct(rows):
             unique_rows.append(row)
     return unique_rows
 
-STEP_SIZE=1000
+STEP_SIZE=10
 
 """ Somewhat Simple: 1
     has batches, uses a single dict_list, avoids a layer of list.extend()
@@ -45,8 +45,8 @@ STEP_SIZE=1000
 @incremental( semantic_version=1, snapshot_inputs=["input_files"] )
 @configure(profile=['DRIVER_MEMORY_EXTRA_LARGE', 'EXECUTOR_MEMORY_LARGE', 'NUM_EXECUTORS_64'])
 @transform(
-    omop_eav_dict = Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_May2_ms2"),
-    previous_files = Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_May2_ms2"),
+    omop_eav_dict = Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_May2_ms3"),
+    previous_files = Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_May2_ms3"),
     input_files=Input("ri.foundry.main.dataset.119054ed-4719-4d84-99ba-43625bcafd0f"),
     visit_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/visit_concept_xwalk_mapping_dataset"),
     valueset_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/ccda_value_set_mapping_table_dataset"),
