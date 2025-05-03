@@ -99,8 +99,9 @@ def compute(ctx,
                 
 
     # exclude what we've already copied, and get a subset/batch
-    ###previous_files_df = previous_files.dataframe(schema=record_schema, mode="previous")
-    previous_files_df = previous_files.dataframe()
+    ###previous_files_df = previous_files.dataframe(schema=record_schema, mode="previous") # "dont use schema"
+    ###previous_files_df = previous_files.dataframe()  # "use schema"
+    previous_files_df = previous_files.dataframe(schema=record_schema)
 
     input_files_df = input_fs.files()
     input_files_df = input_files_df.join(previous_files_df, ['path'], 'leftanti')
