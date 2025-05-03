@@ -19,7 +19,7 @@ from ..util.omop_eav_dict_common import get_codemap_dict
 from ..util.omop_eav_dict_common import get_valueset_dict
 from ..util.omop_eav_dict_common import get_visit_dict
 
-STEP_SIZE=1000
+STEP_SIZE=10
 """ All In
     has batches
     has broadcast variables, but not for codemap (too big)
