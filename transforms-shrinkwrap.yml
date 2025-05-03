@@ -30,11 +30,11 @@ mappings:
   - "READ"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.75efa0bb-e85c-4fcd-b4a7-a0e2da095e01"
-- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_May2"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_May3"
   modes:
   - "BUILD"
   path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.20c38594-f7ad-442f-8279-fffa34044f7f"
+  rid: "ri.foundry.main.dataset.ce6307e8-388a-4c71-b407-4744bee5ec7f"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_batches_more_simple"
   modes:
   - "BUILD"
