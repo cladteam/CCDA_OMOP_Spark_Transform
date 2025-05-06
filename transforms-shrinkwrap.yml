@@ -221,11 +221,6 @@ mappings:
   - "READ"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.119054ed-4719-4d84-99ba-43625bcafd0f"
-- alias: "ri.foundry.main.dataset.7510d9f2-9597-477c-8f03-e290d81d8d23"
-  modes:
-  - "READ"
-  path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.7510d9f2-9597-477c-8f03-e290d81d8d23"
 - alias: "ri.foundry.main.dataset.877bc6a8-2ec1-4b21-9794-4ad02cc27e30"
   modes:
   - "READ"
@@ -236,6 +231,11 @@ mappings:
   - "READ"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.8c8ff8f9-d429-4396-baed-a3de9c945f49"
+- alias: "ri.foundry.main.dataset.ce6307e8-388a-4c71-b407-4744bee5ec7f"
+  modes:
+  - "READ"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.ce6307e8-388a-4c71-b407-4744bee5ec7f"
 - alias: "ri.foundry.main.dataset.e34c8928-d1c1-4b4e-8026-e6024e6afdbb"
   modes:
   - "BUILD"
