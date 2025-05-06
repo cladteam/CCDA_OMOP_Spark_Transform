@@ -10,8 +10,8 @@ from .stage_functions import choose_most_data
     source_df = Input("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/measurement")
 )
 def compute(source_df):
-    PK=["measurement_id", "person_id", "provider_id", "measurement_date", "measurement_datetime", 
-        "measurement_source_value"]
+    PK=["measurement_id", "person_id", "provider_id", "measurement_date", "measurement_datetime",
+         "filename"]
         ###"filename", "measurement_source_value"]
 
     df_deduplicated = choose_most_data(

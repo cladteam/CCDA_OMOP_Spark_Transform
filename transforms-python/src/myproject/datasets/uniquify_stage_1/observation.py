@@ -11,8 +11,7 @@ from .stage_functions import choose_most_data
     source_df = Input("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/observation"),
 )
 def compute(source_df):
-    PK=["observation_id", "person_id", "provider_id", "observation_date", "observation_datetime", 
-             "observation_source_value"]
+    PK=["observation_id", "person_id", "provider_id", "observation_date", "filename"]
              ###"filename", "observation_source_value"]
 
 

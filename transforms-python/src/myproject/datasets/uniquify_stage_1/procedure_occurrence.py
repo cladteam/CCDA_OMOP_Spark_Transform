@@ -12,7 +12,7 @@ from .stage_functions import choose_most_data
 )
 def compute(source_df):
     PK=["procedure_occurrence_id", "person_id", "provider_id", "procedure_date", "procedure_datetime",
-             "procedure_source_value"]
+             "procedure_source_value", "filename"]
              ###"filename", "procedure_source_value"]
 
 

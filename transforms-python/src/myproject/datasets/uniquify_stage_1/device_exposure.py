@@ -19,8 +19,9 @@ def compute(source_df):
     # Step 2: Deduplicate based on primary key and preference fields
     df_deduplicate_by_primary_key = choose_most_data(
         df_deduplicate,
-        primary_key_fields="device_exposure_id",
-        preference_fields=["visit_occurrence_id"]
+        primary_key_fields=["device_exposure_id", "person_id", "device_concept_id", "device_exposure_start_date",
+                     "filename"],
+        preference_fields=["visit_occurrence_id", "device_source_value"]
     )
 
     return df_deduplicate_by_primary_key
