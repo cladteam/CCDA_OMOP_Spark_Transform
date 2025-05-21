@@ -4,6 +4,12 @@
 _libgcc_mutex=0.1=main @ linux-64
 _openmp_mutex=5.1=1_gnu @ linux-64
 _python_abi3_support=1.0=hd8ed1ab_2 @ noarch
+aiobotocore=2.22.0=pyhd8ed1ab_0 @ noarch
+aiohappyeyeballs=2.6.1=pyhd8ed1ab_0 @ noarch
+aiohttp=3.11.18=py311h2dc5d0c_0 @ linux-64
+aioitertools=0.12.0=pyhd8ed1ab_1 @ noarch
+aiosignal=1.3.2=pyhd8ed1ab_0 @ noarch
+attrs=25.3.0=pyh71513ae_0 @ noarch
 aws-c-auth=0.8.0=hb88c0a9_10 @ linux-64
 aws-c-cal=0.8.0=hecf86a2_2 @ linux-64
 aws-c-common=0.10.3=hb9d3cd8_0 @ linux-64
@@ -22,27 +28,31 @@ azure-identity-cpp=1.10.0=h113e628_0 @ linux-64
 azure-storage-blobs-cpp=12.13.0=h3cf044e_1 @ linux-64
 azure-storage-common-cpp=12.8.0=h736e048_1 @ linux-64
 azure-storage-files-datalake-cpp=12.12.0=ha633028_1 @ linux-64
+botocore=1.37.3=pyge310_1234567_0 @ noarch
 brotli-python=1.1.0=py311hfdbb021_2 @ linux-64
 bzip2=1.0.8=h4bc722e_7 @ linux-64
 c-ares=1.34.5=hb9d3cd8_0 @ linux-64
 ca-certificates=2025.4.26=hbd8a1cb_0 @ noarch
-ccda-omop-conversion-package=1.5.1=py_0 @ noarch
+ccda-omop-conversion-package=1.5.2=py_0 @ noarch
 certifi=2025.4.26=pyhd8ed1ab_0 @ noarch
 cffi=1.17.1=py311hf29c0ef_0 @ linux-64
 charset-normalizer=3.4.2=pyhd8ed1ab_0 @ noarch
 conjure-python-client=2.12.0=pyhd8ed1ab_1 @ noarch
 cpython=3.11.12=py311hd8ed1ab_0 @ noarch
 decorator=5.2.1=pyhd8ed1ab_0 @ noarch
-foundry-data-sidecar-api=0.781.0=py_0 @ noarch
-foundry-transforms-lib-python=0.849.0=py_0 @ noarch
+foundry-container-sidecar-api=0.1754.0=py_0 @ noarch
+foundry-data-sidecar-api=0.836.0=py_0 @ noarch
+foundry-transforms-lib-python=0.865.0=py_0 @ noarch
+frozenlist=1.6.0=py311h62d540b_0 @ linux-64
+fsspec=2025.5.0=pyhd8ed1ab_0 @ noarch
 future=1.0.0=pyhd8ed1ab_2 @ noarch
 gflags=2.2.2=h5888daf_1005 @ linux-64
 glog=0.7.1=hbabe93e_0 @ linux-64
 h2=4.2.0=pyhd8ed1ab_0 @ noarch
 hpack=4.1.0=pyhd8ed1ab_0 @ noarch
 hyperframe=6.1.0=pyhd8ed1ab_0 @ noarch
-icu=75.1=he02047a_0 @ linux-64
 idna=3.10=pyhd8ed1ab_1 @ noarch
+jmespath=1.0.1=pyhd8ed1ab_1 @ noarch
 keyutils=1.6.1=h166bdaf_0 @ linux-64
 krb5=1.21.3=h659f571_0 @ linux-64
 ld_impl_linux-64=2.43=h712a8e2_4 @ linux-64
@@ -60,7 +70,7 @@ libcrc32c=1.1.2=h9c3ff4c_0 @ linux-64
 libcurl=8.13.0=h332b0f4_0 @ linux-64
 libedit=3.1.20250104=pl5321h7949ede_0 @ linux-64
 libev=4.33=hd590300_2 @ linux-64
-libevent=2.1.12=hf998b51_1 @ linux-64
+libevent=2.1.12=hdbd6064_1 @ linux-64
 libexpat=2.7.0=h5888daf_0 @ linux-64
 libffi=3.4.6=h2dba641_1 @ linux-64
 libgcc-ng=15.1.0=h69a702a_2 @ linux-64
@@ -88,11 +98,12 @@ libthrift=0.21.0=h0e7cc3e_0 @ linux-64
 libutf8proc=2.8.0=hf23e847_1 @ linux-64
 libuuid=2.38.1=h0b41bf4_0 @ linux-64
 libxcrypt=4.4.36=hd590300_1 @ linux-64
-libxml2=2.13.8=h4bc477f_0 @ linux-64
+libxml2=2.13.8=h81593ed_0 @ linux-64
 libxslt=1.1.39=h76b75d6_0 @ linux-64
 libzlib=1.3.1=hb9d3cd8_2 @ linux-64
 lxml=5.4.0=py311hbd2c71b_0 @ linux-64
 lz4-c=1.9.4=h6a678d5_1 @ linux-64
+multidict=6.4.4=py311h2dc5d0c_0 @ linux-64
 ncurses=6.5=h2d0b736_3 @ linux-64
 numpy=1.26.4=py311h64a7726_0 @ linux-64
 openssl=3.5.0=h7b32b05_1 @ linux-64
@@ -102,7 +113,8 @@ palantir-spark-time=3.24.0=py_0 @ noarch
 pandas=2.2.3=py311h7db5c69_3 @ linux-64
 parsimonious=0.10.0=pyhd8ed1ab_1 @ noarch
 pip=25.1.1=pyh8b19718_0 @ noarch
-polars=1.29.0=py39h441220d_0 @ linux-64
+polars=1.27.1=py39h2a4a510_3 @ linux-64
+propcache=0.3.1=py311h2dc5d0c_0 @ linux-64
 py4j=0.10.9.7=pyhd8ed1ab_0 @ noarch
 pyaml=25.1.0=pyhd8ed1ab_0 @ noarch
 pyarrow-core=18.1.0=py311h4854187_0_cpu @ linux-64
@@ -123,32 +135,26 @@ readline=8.2=h8c095d6_2 @ linux-64
 regex=2024.11.6=py311h9ecbd09_0 @ linux-64
 requests=2.32.3=pyhd8ed1ab_1 @ noarch
 s2n=1.5.9=h0fd0ee4_0 @ linux-64
+s3fs=2025.5.0=pyhd8ed1ab_0 @ noarch
 setuptools=70.0.0=pyhd8ed1ab_0 @ noarch
 six=1.17.0=pyhd8ed1ab_0 @ noarch
 snappy=1.2.1=h8bd8927_1 @ linux-64
+tables-api=0.1066.0=py_0 @ noarch
 tk=8.6.13=noxft_h4845f30_101 @ linux-64
-transforms-expectations=0.770.0=py_0 @ noarch
-transforms-preview=0.770.0=py_0 @ noarch
-transforms-verbs=0.788.0=py_0 @ noarch
+transforms-container-ops-python=0.81.0=py311 @ linux-64
+transforms-expectations=0.770.1=py_0 @ noarch
+transforms-preview=0.770.1=py_0 @ noarch
+transforms-verbs=0.807.0=py_0 @ noarch
 transforms=2.239.1=py_0 @ noarch
+typing_extensions=4.13.2=pyh29332c3_0 @ noarch
 tzdata=2025b=h78e105d_0 @ noarch
 urllib3=2.4.0=pyhd8ed1ab_0 @ noarch
 wheel=0.45.1=pyhd8ed1ab_1 @ noarch
+wrapt=1.17.2=py311h9ecbd09_0 @ linux-64
 yaml=0.2.5=h7f98852_2 @ linux-64
+yarl=1.20.0=py311h2dc5d0c_0 @ linux-64
 zstandard=0.23.0=py311h9ecbd09_2 @ linux-64
 zstd=1.5.7=hb8e6e7a_2 @ linux-64
 
-[Pip dependencies]
-duckdb==1.2.2
-lxml==5.4.0
-numpy==2.2.5
-pandas==2.2.3
-python-dateutil==2.9.0.post0
-pytz==2025.2
-six==1.17.0
-typeguard==4.4.2
-typing-extensions==4.13.2
-tzdata==2025.2
-
 [Conda lock version]
-v2 - fb19a57005f0f8d333db7f00faff7b3316a8318caef4e814c9b5e0da7f58d63c
+v2 - a56ce5d5b96019e29466090850935077360d1cd3bc81983ca84d355c0bdf307f
