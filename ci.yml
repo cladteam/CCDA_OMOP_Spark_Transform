@@ -63,6 +63,8 @@ env:
     uri-role: maven-repository-proxy-authz
   ORG_GRADLE_PROJECT_transformsShrinkwrapServiceUri:
     uri-role: shrinkwrap-service-api
+  ORG_GRADLE_PROJECT_transformsServiceUri:
+    uri-role: transforms-service-api
   ORG_GRADLE_PROJECT_sparkConfigurationServiceUri:
     uri-role: spark-configuration-service-api
   ORG_GRADLE_PROJECT_transformsStreamCatalogUri:
@@ -170,6 +172,13 @@ jobs:
       if [ -n "$gradlePropValue" ]; then
         echo "[Repo level override] ORG_GRADLE_PROJECT_envPackingLogicVersion=$gradlePropValue"
         export ORG_GRADLE_PROJECT_envPackingLogicVersion="$gradlePropValue"
+      fi
+      
+      transformsServicePublishing=1
+      transformsServicePublishingJemmaVersion=${JEMMA_TRANSFORMS_SERVICE_PUBLISHING_VERSION:-0}
+      if [ "$transformsServicePublishing" -eq "$transformsServicePublishingJemmaVersion" ];
+      then
+        export ORG_GRADLE_PROJECT_enableTransformsServicePublishing="true";
       fi
 
       # For more detailed output from CI checks, add "--info" to the end of the "./gradlew" command below.
