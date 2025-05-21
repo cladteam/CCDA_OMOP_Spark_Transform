@@ -65,8 +65,8 @@ def compute(ctx,
     input_fs = input_files.filesystem()
 
     ## codemap_broadcast = ctx.spark_session.sparkContext.broadcast(codemap_dict)  # BROADCAST
-    visitmap_broadcast = ctx.spark_session.sparkContext.broadcast(value_set_map_dict)  # BROADCAST
-    valuemap_broadcast = ctx.spark_session.sparkContext.broadcast(visit_map_dict)  # BROADCAST
+    visitmap_broadcast = ctx.spark_session.sparkContext.broadcast(visit_map_dict)  # BROADCAST
+    valuemap_broadcast = ctx.spark_session.sparkContext.broadcast(value_set_map_dict)  # BROADCAST
 
     def process_file(file_row):
         with input_fs.open(file_row.path, 'rb') as f:
