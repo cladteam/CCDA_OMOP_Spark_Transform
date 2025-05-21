@@ -6,7 +6,7 @@ from ..util import ds_schema
 
 @transform_df(
     Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/location"),
-    omop_eav_dict = Input("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict"),
+    omop_eav_dict = Input("ri.foundry.main.dataset.e103a31f-a2ed-4a69-b91f-184c2f9ec369"),
 )
 def compute(ctx, omop_eav_dict):
 
