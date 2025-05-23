@@ -1,5 +1,6 @@
 from pyspark.sql import functions as F
 from transforms.api import transform_df, Input, Output
+from pyspark.sql.types import IntegerType
 
 
 @transform_df(
@@ -20,7 +21,7 @@ def compute(visits, visit_map):
                  "leftouter")  \
            .select('v.*', 'vm.target_concept_id') 
 
-    df = df.withColumn('visit_concept_id', df.target_concept_id)
+    df = df.withColumn('visit_concept_id', df.target_concept_id.cast(IntegerType()))
     df = df.drop('visit_concept_source_system')
     df = df.drop('visit_concept_source_code')
 
@@ -29,7 +30,7 @@ def compute(visits, visit_map):
         'visit_source_value', 'person_id', 'visit_occurrence_id', 'visit_source_concept_id',
         'preceding_visit_occurrence_id', 'discharge_to_concept_id', 'admitting_source_concept_id',
         'care_site_id', 'provider_id', 'visit_concept_id', 'visit_start_date', 'visit_start_datetime',
-       'visit_end_date', 'visit_end_datetime', 'visit_type_concept_id', 'admitting_source_value',
+        'visit_end_date', 'visit_end_datetime', 'visit_type_concept_id', 'admitting_source_value',
         'discharge_to_source_value', 
         'filename'
     ]) 
