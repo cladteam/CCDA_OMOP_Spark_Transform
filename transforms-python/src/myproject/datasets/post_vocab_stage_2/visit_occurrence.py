@@ -9,7 +9,8 @@ from transforms.api import transform_df, Input, Output
 
 )
 def compute(visits, visit_map):
-    split_source_value = F.split(visits.visit_source_value, '\\|') # splits on a regex, escape the 'or'
+    #split_source_value = F.split(visits.visit_source_value, '\\|') # splits on a regex, escape the 'or'
+    split_source_value = F.split(visits.visit_source_value, '|') # splits on a regex, escape the 'or'
     df = visits.withColumn('visit_concept_source_system', split_source_value.getItem(0)) \
                .withColumn('visit_concept_source_code', split_source_value.getItem(1))
 
@@ -17,8 +18,8 @@ def compute(visits, visit_map):
            .join(visit_map.alias('vm'), \
                  (df.visit_concept_source_system == visit_map.codeSystem) & \
                  (df.visit_concept_source_code == visit_map.src_cd), \
-                 "leftouter") \
-           .select('v.*', 'vm.target_concept_id') 
+                 "leftouter") 
+#           .select('v.*', 'vm.target_concept_id') 
 
     df = df.withColumn('visit_concept_id', df.target_concept_id)
 #    df = df.drop('visit_concept_source_system')
