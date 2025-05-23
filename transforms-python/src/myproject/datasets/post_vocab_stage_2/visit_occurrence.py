@@ -21,8 +21,8 @@ def compute(visits, visit_map):
            .select('v.*', 'vm.target_concept_id') 
 
     df = df.withColumn('visit_concept_id', df.target_concept_id)
-    df = df.drop('visit_concept_source_system')
-    df = df.drop('visit_concept_source_code')
+#    df = df.drop('visit_concept_source_system')
+#    df = df.drop('visit_concept_source_code')
 
     
     df = visits.select([
