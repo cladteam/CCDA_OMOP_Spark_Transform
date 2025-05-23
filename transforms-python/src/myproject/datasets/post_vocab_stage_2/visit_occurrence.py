@@ -25,7 +25,7 @@ def compute(visits, visit_map):
     df = df.drop('visit_concept_source_code')
 
     
-    df = visits.select([
+    df = df.select([
         'visit_source_value', 'person_id', 'visit_occurrence_id', 'visit_source_concept_id',
         'preceding_visit_occurrence_id', 'discharge_to_concept_id', 'admitting_source_concept_id',
         'care_site_id', 'provider_id', 'visit_concept_id', 'visit_start_date', 'visit_start_datetime',
