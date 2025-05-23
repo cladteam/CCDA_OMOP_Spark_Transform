@@ -1,5 +1,6 @@
 from pyspark.sql import functions as F
 from transforms.api import transform_df, Input, Output
+from pyspark.sql.types import IntegerType
 
 
 @transform_df(
@@ -16,7 +17,8 @@ def compute(df, valueset_map):
                  (F.col('cm.codeSystem') == "2.16.840.1.113883.5.1"), \
                  "leftouter") \
            .select('m.*', 'cm.target_concept_id')
-    df = df.withColumn('gender_concept_id', df.target_concept_id)
+    df = df.withColumn('gender_concept_id', df.target_concept_id.cast(IntegerType()))
+
     df = df. drop("target_concept_id")
 
 
@@ -27,7 +29,7 @@ def compute(df, valueset_map):
                  (F.col('cm.codeSystem') == '2.16.840.1.113883.5.104'), \
                   "leftouter") \
           .select('m.*', 'cm.target_concept_id')
-    df = df.withColumn('race_concept_id', df.target_concept_id)
+    df = df.withColumn('race_concept_id', df.target_concept_id.cast(IntegerType()))
     df = df. drop("target_concept_id")
 
 
@@ -38,7 +40,7 @@ def compute(df, valueset_map):
                  (F.col('cm.codeSystem') ==  '2.16.840.1.113883.6.238'), \
                  "leftouter") \
            .select('m.*', 'cm.target_concept_id')
-    df = df.withColumn('ethnicity_concept_id', df.target_concept_id)
+    df = df.withColumn('ethnicity_concept_id', df.target_concept_id.cast(IntegerType()))
     df = df. drop("target_concept_id")
 
     return(df)
