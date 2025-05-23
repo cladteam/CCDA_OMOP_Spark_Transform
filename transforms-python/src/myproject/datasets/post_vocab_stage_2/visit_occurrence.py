@@ -26,13 +26,13 @@ def compute(visits, visit_map):
 #    df = df.drop('visit_concept_source_code')
 
     
-    df = visits.select([
-        'visit_source_value', 'person_id', 'visit_occurrence_id', 'visit_source_concept_id',
-        'preceding_visit_occurrence_id', 'discharge_to_concept_id', 'admitting_source_concept_id',
-        'care_site_id', 'provider_id', 'visit_concept_id', 'visit_start_date', 'visit_start_datetime',
-        'visit_end_date', 'visit_end_datetime', 'visit_type_concept_id', 'admitting_source_value',
-        'discharge_to_source_value', 
-        'filename'
-    ]) 
+#    df = visits.select([
+#        'visit_source_value', 'person_id', 'visit_occurrence_id', 'visit_source_concept_id',
+#        'preceding_visit_occurrence_id', 'discharge_to_concept_id', 'admitting_source_concept_id',
+#        'care_site_id', 'provider_id', 'visit_concept_id', 'visit_start_date', 'visit_start_datetime',
+#        'visit_end_date', 'visit_end_datetime', 'visit_type_concept_id', 'admitting_source_value',
+#        'discharge_to_source_value', 
+#        'filename'
+#    ]) 
 
     return df
