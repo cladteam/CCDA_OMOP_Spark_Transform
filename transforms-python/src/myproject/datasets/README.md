@@ -34,6 +34,10 @@ To make this go:
 - [ ] use the build menu, hammer icon, to set up a recurring schedule on omop_eav_dict.py to repeat every 20 minutes or so. If the time increment is too small, it will wait for the current batch to finish. If it's too big, it won't start the next batch until that amount of time has passed even it the current batch has finished. I haven't tried setting it to 5 minutes....
 
 ### Detail of Setting a Schedule
+- start the first build with the hammer icon and "build" text in the row at the top right of Foundry.
+- find the dataset and choose Schedules tab on the left.
+- create a new schedule to run at a specific time and specify every 20 minutes.
+- go back to the build window from step one and monitor the builds. 
 
 ## Running builds on the first 1000 files.
 This is easy, just run the code after modifying the filenames and don't  set up a repeating build.
