@@ -42,6 +42,6 @@ This is easy, just run the code after modifying the filenames and don't  set up 
 ## Running Builds on 1000 files from deeper in the retrieved set. 
 TBD. 
 
-## If in development mode, please do this in a branch. 
+## If in development mode, please do this in a branch or change the name of the file. 
 The master datasets may be in use by people working on DQ or something and an incomplete set may be inconvenient for them.
-
+As I recall there are steps with the other pipelines that will only read from master, so it doesn't always work to use a branch. Changing the name of the omop_eav_file protects the investment of time building that. It doesn't solve the branch problem for the OMOP tables though. TBD
