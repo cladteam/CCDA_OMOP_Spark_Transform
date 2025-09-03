@@ -2,18 +2,28 @@
 
 ## Overview
 
-Python is the most comprehensive language for authoring data transformations from within Foundry. Python Transforms include support for batch and incremental pipelines, creating and sharing reusable code libraries, and defining data expectations to ensure high quality data pipelines.
+This code repo is the primary transformation repo for ingesting CCDA formatted source data and outputting OMOP formatted
+ data that is indended to be research-read.
 
-To get started, open repo://transforms-python/src/myproject/datasets/examples.py and uncomment the example transform.
+It is based in Python and PySpark, and implemented in Palantir Foundry.
 
-## Local Development
+A substantial amount of mapping logic lives in a a separate repo named `CCDA_OMOP_Conversion_Package`. The functional
+breakout between these repos is below:
 
-It is possible to carry out high-speed, iterative development of Python Transforms locally. To get started, click the "Work locally" button in the top right.
+- CCDA OMOP Spark Transform (this repo): Data movement, spark implememntation, and post-processing. 
+    `Many transforms import CCDA_OMOP_Conversion_Package`
+- CCDA_OMOP_Conversion_Package: Parsing functions for CCDA XML files and configuration that maps CCDA to OMOP
+
+## Jupyter Development
+
+Spark is powerful, but there is an overhead to spin up spark resources. It may be useful to develop more quickly and
+iteratively in the Jupyter notebook within Foundry.
 
 ## Unit Testing
 
-Unit testing is supported in Python transforms. Tests can be enabled by applying the `com.palantir.transforms.lang.pytest-defaults` Gradle plugin in the Python project repo://transforms-python/build.gradle file.
+It is expected that all changes to this repo are performed via a branch and PR process. PRs should pass unit tests with 
+basic test data prior to be marked as "ready" for review and potential merging into `master`.
 
-## Data Expectations
+## Project Docs
 
-Data Expectations can be set up in a Python transforms repository. To get started, open the library search panel on the left side of your Code Repository, search for `transforms-expectations`, and click on "Add library" within the library tab.
+Project documentation can be found on Google Drive [here](https://drive.google.com/drive/folders/1CVrA7moPrzp2k9w9TIEfv-RtAL2A6WTl).
