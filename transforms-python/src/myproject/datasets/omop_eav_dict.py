@@ -19,7 +19,7 @@ from ..util.omop_eav_dict_common import get_codemap_dict
 from ..util.omop_eav_dict_common import get_valueset_dict
 from ..util.omop_eav_dict_common import get_visit_dict
 
-STEP_SIZE=1000
+STEP_SIZE=10
 """ All In
     has batches
     has broadcast variables, but not for codemap (too big)
@@ -37,8 +37,8 @@ record_schema = T.StructType([
 @incremental(semantic_version=1, snapshot_inputs=["input_files"] )
 @configure(profile=['DRIVER_MEMORY_EXTRA_LARGE', 'EXECUTOR_MEMORY_LARGE', 'NUM_EXECUTORS_64'])
 @transform(
-    omop_eav_dict = Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_Aug7"),
-    previous_files = Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_Aug7_record"),
+    omop_eav_dict = Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_Sep12"),
+    previous_files = Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_Sep12_record"),
     input_files=Input("ri.foundry.main.dataset.8c8ff8f9-d429-4396-baed-a3de9c945f49"),
     visit_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/visit_concept_xwalk_mapping_dataset"),
     valueset_xwalk_ds = Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/ccda_value_set_mapping_table_dataset") )

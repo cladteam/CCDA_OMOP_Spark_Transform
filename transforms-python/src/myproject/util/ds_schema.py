@@ -143,23 +143,28 @@ domain_dataset_schema = {
     T.StructField('verbatim_end_date', T.DateType(), True),                 # 8
     T.StructField('visit_occurrence_id', T.LongType(), True),               #18
     T.StructField('provider_id', T.LongType(), True),                       #17
+
     T.StructField('days_supply', T.IntegerType(), True),                    #13
     T.StructField('quantity', T.FloatType(), True),                         #12
     T.StructField('person_id', T.LongType(), True),                         # 2
     T.StructField('drug_exposure_id', T.LongType(), True),                  # 1
     T.StructField('drug_concept_id', T.IntegerType(), True),                # 3
+
     T.StructField('drug_exposure_start_date', T.DateType(), True),          # 4
     T.StructField('drug_exposure_start_datetime', T.TimestampType(), True), # 5
     T.StructField('drug_exposure_end_date', T.DateType(), True),            # 6
+
     T.StructField('drug_exposure_end_datetime', T.TimestampType(), True),   # 7
     T.StructField('drug_type_concept_id', T.IntegerType(), True),           # 9
     T.StructField('stop_reason', T.StringType(), True),                     #10
     T.StructField('refills', T.IntegerType(), True),                        #11
+
     T.StructField('route_concept_id', T.IntegerType(), True),               #15
     T.StructField('lot_number', T.StringType(), True),                      #16
     T.StructField('drug_source_value', T.StringType(), True),               #20
     T.StructField('drug_source_concept_id', T.IntegerType(), True),         #21
     T.StructField('route_source_value', T.StringType(), True),              #22
+    
     T.StructField('dose_unit_source_value', T.StringType(), True),          #23
     T.StructField('filename', T.StringType(), True)
 #    T.StructField('drug_concept_name', T.StringType(), True),
