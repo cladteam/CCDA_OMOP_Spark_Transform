@@ -14,7 +14,7 @@ java-version: java_17
 
 env:
   transformsGradleDistributionUrl:
-    uri-role: gradle-distribution-7-6-4
+    uri-role: gradle-distribution-8-12-1
   ORG_GRADLE_PROJECT_transformsBuildUriV2:
     uri-role: build2-api
   ORG_GRADLE_PROJECT_transformsCompassUri:
@@ -104,15 +104,15 @@ jobs:
       }
       maxJvmHeapMB=2048
       if [ -z ${KUBERNETES_PORT+x} ]; then 
-        maxJvmHeapMB=630
+        maxJvmHeapMB=1024
       fi
-      export JAVA_OPTS="-Xmx${maxJvmHeapMB}m -Djavax.net.ssl.trustStore=${STEMMA_DEFAULT_TRUST_STORE_PATH} -Dfile.encoding=UTF8 --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.cs=ALL-UNNAMED --add-opens=java.base/sun.security.action=ALL-UNNAMED --add-opens=java.base/sun.util.calendar=ALL-UNNAMED"
+      export GRADLE_OPTS="-Dorg.gradle.jvmargs='-Xmx${maxJvmHeapMB}m' -Djavax.net.ssl.trustStore=${STEMMA_DEFAULT_TRUST_STORE_PATH} -Dfile.encoding=UTF8 -Dgradle.wrapperUser='' -Dgradle.wrapperPassword=${JOB_TOKEN}"
+      export JAVA_OPTS="-Dorg.gradle.jvmargs='-Xmx${maxJvmHeapMB}m' -Djavax.net.ssl.trustStore=${STEMMA_DEFAULT_TRUST_STORE_PATH} -Dfile.encoding=UTF8 -Dgradle.wrapperUser='' -Dgradle.wrapperPassword=${JOB_TOKEN}"
       export ORG_GRADLE_PROJECT_transformsTrustStore="${STEMMA_DEFAULT_TRUST_STORE_PATH}"
       export ORG_GRADLE_PROJECT_transformsBearerToken="${JOB_TOKEN}"
       export ORG_GRADLE_PROJECT_transformsRepoRid="${REPOSITORY_RID}"
       export ORG_GRADLE_PROJECT_clonedArtifactsRepoRid="${CLONED_ARTIFACTS_REPOSITORY_RID}"
       export ORG_GRADLE_PROJECT_transformsMavenProxyRepoUri="${ORG_GRADLE_PROJECT_artifactsUri}/repositories/${REPOSITORY_RID}/contents/migration/maven"
-      export GRADLE_OPTS="-Dgradle.wrapperUser='' -Dgradle.wrapperPassword=${JOB_TOKEN}"
       export ORG_GRADLE_PROJECT_autoConfigureBackingRepositories="true"
       export ORG_GRADLE_PROJECT_branchIsProtected=${JEMMA_IS_PROTECTED_BRANCH:-"false"}
 
@@ -179,6 +179,27 @@ jobs:
       if [ "$transformsServicePublishing" -eq "$transformsServicePublishingJemmaVersion" ];
       then
         export ORG_GRADLE_PROJECT_enableTransformsServicePublishing="true";
+      fi
+      
+      transformsServiceGraphChecking=1
+      transformsServiceGraphCheckingJemmaVersion=${JEMMA_TRANSFORMS_SERVICE_GRAPH_CHECKING_VERSION:-0}
+      if [ "$transformsServiceGraphChecking" -eq "$transformsServiceGraphCheckingJemmaVersion" ];
+      then
+        export ORG_GRADLE_PROJECT_enableTransformsServiceGraphChecking="true";
+      fi
+
+      transformsServiceShrinkwrapRendering=1
+      transformsServiceShrinkwrapRenderingJemmaVersion=${JEMMA_TRANSFORMS_SERVICE_SHRINKWRAP_RENDERING_VERSION:-0}
+      if [ "$transformsServiceShrinkwrapRendering" -eq "$transformsServiceShrinkwrapRenderingJemmaVersion" ];
+      then
+        export ORG_GRADLE_PROJECT_enableTransformsServiceShrinkwrapRendering="true";
+      fi
+
+      maestroPackageBuildingVersion=1
+      maestroPackageBuildingVersionJemmaVersion=${JEMMA_MAESTRO_PACKAGE_BUILDING_VERSION:-0}
+      if [ "$maestroPackageBuildingVersion" -eq "$maestroPackageBuildingVersionJemmaVersion" ];
+      then
+        export ORG_GRADLE_PROJECT_enableMaestroPackageBuildingVersion="true";
       fi
 
       # For more detailed output from CI checks, add "--info" to the end of the "./gradlew" command below.
