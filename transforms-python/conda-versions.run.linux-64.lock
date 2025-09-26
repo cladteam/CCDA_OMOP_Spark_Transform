@@ -33,7 +33,7 @@ brotli-python=1.1.0=py312h1289d80_4 @ linux-64
 bzip2=1.0.8=hda65f42_8 @ linux-64
 c-ares=1.34.5=hb9d3cd8_0 @ linux-64
 ca-certificates=2025.8.3=hbd8a1cb_0 @ noarch
-ccda-omop-conversion-package=2.4.0=py_0 @ noarch
+ccda-omop-conversion-package=2.5.0=py_0 @ noarch
 certifi=2025.8.3=pyhd8ed1ab_0 @ noarch
 cffi=2.0.0=py312h35888ee_0 @ linux-64
 charset-normalizer=3.4.3=pyhd8ed1ab_0 @ noarch
@@ -51,6 +51,7 @@ glog=0.7.1=hbabe93e_0 @ linux-64
 h2=4.3.0=pyhcf101f3_0 @ noarch
 hpack=4.1.0=pyhd8ed1ab_0 @ noarch
 hyperframe=6.1.0=pyhd8ed1ab_0 @ noarch
+icu=75.1=he02047a_0 @ linux-64
 idna=3.10=pyhd8ed1ab_1 @ noarch
 importlib-metadata=8.7.0=pyhe01879c_1 @ noarch
 jmespath=1.0.1=pyhd8ed1ab_1 @ noarch
@@ -94,15 +95,15 @@ libopentelemetry-cpp=1.21.0=hb9b0907_1 @ linux-64
 libparquet=21.0.0=h790f06f_6_cpu @ linux-64
 libprotobuf=6.31.1=h9ef548d_1 @ linux-64
 libre2-11=2025.08.12=h7b12aa8_1 @ linux-64
-libsqlite=3.50.4=h0c1763c_0 @ linux-64
-libssh2=1.11.1=hf672d98_0 @ linux-64
+libsqlite=3.50.4=hee844dc_0 @ linux-64
+libssh2=1.11.1=hcf80075_0 @ linux-64
 libstdcxx-ng=15.1.0=h4852527_5 @ linux-64
 libstdcxx=15.1.0=h8f9b012_5 @ linux-64
 libthrift=0.22.0=h454ac66_1 @ linux-64
 libutf8proc=2.11.0=hb04c3b8_0 @ linux-64
 libuuid=2.41.2=he9a06e4_0 @ linux-64
 libxcrypt=4.4.36=hd590300_1 @ linux-64
-libxml2=2.13.8=h2cb61b6_1 @ linux-64
+libxml2=2.13.8=h04c0eec_1 @ linux-64
 libxslt=1.1.43=h7a3aeb2_0 @ linux-64
 libzlib=1.3.1=hb9d3cd8_2 @ linux-64
 lxml=6.0.2=py312h70dad80_0 @ linux-64
@@ -135,7 +136,7 @@ python-tzdata=2025.2=pyhd8ed1ab_0 @ noarch
 python=3.12.11=h9e4cc4f_0_cpython @ linux-64
 python_abi=3.12=8_cp312 @ noarch
 pytz=2025.2=pyhd8ed1ab_0 @ noarch
-pyyaml=6.0.2=py312h178313f_2 @ linux-64
+pyyaml=6.0.3=py312h8a5da7c_0 @ linux-64
 re2=2025.08.12=h5301d42_1 @ linux-64
 readline=8.2=h8c095d6_2 @ linux-64
 regex=2025.9.18=py312h4c3975b_0 @ linux-64
@@ -180,4 +181,4 @@ typing-extensions==4.15.0
 tzdata==2025.2
 
 [Conda lock version]
-v2 - 2cb074dccda54fba8dbc828b769654176348793403e22d3a59f54bb975c2caaf
+v2 - ea71876672bfe926aeb00cbd7308b6238634709b911188531a19b61b774ac195
