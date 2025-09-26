@@ -15,9 +15,9 @@ from ..util.omop_eav_dict_common import omop_dict_schema
 from ..util.omop_eav_dict_common import concat_key
 from ..util.omop_eav_dict_common import lookup_key_value
 from ..util.omop_eav_dict_common import flatten_and_stringify_record_dict
-from ..util.omop_eav_dict_common import get_codemap_dict
-from ..util.omop_eav_dict_common import get_valueset_dict
-from ..util.omop_eav_dict_common import get_visit_dict
+from ..util.omop_eav_dict_common import get_codemap_dict_list
+from ..util.omop_eav_dict_common import get_valueset_dict_list
+from ..util.omop_eav_dict_common import get_visit_dict_list
 
 STEP_SIZE=10
 """ All In
@@ -57,9 +57,9 @@ def compute(ctx,
 
     omop_eav_dict.set_mode("modify")
 
-    ## codemap_dict = get_codemap_dict(codemap_xwalk_ds)
-    value_set_map_dict = get_valueset_dict(valueset_xwalk_ds)
-    visit_map_dict = get_visit_dict(visit_xwalk_ds)
+    ## codemap_dict = get_codemap_dict_list(codemap_xwalk_ds)
+    value_set_map_dict = get_valueset_dict_list(valueset_xwalk_ds)
+    visit_map_dict = get_visit_dict_list(visit_xwalk_ds)
 
     doc_regex = re.compile(r'(<ClinicalDocument.*?</ClinicalDocument>)', re.DOTALL)
     input_fs = input_files.filesystem()

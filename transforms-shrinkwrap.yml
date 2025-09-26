@@ -240,6 +240,16 @@ mappings:
   - "READ"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.e7cffb05-b790-4304-8d4f-53078160cc99"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/scratch/Lakshmi/omop_eav_dict_LA1"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.0de63f13-e545-4ac8-ba59-eea3069371fc"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/scratch/Lakshmi/process_file_log_LA1"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.2b80bd23-9d3c-444c-93dc-e5cea6a28d22"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/ccda_value_set_mapping_table_dataset"
   modes:
   - "READ"
@@ -266,6 +276,11 @@ mappings:
   - "READ"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.5ba1594c-ef36-4eeb-b6c4-d3d005dbd127"
+- alias: "ri.foundry.main.dataset.832f8106-d7ee-4364-9082-d48c49302dd8"
+  modes:
+  - "READ"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.832f8106-d7ee-4364-9082-d48c49302dd8"
 - alias: "ri.foundry.main.dataset.877bc6a8-2ec1-4b21-9794-4ad02cc27e30"
   modes:
   - "READ"

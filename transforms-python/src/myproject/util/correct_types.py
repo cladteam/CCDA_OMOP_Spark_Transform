@@ -129,6 +129,7 @@ def correct_types_in_record_list(domain_name, record_list):
     table_name = domain_name_to_table_name[domain_name]
 
     if table_name in domain_dataframe_column_types.keys():
+        
         for column_name, intended_column_type in domain_dataframe_column_types[table_name].items():
             correct_record_list(record_list, column_name, intended_column_type, domain_name)
             check_record_list(record_list, column_name, intended_column_type, domain_name)
@@ -136,3 +137,5 @@ def correct_types_in_record_list(domain_name, record_list):
     else:
         msg=f"no bueno {domain_name} {domain_name} {table_name}"
         raise Exception(msg)
+
+
