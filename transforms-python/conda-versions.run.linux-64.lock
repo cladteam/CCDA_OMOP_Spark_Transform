@@ -33,17 +33,17 @@ brotli-python=1.1.0=py312h1289d80_4 @ linux-64
 bzip2=1.0.8=hda65f42_8 @ linux-64
 c-ares=1.34.5=hb9d3cd8_0 @ linux-64
 ca-certificates=2025.8.3=hbd8a1cb_0 @ noarch
-ccda-omop-conversion-package=2.5.0=py_0 @ noarch
+ccda-omop-conversion-package=2.6.0=py_0 @ noarch
 certifi=2025.8.3=pyhd8ed1ab_0 @ noarch
 cffi=2.0.0=py312h35888ee_0 @ linux-64
 charset-normalizer=3.4.3=pyhd8ed1ab_0 @ noarch
 conjure-python-client=2.12.0=pyhd8ed1ab_1 @ noarch
 cpython=3.12.11=py312hd8ed1ab_0 @ noarch
-data-health-api=1.1283.0=py_0 @ noarch
+data-health-api=1.1292.0=py_0 @ noarch
 decorator=5.2.1=pyhd8ed1ab_0 @ noarch
-foundry-container-sidecar-api=0.1972.0=py_0 @ noarch
+foundry-container-sidecar-api=0.1982.0=py_0 @ noarch
 foundry-data-sidecar-api=0.836.0=py_0 @ noarch
-foundry-transforms-lib-python=0.942.0=py_0 @ noarch
+foundry-transforms-lib-python=0.944.0=py_0 @ noarch
 frozenlist=1.7.0=py312h447239a_0 @ linux-64
 fsspec=2025.9.0=pyhd8ed1ab_0 @ noarch
 gflags=2.2.2=h5888daf_1005 @ linux-64
@@ -51,7 +51,6 @@ glog=0.7.1=hbabe93e_0 @ linux-64
 h2=4.3.0=pyhcf101f3_0 @ noarch
 hpack=4.1.0=pyhd8ed1ab_0 @ noarch
 hyperframe=6.1.0=pyhd8ed1ab_0 @ noarch
-icu=75.1=he02047a_0 @ linux-64
 idna=3.10=pyhd8ed1ab_1 @ noarch
 importlib-metadata=8.7.0=pyhe01879c_1 @ noarch
 jmespath=1.0.1=pyhd8ed1ab_1 @ noarch
@@ -73,7 +72,7 @@ libcrc32c=1.1.2=h9c3ff4c_0 @ linux-64
 libcurl=8.14.1=h332b0f4_0 @ linux-64
 libedit=3.1.20250104=pl5321h7949ede_0 @ linux-64
 libev=4.33=hd590300_2 @ linux-64
-libevent=2.1.12=hf998b51_1 @ linux-64
+libevent=2.1.12=hdbd6064_1 @ linux-64
 libexpat=2.7.1=hecca717_0 @ linux-64
 libffi=3.4.6=h2dba641_1 @ linux-64
 libgcc-ng=15.1.0=h69a702a_5 @ linux-64
@@ -95,15 +94,15 @@ libopentelemetry-cpp=1.21.0=hb9b0907_1 @ linux-64
 libparquet=21.0.0=h790f06f_6_cpu @ linux-64
 libprotobuf=6.31.1=h9ef548d_1 @ linux-64
 libre2-11=2025.08.12=h7b12aa8_1 @ linux-64
-libsqlite=3.50.4=hee844dc_0 @ linux-64
-libssh2=1.11.1=hcf80075_0 @ linux-64
+libsqlite=3.50.4=h0c1763c_0 @ linux-64
+libssh2=1.11.1=hf672d98_0 @ linux-64
 libstdcxx-ng=15.1.0=h4852527_5 @ linux-64
 libstdcxx=15.1.0=h8f9b012_5 @ linux-64
 libthrift=0.22.0=h454ac66_1 @ linux-64
 libutf8proc=2.11.0=hb04c3b8_0 @ linux-64
 libuuid=2.41.2=he9a06e4_0 @ linux-64
 libxcrypt=4.4.36=hd590300_1 @ linux-64
-libxml2=2.13.8=h04c0eec_1 @ linux-64
+libxml2=2.13.8=h2cb61b6_1 @ linux-64
 libxslt=1.1.43=h7a3aeb2_0 @ linux-64
 libzlib=1.3.1=hb9d3cd8_2 @ linux-64
 lxml=6.0.2=py312h70dad80_0 @ linux-64
@@ -148,7 +147,7 @@ six=1.17.0=pyhe01879c_1 @ noarch
 snappy=1.2.2=h03e3b7b_0 @ linux-64
 tables-api=0.1066.0=py_0 @ noarch
 tk=8.6.13=noxft_hd72426e_102 @ linux-64
-transforms-container-ops-python=0.141.0rc1=py312 @ linux-64
+transforms-container-ops-python=0.144.0rc1=py312 @ linux-64
 transforms-expectations=0.987.0=py_0 @ noarch
 transforms-preview=0.987.0=py_0 @ noarch
 transforms-verbs=0.987.0=py_0 @ noarch
@@ -181,4 +180,4 @@ typing-extensions==4.15.0
 tzdata==2025.2
 
 [Conda lock version]
-v2 - ea71876672bfe926aeb00cbd7308b6238634709b911188531a19b61b774ac195
+v2 - e8faf44141d2d734b3b23334933a41bfdd5bea2529c7d03a3686c6bc30b9db6c
