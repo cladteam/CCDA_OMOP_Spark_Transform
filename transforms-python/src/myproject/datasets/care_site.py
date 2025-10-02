@@ -5,7 +5,7 @@ from ..util import ds_schema
 
 @transform_df(
     Output("ri.foundry.main.dataset.001d3357-81c1-4d8c-a44b-e2a63a9b7a4c"),
-    omop_eav_dict = Input("ri.foundry.main.dataset.e103a31f-a2ed-4a69-b91f-184c2f9ec369"),
+    omop_eav_dict = Input("ri.foundry.main.dataset.380d0b16-2268-4afc-85b4-12193705af00"),
 )
 def compute(ctx, omop_eav_dict):
    # OMOP_EAV_DICT is domain_name, key_type, key_value, field_name, field_value
