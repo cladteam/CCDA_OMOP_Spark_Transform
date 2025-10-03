@@ -5,7 +5,7 @@ from pyspark.sql import types as T
 
 @transform_df(
     Output("ri.foundry.main.dataset.e34c8928-d1c1-4b4e-8026-e6024e6afdbb"),
-    omop_eav_dict=Input("ri.foundry.main.dataset.380d0b16-2268-4afc-85b4-12193705af00"),
+    omop_eav_dict=Input("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_Oct03_weekly"),
 )
 def compute(ctx, omop_eav_dict):
     df = omop_eav_dict.select('key_value', 'field_name', 'field_value') \
