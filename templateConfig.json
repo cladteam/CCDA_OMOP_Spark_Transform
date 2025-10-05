@@ -3,8 +3,8 @@
   "childTemplatesByPath" : {
     "transforms-python" : "python"
   },
-  "parentTemplateVersion" : "10.33.0",
+  "parentTemplateVersion" : "10.37.0",
   "childTemplateVersionsByPath" : {
-    "transforms-python" : "1.1000.0"
+    "transforms-python" : "1.1008.0"
   }
 }

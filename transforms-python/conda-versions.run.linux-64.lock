@@ -32,9 +32,9 @@ botocore=1.40.18=pyhd8ed1ab_0 @ noarch
 brotli-python=1.1.0=py312h1289d80_4 @ linux-64
 bzip2=1.0.8=hda65f42_8 @ linux-64
 c-ares=1.34.5=hb9d3cd8_0 @ linux-64
-ca-certificates=2025.8.3=hbd8a1cb_0 @ noarch
+ca-certificates=2025.10.5=hbd8a1cb_0 @ noarch
 ccda-omop-conversion-package=2.12.0=py_0 @ noarch
-certifi=2025.8.3=pyhd8ed1ab_0 @ noarch
+certifi=2025.10.5=pyhd8ed1ab_0 @ noarch
 cffi=2.0.0=py312h35888ee_0 @ linux-64
 charset-normalizer=3.4.3=pyhd8ed1ab_0 @ noarch
 conjure-python-client=2.12.0=pyhd8ed1ab_1 @ noarch
@@ -95,7 +95,7 @@ libopentelemetry-cpp=1.21.0=hb9b0907_1 @ linux-64
 libparquet=21.0.0=h790f06f_8_cpu @ linux-64
 libprotobuf=6.31.1=h9ef548d_1 @ linux-64
 libre2-11=2025.08.12=h7b12aa8_1 @ linux-64
-libsqlite=3.50.4=h0c1763c_0 @ linux-64
+libsqlite=3.50.4=hee844dc_0 @ linux-64
 libssh2=1.11.1=hcf80075_0 @ linux-64
 libstdcxx-ng=15.1.0=h4852527_5 @ linux-64
 libstdcxx=15.1.0=h8f9b012_5 @ linux-64
@@ -129,8 +129,8 @@ pyarrow-core=21.0.0=py312hc195796_1_cpu @ linux-64
 pyarrow=21.0.0=py312h7900ff3_1 @ linux-64
 pycparser=2.22=pyh29332c3_1 @ noarch
 pysocks=1.7.1=pyha55dd90_7 @ noarch
-pyspark-src=3.5.5.23=py_0 @ noarch
-pyspark=3.5.5.23=py_0 @ noarch
+pyspark-src=3.5.5.25=py_0 @ noarch
+pyspark=3.5.5.25=py_0 @ noarch
 python-dateutil=2.9.0.post0=pyhe01879c_2 @ noarch
 python-gil=3.12.11=hd8ed1ab_0 @ noarch
 python-tzdata=2025.2=pyhd8ed1ab_0 @ noarch
@@ -153,7 +153,7 @@ transforms-container-ops-python=0.144.0rc1=py312 @ linux-64
 transforms-expectations=0.1005.0=py_0 @ noarch
 transforms-preview=0.1005.0=py_0 @ noarch
 transforms-verbs=0.1005.0=py_0 @ noarch
-transforms=3.71.0=py_0 @ noarch
+transforms=3.99.0=py_0 @ noarch
 typeguard=4.4.4=pyhd8ed1ab_0 @ noarch
 typing-extensions=4.15.0=h396c80c_0 @ noarch
 typing_extensions=4.15.0=pyhcf101f3_0 @ noarch
@@ -182,4 +182,4 @@ typing-extensions==4.15.0
 tzdata==2025.2
 
 [Conda lock version]
-v2 - ac3c48d48aaa074e4d35335d99f3f5f8ca39c9acacfa62ed35c9ced34ef26c5b
+v2 - 9743fbf2d29f1689111379d196d445ccca0f3bac3a45934d4e2e4a08bc9c4999
