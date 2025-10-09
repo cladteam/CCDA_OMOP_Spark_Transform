@@ -2,10 +2,11 @@ from pyspark.sql import functions as F
 from pyspark.sql import types as T
 from transforms.api import transform_df, Input, Output
 from ..util import ds_schema
+from . import OMOP_EAV_DICT_FULL_PATH, OUTPUT_FULL_BASE_PATH
 
 @transform_df(
-    Output("ri.foundry.main.dataset.001d3357-81c1-4d8c-a44b-e2a63a9b7a4c"),
-    omop_eav_dict = Input("ri.foundry.main.dataset.380d0b16-2268-4afc-85b4-12193705af00"),
+    Output(f"{OUTPUT_FULL_BASE_PATH}/care_site"),
+    omop_eav_dict=Input(OMOP_EAV_DICT_FULL_PATH),
 )
 def compute(ctx, omop_eav_dict):
    # OMOP_EAV_DICT is domain_name, key_type, key_value, field_name, field_value

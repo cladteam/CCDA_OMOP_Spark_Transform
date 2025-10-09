@@ -2,10 +2,11 @@ from pyspark.sql import functions as F
 from transforms.api import transform_df, Input, Output
 from ..util import ds_schema
 from pyspark.sql import types as T
+from . import OMOP_EAV_DICT_FULL_PATH, OUTPUT_FULL_BASE_PATH
 
 @transform_df(
-    Output("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/visit_occurrence"),
-    omop_eav_dict = Input("/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_Oct03_weekly"),
+    Output(f"{OUTPUT_FULL_BASE_PATH}/visit_occurrence"),
+    omop_eav_dict=Input(OMOP_EAV_DICT_FULL_PATH),
 )
 def compute(ctx, omop_eav_dict):
     df = omop_eav_dict.select('key_value', 'field_name', 'field_value') \
