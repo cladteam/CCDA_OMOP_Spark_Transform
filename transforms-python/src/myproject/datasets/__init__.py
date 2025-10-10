@@ -2,10 +2,10 @@
 
 # --- INPUT CONFIG  ---
 INPUT_BASE_PATH = "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark"
-INPUT_VERSION = "Oct03_weekly"
+INPUT_VERSION = "Oct10_weekly"
 # This is the complete input path you'll import
 OMOP_EAV_DICT_FULL_PATH = f"{INPUT_BASE_PATH}/omop_eav_dict_{INPUT_VERSION}"
-
+OMOP_EAV_DICT_RECORD_FULL_PATH = f"{INPUT_BASE_PATH}/omop_eav_dict_record{INPUT_VERSION}"
 
 # --- OUTPUT CONFIG ---
 OUTPUT_PARENT_DIR = "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData"
