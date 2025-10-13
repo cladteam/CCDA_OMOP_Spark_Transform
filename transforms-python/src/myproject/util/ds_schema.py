@@ -50,6 +50,7 @@ domain_dataset_schema = {
     T.StructField('ethnicity_source_concept_id', T.IntegerType(), True), #18 !
 
     T.StructField('filename', T.StringType(), True),      #19 !
+    T.StructField('cfg_name', T.StringType(), True),      
     
 #   T.StructField('gender_concept_name', T.StringType(), True),
 #   T.StructField('ethnicity_concept_name', T.StringType(), True),
@@ -88,7 +89,8 @@ domain_dataset_schema = {
     T.StructField('condition_source_value',        T.StringType(), True),        #14
     T.StructField('condition_source_concept_id',   T.IntegerType(), True),  #15
     T.StructField('condition_status_source_value', T.StringType(), True),  #16
-    T.StructField('filename', T.StringType(), True)
+    T.StructField('filename', T.StringType(), True),
+    T.StructField('cfg_name', T.StringType(), True), 
 
 #   T.StructField('condition_concept_name', T.StringType(), True),
 #   T.StructField('condition_type_concept_name', T.StringType(), True),
@@ -129,7 +131,8 @@ domain_dataset_schema = {
     T.StructField('quantity', T.IntegerType(), True),
     T.StructField('device_source_value', T.StringType(), True),
     T.StructField('device_source_concept_id', T.IntegerType(), True),
-    T.StructField('filename', T.StringType(), True)
+    T.StructField('filename', T.StringType(), True),
+    T.StructField('cfg_name', T.StringType(), True),     
 #    T.StructField('device_concept_name', T.StringType(), True),
 #    T.StructField('device_type_concept_name', T.StringType(), True),
 #    T.StructField('device_source_concept_name', T.StringType(), True)
@@ -166,7 +169,8 @@ domain_dataset_schema = {
     T.StructField('route_source_value', T.StringType(), True),              #22
     
     T.StructField('dose_unit_source_value', T.StringType(), True),          #23
-    T.StructField('filename', T.StringType(), True)
+    T.StructField('filename', T.StringType(), True),
+    T.StructField('cfg_name', T.StringType(), True),     
 #    T.StructField('drug_concept_name', T.StringType(), True),
 #    T.StructField('drug_type_concept_name', T.StringType(), True),
 #    T.StructField('route_concept_name', T.StringType(), True),
@@ -196,7 +200,8 @@ domain_dataset_schema = {
     T.StructField('measurement_source_concept_id', T.IntegerType(), True),
     T.StructField('unit_source_value', T.StringType(), True),
     T.StructField('value_source_value', T.StringType(), True),
-    T.StructField('filename', T.StringType(), True)
+    T.StructField('filename', T.StringType(), True),
+    T.StructField('cfg_name', T.StringType(), True),     
 #   T.StructField('measurement_concept_name', T.StringType(), True),
 #   T.StructField('measurement_type_concept_name', T.StringType(), True),
 #   T.StructField('operator_concept_name', T.StringType(), True),
@@ -226,7 +231,8 @@ domain_dataset_schema = {
     T.StructField('qualifier_source_value', T.StringType(), True),
     T.StructField('unit_concept_id', T.IntegerType(), True),
     T.StructField('unit_source_value', T.StringType(), True),
-    T.StructField('filename', T.StringType(), True)
+    T.StructField('filename', T.StringType(), True),
+    T.StructField('cfg_name', T.StringType(), True), 
  #   T.StructField('observation_source_concept_name', T.StringType(), True),
  #   T.StructField('observation_concept_name', T.StringType(), True),
  #   T.StructField('observation_type_concept_name', T.StringType(), True),
@@ -252,7 +258,8 @@ domain_dataset_schema = {
     T.StructField('quantity', T.IntegerType(), True),
     T.StructField('procedure_source_value', T.StringType(), True),
     T.StructField('modifier_source_value', T.StringType(), True),
-    T.StructField('filename', T.StringType(), True)
+    T.StructField('filename', T.StringType(), True),
+    T.StructField('cfg_name', T.StringType(), True),     
  #   T.StructField('procedure_concept_name', T.StringType(), True),
  #   T.StructField('procedure_type_concept_name', T.StringType(), True),
  #   T.StructField('procedure_source_concept_name', T.StringType(), True),
@@ -308,7 +315,8 @@ domain_dataset_schema = {
     T.StructField('visit_type_concept_id', T.IntegerType(), True),
     T.StructField('admitting_source_value', T.StringType(), True),
     T.StructField('discharge_to_source_value', T.StringType(), True),
-    T.StructField('filename', T.StringType(), True)
+    T.StructField('filename', T.StringType(), True),
+    T.StructField('cfg_name', T.StringType(), True),     
 #    T.StructField('visit_concept_name', T.StringType(), True),
 #    T.StructField('visit_type_concept_name', T.StringType(), True),
 #    T.StructField('visit_source_concept_name', T.StringType(), True),
@@ -325,7 +333,8 @@ domain_dataset_schema = {
     T.StructField('place_of_service_concept_id', T.IntegerType(), True),
     T.StructField('care_site_source_value', T.StringType(), True),
     T.StructField('place_of_service_source_value', T.StringType(), True),
-    T.StructField('filename', T.StringType(), True)
+    T.StructField('filename', T.StringType(), True),
+    T.StructField('cfg_name', T.StringType(), True),     
  #   T.StructField('place_of_service_concept_name', T.StringType(), True)
      ]), 
 
@@ -340,7 +349,8 @@ domain_dataset_schema = {
     T.StructField('zip', T.StringType(), True),
     T.StructField('county', T.StringType(), True),
     T.StructField('location_source_value', T.StringType(), True),
-    T.StructField('filename', T.StringType(), True)
+    T.StructField('filename', T.StringType(), True),
+    T.StructField('cfg_name', T.StringType(), True), 
     ]),
 
     'Observation_Period': T.StructType([
@@ -400,7 +410,10 @@ domain_dataset_schema = {
     T.StructField('specialty_source_concept_id', T.IntegerType(), True),
     T.StructField('gender_source_value', T.StringType(), True),
     T.StructField('gender_source_concept_id', T.IntegerType(), True),
-    T.StructField('filename', T.StringType(), True)
+    T.StructField('filename', T.StringType(), True),
+    T.StructField('cfg_name', T.StringType(), True)
+
+
 #   T.StructField('specialty_concept_name', T.StringType(), True),
 #   T.StructField('gender_concept_name', T.StringType(), True),
 #   T.StructField('specialty_source_concept_name', T.StringType(), True),

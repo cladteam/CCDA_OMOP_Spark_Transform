@@ -42,7 +42,7 @@ def compute(ctx, omop_eav_dict):
         'condition_type_concept_id', 'condition_status_concept_id', 'stop_reason',
         'provider_id', 'visit_occurrence_id', 'visit_detail_id',
         'condition_source_value', 'condition_source_concept_id', 'condition_status_source_value',
-        'filename'
+        'filename', 'cfg_name'
     ])
         
 

@@ -25,7 +25,7 @@ def compute(ctx, omop_eav_dict):
 
     df = df.select(['location_id', 'address_1', 'address_2', 'city', 'state', 
                     'zip', 'county', 'location_source_value',
-                    'filename'])
+                    'filename', 'cfg_name'])
     df =ctx.spark_session.createDataFrame(df.rdd, ds_schema.domain_dataset_schema['Location'])
     return(df)
 

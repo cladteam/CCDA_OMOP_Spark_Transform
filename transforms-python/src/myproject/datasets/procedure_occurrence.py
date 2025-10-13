@@ -36,7 +36,7 @@ def compute(ctx, omop_eav_dict):
         'person_id', 'procedure_occurrence_id', 'provider_id', 'modifier_concept_id',
         'procedure_date', 'procedure_datetime', 'procedure_type_concept_id',
         'quantity', 'procedure_source_value', 'modifier_source_value',
-        'filename'
+        'filename', 'cfg_name'
     ])
         
 

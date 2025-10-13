@@ -42,7 +42,7 @@ def compute(ctx, omop_eav_dict):
         'care_site_id',  'person_source_value',  'gender_source_value',  'gender_source_concept_id',
         'race_source_value',  'race_source_concept_id',  'ethnicity_source_value',
         'ethnicity_source_concept_id',
-        'filename'
+        'filename', 'cfg_name'
     ])
 
     df = ctx.spark_session.createDataFrame(df.rdd, ds_schema.domain_dataset_schema['Person'])
