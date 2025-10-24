@@ -35,9 +35,9 @@ def flatten_and_stringify_record_dict(domain_name, record_dict):
 
 
 def get_codemap_dict_list(codemap_ds):
-    narrow = codemap_ds.dataframe().select(['src_vocab_code_system', 'src_code', 'source_concept_id', 'target_domain_id'
-    , 'target_concept_id']).collect()
-    codemap_dict = defaultdict(list)  
+    narrow = codemap_ds.dataframe().select(['src_vocab_code_system', 'src_code', 'source_concept_id', 
+                                            'target_domain_id',    'target_concept_id']).collect()
+    codemap_dict = defaultdict(list)
     for row in narrow:
         key = (row['src_vocab_code_system'], row['src_code'])
         value = {
@@ -48,9 +48,9 @@ def get_codemap_dict_list(codemap_ds):
         codemap_dict[key].append(value)  # Append to list
     return codemap_dict
 
-def get_valueset_dict_list(codemap_ds):
-    narrow = codemap_ds.dataframe().select(['codeSystem', 'src_cd', 'target_domain_id', 'target_concept_id']).collect()
-    codemap_dict = defaultdict(list)  
+def get_valueset_dict_list(valuemap_ds):
+    narrow = valuemap_ds.dataframe().select(['codeSystem', 'src_cd', 'target_domain_id', 'target_concept_id']).collect()
+    valuemap_dict = defaultdict(list)
     for row in narrow:
         key = (row['codeSystem'], row['src_cd'])
         value = {
@@ -58,13 +58,13 @@ def get_valueset_dict_list(codemap_ds):
             'target_domain_id': row['target_domain_id'],
             'target_concept_id': row['target_concept_id']
         }
-        codemap_dict[key].append(value)  # Append to list
-    return codemap_dict
+        valuemap_dict[key].append(value)  # Append to list
+    return valuemap_dict
 
 
-def get_visit_dict_list(codemap_ds):
-    narrow = codemap_ds.dataframe().select(['codeSystem', 'src_cd', 'target_domain_id', 'target_concept_id']).collect()
-    codemap_dict = defaultdict(list)  # Use defaultdict
+def get_visitmap_dict_list(visitmap_ds):
+    narrow = visitmap_ds.dataframe().select(['codeSystem', 'src_cd', 'target_domain_id', 'target_concept_id']).collect()
+    visitmap_dict = defaultdict(list)
     for row in narrow:
         key = (row['codeSystem'], row['src_cd'])
         value = {
@@ -72,5 +72,5 @@ def get_visit_dict_list(codemap_ds):
             'target_domain_id': row['target_domain_id'],
             'target_concept_id': row['target_concept_id']
         }
-        codemap_dict[key].append(value)  
-    return codemap_dict
+        visitmap_dict[key].append(value)
+    return visitmap_dict

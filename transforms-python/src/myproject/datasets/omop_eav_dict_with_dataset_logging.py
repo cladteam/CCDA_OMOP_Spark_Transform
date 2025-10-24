@@ -27,7 +27,7 @@ from ..util.omop_eav_dict_common import concat_key
 from ..util.omop_eav_dict_common import lookup_key_value
 from ..util.omop_eav_dict_common import flatten_and_stringify_record_dict
 from ..util.omop_eav_dict_common import get_valueset_dict_list
-from ..util.omop_eav_dict_common import get_visit_dict_list
+from ..util.omop_eav_dict_common import get_visitmap_dict_list
 
 
 STEP_SIZE=3
@@ -128,7 +128,7 @@ def compute(ctx,
 
    value_set_map_dict = get_valueset_dict_list(valueset_xwalk_ds)
    logger.warning(f"--- DEBUG: value_set_map_dict data:{value_set_map_dict}. ---")
-   visit_map_dict = get_visit_dict_list(visit_xwalk_ds)
+   visit_map_dict = get_visitmap_dict_list(visit_xwalk_ds)
 
 
    doc_regex = re.compile(r'(<ClinicalDocument.*?</ClinicalDocument>)', re.DOTALL)

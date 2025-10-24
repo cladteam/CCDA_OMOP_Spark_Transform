@@ -8,7 +8,7 @@ import traceback
 from prototype_2 import layer_datasets
 from myproject.util.ds_schema import domain_dataset_schema
 from myproject.util.omop_eav_dict_common import get_valueset_dict_list
-from myproject.util.omop_eav_dict_common import get_visit_dict_list
+from myproject.util.omop_eav_dict_common import get_visitmap_dict_list
 from myproject.util.omop_eav_dict_common import get_codemap_dict_list
 
 
@@ -39,7 +39,7 @@ def compute(ctx,
 
     codemap_dict = get_codemap_dict_list(codemap_xwalk_ds)
     value_set_map_dict = get_valueset_dict_list(valueset_xwalk_ds)
-    visit_map_dict = get_visit_dict_list(visit_xwalk_ds)
+    visit_map_dict = get_visitmap_dict_list(visit_xwalk_ds)
 
     # We do not call process_file() from here b/c this is Spark, and that is Jupyter. The file
     # access is different.
