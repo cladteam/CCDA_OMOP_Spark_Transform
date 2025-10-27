@@ -6,7 +6,7 @@ _openmp_mutex=5.1=1_gnu @ linux-64
 _python_abi3_support=1.0=hd8ed1ab_2 @ noarch
 aiobotocore=2.25.0=pyhcf101f3_0 @ noarch
 aiohappyeyeballs=2.6.1=pyhd8ed1ab_0 @ noarch
-aiohttp=3.13.0=py312h033f2cf_0 @ linux-64
+aiohttp=3.13.1=py312h033f2cf_0 @ linux-64
 aioitertools=0.12.0=pyhd8ed1ab_1 @ noarch
 aiosignal=1.4.0=pyhd8ed1ab_0 @ noarch
 attrs=25.4.0=pyh71513ae_0 @ noarch
@@ -33,7 +33,7 @@ brotli-python=1.1.0=py312h1289d80_4 @ linux-64
 bzip2=1.0.8=hda65f42_8 @ linux-64
 c-ares=1.34.5=hb9d3cd8_0 @ linux-64
 ca-certificates=2025.10.5=hbd8a1cb_0 @ noarch
-ccda-omop-conversion-package=2.19.0=py_0 @ noarch
+ccda-omop-conversion-package=2.22.0=py_0 @ noarch
 certifi=2025.10.5=pyhd8ed1ab_0 @ noarch
 cffi=2.0.0=py312h460c074_1 @ linux-64
 charset-normalizer=3.4.4=pyhd8ed1ab_0 @ noarch
@@ -43,7 +43,7 @@ data-health-api=1.1327.0=py_0 @ noarch
 decorator=5.2.1=pyhd8ed1ab_0 @ noarch
 foundry-container-sidecar-api=0.2015.0=py_0 @ noarch
 foundry-data-sidecar-api=0.836.0=py_0 @ noarch
-foundry-transforms-lib-python=0.962.0=py_0 @ noarch
+foundry-transforms-lib-python=0.963.0=py_0 @ noarch
 frozenlist=1.7.0=py312h447239a_0 @ linux-64
 fsspec=2025.9.0=pyhd8ed1ab_0 @ noarch
 gflags=2.2.2=h5888daf_1005 @ linux-64
@@ -57,7 +57,7 @@ importlib-metadata=8.7.0=pyhe01879c_1 @ noarch
 jmespath=1.0.1=pyhd8ed1ab_1 @ noarch
 keyutils=1.6.3=hb9d3cd8_0 @ linux-64
 krb5=1.21.3=h659f571_0 @ linux-64
-ld_impl_linux-64=2.44=h1aa0949_3 @ linux-64
+ld_impl_linux-64=2.44=h1aa0949_4 @ linux-64
 libabseil=20250512.1=cxx17_hba17884_0 @ linux-64
 libarrow-acero=21.0.0=h635bf11_9_cpu @ linux-64
 libarrow-compute=21.0.0=h8c2c5c3_9_cpu @ linux-64
@@ -73,7 +73,7 @@ libcrc32c=1.1.2=h9c3ff4c_0 @ linux-64
 libcurl=8.16.0=h4e3cde8_0 @ linux-64
 libedit=3.1.20250104=pl5321h7949ede_0 @ linux-64
 libev=4.33=hd590300_2 @ linux-64
-libevent=2.1.12=hf998b51_1 @ linux-64
+libevent=2.1.12=hdbd6064_1 @ linux-64
 libexpat=2.7.1=hecca717_0 @ linux-64
 libffi=3.5.2=h9ec8514_0 @ linux-64
 libgcc-ng=15.2.0=h69a702a_7 @ linux-64
@@ -96,7 +96,7 @@ libparquet=21.0.0=h7376487_9_cpu @ linux-64
 libprotobuf=6.31.1=h49aed37_2 @ linux-64
 libre2-11=2025.08.12=h7b12aa8_1 @ linux-64
 libsqlite=3.50.4=hee844dc_0 @ linux-64
-libssh2=1.11.1=hcf80075_0 @ linux-64
+libssh2=1.11.1=hf672d98_0 @ linux-64
 libstdcxx-ng=15.2.0=h4852527_7 @ linux-64
 libstdcxx=15.2.0=h8f9b012_7 @ linux-64
 libthrift=0.22.0=h454ac66_1 @ linux-64
@@ -119,8 +119,8 @@ palantir-spark-time=3.24.0=py_0 @ noarch
 pandas=2.3.3=py312hf79963d_1 @ linux-64
 parsimonious=0.10.0=pyhd8ed1ab_1 @ noarch
 pip=25.2=pyh8b19718_0 @ noarch
-polars-runtime-32=1.34.0=py310hffdcd12_0 @ linux-64
-polars=1.34.0=pyh6a1acc5_0 @ noarch
+polars-runtime-32=1.35.0=py310hffdcd12_0 @ linux-64
+polars=1.35.0=pyh6a1acc5_0 @ noarch
 prometheus-cpp=1.3.0=ha5d0236_0 @ linux-64
 propcache=0.3.1=py312h178313f_0 @ linux-64
 py4j=0.10.9.7=pyhd8ed1ab_0 @ noarch
@@ -162,7 +162,7 @@ urllib3=2.5.0=pyhd8ed1ab_0 @ noarch
 wheel=0.45.1=pyhd8ed1ab_1 @ noarch
 wrapt=1.17.3=py312h4c3975b_1 @ linux-64
 yaml=0.2.5=h280c20c_3 @ linux-64
-yarl=1.20.1=py312h178313f_0 @ linux-64
+yarl=1.22.0=py312h8a5da7c_0 @ linux-64
 zipp=3.23.0=pyhd8ed1ab_0 @ noarch
 zlib=1.3.1=hb9d3cd8_2 @ linux-64
 zstandard=0.25.0=py312h5253ce2_0 @ linux-64
@@ -182,4 +182,4 @@ typing-extensions==4.15.0
 tzdata==2025.2
 
 [Conda lock version]
-v2 - f19c03de4ed05a2ee56515de592e6a92675feee453094f25efbc8e9d8db23b37
+v2 - c73e2ec03ddade87ca7ee1ba73a72cc0d3382327a5350a7ee94cbe8fe41e1587
