@@ -1,0 +1,27 @@
+// DO NOT MODIFY THIS FILE
+buildscript {
+    repositories {
+        maven {
+            credentials {
+                username ''
+                password transformsBearerToken
+            }
+            authentication {
+                basic(BasicAuthentication)
+            }
+            url project.transformsMavenProxyRepoUri
+        }
+    }
+
+    dependencies {
+        classpath "com.palantir.transforms:transforms-gradle-plugin:${transformsVersion}"
+        classpath "com.palantir.transforms.sql:lang-sql-gradle-plugin:${transformsLangSqlPluginVersion}"
+    }
+}
+
+apply plugin: 'com.palantir.transforms.lang.sql'
+apply plugin: 'com.palantir.transforms.lang.sql-defaults'
+
+sql {
+    dialect "sparksql-2.0"
+}

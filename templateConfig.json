@@ -1,10 +1,12 @@
 {
   "parentTemplateId" : "transforms",
   "childTemplatesByPath" : {
-    "transforms-python" : "python"
+    "transforms-python" : "python",
+    "transforms-sql" : "sql"
   },
   "parentTemplateVersion" : "10.44.0",
   "childTemplateVersionsByPath" : {
-    "transforms-python" : "1.1019.1"
+    "transforms-python" : "1.1019.1",
+    "transforms-sql" : "1.552.0"
   }
 }
