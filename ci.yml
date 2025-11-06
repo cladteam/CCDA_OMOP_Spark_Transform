@@ -167,7 +167,22 @@ jobs:
       else
         unset ORG_GRADLE_PROJECT_envPackingLogicVersion
       fi
-      
+
+      # Repo-level gradle.properties overrides stack level JEMMA_USE_HAWK_UV
+      hawkUvVersion=1
+      hawkUvJemmaVersion=${JEMMA_USE_HAWK_UV:-0}
+      if [ "$hawkUvVersion" -ge "$hawkUvJemmaVersion" ];
+      then
+        if grep -q "useHawkUvSolver[[:space:]]*=[[:space:]]*false" gradle.properties;
+        then
+          echo "[Repo level override] ORG_GRADLE_PROJECT_enableHawkUv=false"
+          export ORG_GRADLE_PROJECT_enableHawkUv="false"
+        else
+          echo "[Stack level override] ORG_GRADLE_PROJECT_enableHawkUv=true"
+          export ORG_GRADLE_PROJECT_enableHawkUv="true"
+        fi
+      fi
+
       gradlePropValue=$(awk -F'=' '/envPackingLogicVersion/ {print $2}' gradle.properties | tr -d ' ')
       if [ -n "$gradlePropValue" ]; then
         echo "[Repo level override] ORG_GRADLE_PROJECT_envPackingLogicVersion=$gradlePropValue"
