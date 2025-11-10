@@ -8,11 +8,9 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
         l.zip,
         upper(l.county) as county,
         l.location_source_value,
---         rm.healthcare_site,
         map.data_partner_id
-    -- FROM `ri.foundry.main.dataset.5074cf0d-1c05-4cea-be66-38f91a62fd7a` l
-    FROM `/All of Us-cdb223/HIN - HIE/CCDA/datasets/uniquify_stage_1/location` l
-    JOIN   `/All of Us-cdb223/HIN - HIE/sharedResources/FullyIdentiifed/ccda/ccda_response_metadata` rm
+    FROM `ri.foundry.main.dataset.1ed07a69-4970-4b8d-b67c-e0557606ff33` l
+    JOIN   `ri.foundry.main.dataset.672dd7ae-bbd4-43e8-9b8b-b5c7e8711e79` rm
       ON l.filename = rm.response_file_path
     JOIN  `/All of Us-cdb223/HIN - HIE/sharedResources/health_care_site_to_data_partner_id` map
       ON rm.healthcare_site = map.healthcare_site

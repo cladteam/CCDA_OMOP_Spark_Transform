@@ -23,16 +23,13 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
       de.drug_source_concept_id, --
       de.route_source_value, --
       de.dose_unit_source_value, --
---      rm.healthcare_site,
       map.data_partner_id, --
-
      dcn.concept_name as drug_concept_name,  --target_concept_id and target_concept_name
      dtcn.concept_name as drug_type_concept_name,
      rcn.concept_name as route_concept_name,
      dscn.concept_name as drug_source_concept_name
-    -- FROM  `ri.foundry.main.dataset.d270da4d-d543-4041-8587-a4312075b401` de
-    FROM  `ri.foundry.main.dataset.d4729040-62fb-4470-84fb-778ddbc1c46d` de
-    JOIN   `/All of Us-cdb223/HIN - HIE/sharedResources/FullyIdentiifed/ccda/ccda_response_metadata` rm
+    FROM  `ri.foundry.main.dataset.efbc1e75-a650-469e-91e8-ece4ba38a376` de
+    JOIN   `ri.foundry.main.dataset.672dd7ae-bbd4-43e8-9b8b-b5c7e8711e79` rm
       ON de.filename = rm.response_file_path
     JOIN  `/All of Us-cdb223/HIN - HIE/sharedResources/health_care_site_to_data_partner_id` map
       ON rm.healthcare_site = map.healthcare_site
@@ -44,4 +41,4 @@ LEFT    JOIN `ri.foundry.main.dataset.831ad30e-a134-41ac-8f68-def86cc8b05c` rcn
       ON rcn.concept_id = de.route_concept_id
 LEFT    JOIN `ri.foundry.main.dataset.831ad30e-a134-41ac-8f68-def86cc8b05c` dscn
       ON dscn.concept_id = de.drug_source_concept_id
- 
+     

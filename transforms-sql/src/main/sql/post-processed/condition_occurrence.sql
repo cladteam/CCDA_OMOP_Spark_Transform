@@ -16,15 +16,12 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
         co.condition_source_value, --
         co.condition_source_concept_id, --
         co.condition_status_source_value, --
-
         map.data_partner_id,
-         
         ccn.concept_name as condition_concept_name
 --        ctcn.concept_name as condition_type_concept_name,
 --        cstcn.concept_name as condition_status_concept_name,
 --       csocn.concept_name as condition_source_concept_name
-    -- FROM `ri.foundry.main.dataset.774d45b3-9cdf-486d-9f16-1a6b9ce7037b` co
-    FROM `/All of Us-cdb223/HIN - HIE/CCDA/datasets/uniquify_stage_1/condition_occurrence` co
+    FROM `ri.foundry.main.dataset.e34c8928-d1c1-4b4e-8026-e6024e6afdbb` co
     JOIN   `/All of Us-cdb223/HIN - HIE/sharedResources/FullyIdentiifed/ccda/ccda_response_metadata` rm
       ON co.filename = rm.response_file_path
     JOIN  `/All of Us-cdb223/HIN - HIE/sharedResources/health_care_site_to_data_partner_id` map

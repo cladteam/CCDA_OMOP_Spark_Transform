@@ -13,16 +13,13 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
       p.specialty_source_concept_id,
       p.gender_source_value,
       p.gender_source_concept_id,
---      rm.healthcare_site,
       map.data_partner_id,
-
       sscn.concept_name as specialty_source_concept_name,
       gscn.concept_name as gender_source_concept_name,
       gcn.concept_name as gender_concept_name,
       scn.concept_name as specialty_concept_name
-    -- FROM `ri.foundry.main.dataset.f9048d29-0f7f-4f43-8287-2d25e080ccf8` p
-    FROM `ri.foundry.main.dataset.66681671-e913-44b5-bd1f-1d6067165972` p
-    JOIN   `/All of Us-cdb223/HIN - HIE/sharedResources/FullyIdentiifed/ccda/ccda_response_metadata` rm
+    FROM `ri.foundry.main.dataset.673b0f9d-76b9-4c03-8382-bb566451cd8e` p
+    JOIN   `ri.foundry.main.dataset.672dd7ae-bbd4-43e8-9b8b-b5c7e8711e79` rm
       ON p.filename = rm.response_file_path
     JOIN  `/All of Us-cdb223/HIN - HIE/sharedResources/health_care_site_to_data_partner_id` map
       ON rm.healthcare_site = map.healthcare_site
