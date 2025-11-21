@@ -4,46 +4,46 @@
 _libgcc_mutex=0.1=main @ linux-64
 _openmp_mutex=5.1=1_gnu @ linux-64
 _python_abi3_support=1.0=hd8ed1ab_2 @ noarch
-aiobotocore=2.25.0=pyhcf101f3_0 @ noarch
+aiobotocore=2.25.2=pyhcf101f3_0 @ noarch
 aiohappyeyeballs=2.6.1=pyhd8ed1ab_0 @ noarch
 aiohttp=3.13.2=py312h27b7581_0 @ linux-64
 aioitertools=0.12.0=pyhd8ed1ab_1 @ noarch
 aiosignal=1.4.0=pyhd8ed1ab_0 @ noarch
 attrs=25.4.0=pyh71513ae_0 @ noarch
-aws-c-auth=0.9.1=h194c533_5 @ linux-64
-aws-c-cal=0.9.8=h346e085_0 @ linux-64
-aws-c-common=0.12.5=hb03c661_0 @ linux-64
-aws-c-compression=0.3.1=h7e655bb_7 @ linux-64
-aws-c-event-stream=0.5.6=h1deb5b9_4 @ linux-64
-aws-c-http=0.10.7=had4b759_1 @ linux-64
-aws-c-io=0.23.2=hbff472d_2 @ linux-64
-aws-c-mqtt=0.13.3=h8ba2272_8 @ linux-64
-aws-c-s3=0.8.6=h493c25d_7 @ linux-64
-aws-c-sdkutils=0.2.4=h7e655bb_2 @ linux-64
-aws-checksums=0.2.7=h7e655bb_3 @ linux-64
-aws-crt-cpp=0.35.0=h719b17a_2 @ linux-64
-aws-sdk-cpp=1.11.606=h522d481_6 @ linux-64
+aws-c-auth=0.9.1=h7ca4310_7 @ linux-64
+aws-c-cal=0.9.10=h346e085_1 @ linux-64
+aws-c-common=0.12.5=hb03c661_1 @ linux-64
+aws-c-compression=0.3.1=h7e655bb_8 @ linux-64
+aws-c-event-stream=0.5.6=h3cb25bf_6 @ linux-64
+aws-c-http=0.10.7=hc5c8343_4 @ linux-64
+aws-c-io=0.23.3=ha76f1cc_3 @ linux-64
+aws-c-mqtt=0.13.3=h3a25ec9_10 @ linux-64
+aws-c-s3=0.10.1=hcb69869_2 @ linux-64
+aws-c-sdkutils=0.2.4=h7e655bb_3 @ linux-64
+aws-checksums=0.2.7=h7e655bb_4 @ linux-64
+aws-crt-cpp=0.35.2=h2ceb62e_4 @ linux-64
+aws-sdk-cpp=1.11.606=hd6e39bc_7 @ linux-64
 azure-core-cpp=1.16.1=h3a458e0_0 @ linux-64
 azure-identity-cpp=1.13.2=h3a5f585_1 @ linux-64
 azure-storage-blobs-cpp=12.15.0=h2a74896_1 @ linux-64
 azure-storage-common-cpp=12.11.0=h3d7a050_1 @ linux-64
 azure-storage-files-datalake-cpp=12.13.0=hf38f1be_1 @ linux-64
-botocore=1.40.49=pyhd8ed1ab_0 @ noarch
+botocore=1.40.70=pyhd8ed1ab_0 @ noarch
 brotli-python=1.2.0=py312h67db365_0 @ linux-64
 bzip2=1.0.8=hda65f42_8 @ linux-64
 c-ares=1.34.5=hb9d3cd8_0 @ linux-64
-ca-certificates=2025.10.5=hbd8a1cb_0 @ noarch
+ca-certificates=2025.11.12=hbd8a1cb_0 @ noarch
 ccda-omop-conversion-package=2.24.0=py_0 @ noarch
-certifi=2025.10.5=pyhd8ed1ab_0 @ noarch
+certifi=2025.11.12=pyhd8ed1ab_0 @ noarch
 cffi=2.0.0=py312h460c074_1 @ linux-64
 charset-normalizer=3.4.4=pyhd8ed1ab_0 @ noarch
 conjure-python-client=2.12.0=pyhd8ed1ab_1 @ noarch
 cpython=3.12.12=py312hd8ed1ab_1 @ noarch
-data-health-api=1.1337.0=py_0 @ noarch
+data-health-api=1.1344.0=py_0 @ noarch
 decorator=5.2.1=pyhd8ed1ab_0 @ noarch
-foundry-container-sidecar-api=0.2032.0=py_0 @ noarch
+foundry-container-sidecar-api=0.2044.0=py_0 @ noarch
 foundry-data-sidecar-api=0.966.0=py_0 @ noarch
-foundry-transforms-lib-python=0.985.0=py_0 @ noarch
+foundry-transforms-lib-python=0.990.0=py_0 @ noarch
 frozenlist=1.7.0=py312h447239a_0 @ linux-64
 fsspec=2025.10.0=pyhd8ed1ab_0 @ noarch
 gflags=2.2.2=h5888daf_1005 @ linux-64
@@ -57,24 +57,24 @@ importlib-metadata=8.7.0=pyhe01879c_1 @ noarch
 jmespath=1.0.1=pyhd8ed1ab_1 @ noarch
 keyutils=1.6.3=hb9d3cd8_0 @ linux-64
 krb5=1.21.3=h659f571_0 @ linux-64
-ld_impl_linux-64=2.44=h1aa0949_5 @ linux-64
+ld_impl_linux-64=2.45=h1aa0949_0 @ linux-64
 libabseil=20250512.1=cxx17_hba17884_0 @ linux-64
-libarrow-acero=22.0.0=h635bf11_3_cpu @ linux-64
-libarrow-compute=22.0.0=h8c2c5c3_3_cpu @ linux-64
-libarrow-dataset=22.0.0=h635bf11_3_cpu @ linux-64
-libarrow-substrait=22.0.0=h3f74fd7_3_cpu @ linux-64
-libarrow=22.0.0=h99e40f8_3_cpu @ linux-64
-libblas=3.9.0=38_h4a7cf45_openblas @ linux-64
+libarrow-acero=22.0.0=h635bf11_4_cpu @ linux-64
+libarrow-compute=22.0.0=h8c2c5c3_4_cpu @ linux-64
+libarrow-dataset=22.0.0=h635bf11_4_cpu @ linux-64
+libarrow-substrait=22.0.0=h3f74fd7_4_cpu @ linux-64
+libarrow=22.0.0=h773bc41_4_cpu @ linux-64
+libblas=3.11.0=1_h4a7cf45_openblas @ linux-64
 libbrotlicommon=1.2.0=h09219d5_0 @ linux-64
 libbrotlidec=1.2.0=hd53d788_0 @ linux-64
 libbrotlienc=1.2.0=h02bd7ab_0 @ linux-64
-libcblas=3.9.0=38_h0358290_openblas @ linux-64
+libcblas=3.11.0=1_h0358290_openblas @ linux-64
 libcrc32c=1.1.2=h9c3ff4c_0 @ linux-64
 libcurl=8.17.0=h4e3cde8_0 @ linux-64
 libedit=3.1.20250104=pl5321h7949ede_0 @ linux-64
 libev=4.33=hd590300_2 @ linux-64
-libevent=2.1.12=hdbd6064_1 @ linux-64
-libexpat=2.7.1=hecca717_0 @ linux-64
+libevent=2.1.12=hf998b51_1 @ linux-64
+libexpat=2.7.3=hecca717_0 @ linux-64
 libffi=3.5.2=h9ec8514_0 @ linux-64
 libgcc-ng=15.2.0=h69a702a_7 @ linux-64
 libgcc=15.2.0=h767d61c_7 @ linux-64
@@ -85,14 +85,14 @@ libgoogle-cloud-storage=2.39.0=hdbdcf42_0 @ linux-64
 libgoogle-cloud=2.39.0=hdb79228_0 @ linux-64
 libgrpc=1.73.1=h3288cfb_1 @ linux-64
 libiconv=1.18=h3b78370_2 @ linux-64
-liblapack=3.9.0=38_h47877c9_openblas @ linux-64
+liblapack=3.11.0=1_h47877c9_openblas @ linux-64
 liblzma=5.8.1=hb9d3cd8_2 @ linux-64
 libnghttp2=1.67.0=had1ee68_0 @ linux-64
 libnsl=2.0.1=hb9d3cd8_1 @ linux-64
-libopenblas=0.3.30=pthreads_h94d23a6_3 @ linux-64
+libopenblas=0.3.30=pthreads_h94d23a6_4 @ linux-64
 libopentelemetry-cpp-headers=1.21.0=ha770c72_1 @ linux-64
 libopentelemetry-cpp=1.21.0=hb9b0907_1 @ linux-64
-libparquet=22.0.0=h7376487_3_cpu @ linux-64
+libparquet=22.0.0=h7376487_4_cpu @ linux-64
 libprotobuf=6.31.1=h49aed37_2 @ linux-64
 libre2-11=2025.11.05=h7b12aa8_0 @ linux-64
 libsqlite=3.51.0=hee844dc_0 @ linux-64
@@ -100,7 +100,7 @@ libssh2=1.11.1=hcf80075_0 @ linux-64
 libstdcxx-ng=15.2.0=h4852527_7 @ linux-64
 libstdcxx=15.2.0=h8f9b012_7 @ linux-64
 libthrift=0.22.0=h454ac66_1 @ linux-64
-libutf8proc=2.11.0=hb04c3b8_0 @ linux-64
+libutf8proc=2.11.1=hfe17d71_0 @ linux-64
 libuuid=2.41.2=he9a06e4_0 @ linux-64
 libxcrypt=4.4.36=hd590300_1 @ linux-64
 libxml2-16=2.15.1=ha9997c6_0 @ linux-64
@@ -113,7 +113,7 @@ multidict=6.6.3=py312h178313f_0 @ linux-64
 ncurses=6.5=h2d0b736_3 @ linux-64
 nlohmann_json=3.12.0=h54a6638_1 @ linux-64
 numpy=1.26.4=py312heda63a1_0 @ linux-64
-openssl=3.5.4=h26f9b46_0 @ linux-64
+openssl=3.6.0=h26f9b46_0 @ linux-64
 orc=2.2.1=hd747db4_0 @ linux-64
 palantir-spark-time=3.24.0=py_0 @ noarch
 pandas=2.3.3=py312hf79963d_1 @ linux-64
@@ -144,16 +144,16 @@ regex=2025.11.3=py312h4c3975b_1 @ linux-64
 requests=2.32.5=pyhd8ed1ab_0 @ noarch
 s2n=1.6.0=h8399546_1 @ linux-64
 s3fs=2025.10.0=pyhd8ed1ab_0 @ noarch
-setuptools=70.0.0=pyhd8ed1ab_0 @ noarch
+setuptools=78.1.1=pyhff2d567_0 @ noarch
 six=1.17.0=pyhe01879c_1 @ noarch
-snappy=1.2.2=h03e3b7b_0 @ linux-64
+snappy=1.2.2=h03e3b7b_1 @ linux-64
 tables-api=0.1066.0=py_0 @ noarch
-tk=8.6.13=noxft_hd72426e_102 @ linux-64
-transforms-container-ops-python=0.167.0=py312 @ linux-64
-transforms-expectations=0.1043.0=py_0 @ noarch
-transforms-preview=0.1075.0=py_0 @ noarch
-transforms-verbs=0.1075.0=py_0 @ noarch
-transforms=3.99.0=py_0 @ noarch
+tk=8.6.13=noxft_ha0e22de_103 @ linux-64
+transforms-container-ops-python=0.177.0=py312 @ linux-64
+transforms-expectations=0.1089.0=py_0 @ noarch
+transforms-preview=0.1089.0=py_0 @ noarch
+transforms-verbs=0.1089.0=py_0 @ noarch
+transforms=3.118.2=py_0 @ noarch
 typeguard=4.4.4=pyhd8ed1ab_0 @ noarch
 typing-extensions=4.15.0=h396c80c_0 @ noarch
 typing_extensions=4.15.0=pyhcf101f3_0 @ noarch
@@ -169,17 +169,7 @@ zstandard=0.25.0=py312h5253ce2_1 @ linux-64
 zstd=1.5.7=hb8e6e7a_2 @ linux-64
 
 [Pip dependencies]
-duckdb==1.4.1
-lxml==6.0.2
-numpy==2.3.4
-pandas==2.3.3
-python-dateutil==2.9.0.post0
-pytz==2025.2
-setuptools==79.0.1
-six==1.17.0
-typeguard==4.4.4
-typing-extensions==4.15.0
-tzdata==2025.2
+duckdb==1.4.2
 
 [Conda lock version]
-v2 - 5daa1bb80254ecea28edd346c193528201623d56a75952b9b4409b4838583fbe
+v2 - 25be189adfeb237265d9b30c16d495977484f5e5f4482f5a33b1128a396392d9

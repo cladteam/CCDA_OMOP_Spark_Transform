@@ -4,9 +4,9 @@
     "transforms-python" : "python",
     "transforms-sql" : "sql"
   },
-  "parentTemplateVersion" : "10.56.0",
+  "parentTemplateVersion" : "10.59.0",
   "childTemplateVersionsByPath" : {
-    "transforms-python" : "1.1044.0",
-    "transforms-sql" : "1.556.0"
+    "transforms-python" : "1.1057.0",
+    "transforms-sql" : "1.559.0"
   }
 }
