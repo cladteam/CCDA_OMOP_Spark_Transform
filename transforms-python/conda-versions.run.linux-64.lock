@@ -33,17 +33,17 @@ brotli-python=1.2.0=py312h67db365_0 @ linux-64
 bzip2=1.0.8=hda65f42_8 @ linux-64
 c-ares=1.34.5=hb9d3cd8_0 @ linux-64
 ca-certificates=2025.11.12=hbd8a1cb_0 @ noarch
-ccda-omop-conversion-package=2.24.0=py_0 @ noarch
+ccda-omop-conversion-package=2.25.0=py_0 @ noarch
 certifi=2025.11.12=pyhd8ed1ab_0 @ noarch
 cffi=2.0.0=py312h460c074_1 @ linux-64
 charset-normalizer=3.4.4=pyhd8ed1ab_0 @ noarch
 conjure-python-client=2.12.0=pyhd8ed1ab_1 @ noarch
 cpython=3.12.12=py312hd8ed1ab_1 @ noarch
-data-health-api=1.1344.0=py_0 @ noarch
+data-health-api=1.1353.0=py_0 @ noarch
 decorator=5.2.1=pyhd8ed1ab_0 @ noarch
-foundry-container-sidecar-api=0.2044.0=py_0 @ noarch
+foundry-container-sidecar-api=0.2048.0=py_0 @ noarch
 foundry-data-sidecar-api=0.966.0=py_0 @ noarch
-foundry-transforms-lib-python=0.990.0=py_0 @ noarch
+foundry-transforms-lib-python=0.992.0rc2=py_0 @ noarch
 frozenlist=1.7.0=py312h447239a_0 @ linux-64
 fsspec=2025.10.0=pyhd8ed1ab_0 @ noarch
 gflags=2.2.2=h5888daf_1005 @ linux-64
@@ -57,7 +57,7 @@ importlib-metadata=8.7.0=pyhe01879c_1 @ noarch
 jmespath=1.0.1=pyhd8ed1ab_1 @ noarch
 keyutils=1.6.3=hb9d3cd8_0 @ linux-64
 krb5=1.21.3=h659f571_0 @ linux-64
-ld_impl_linux-64=2.45=h1aa0949_0 @ linux-64
+ld_impl_linux-64=2.45=default_1234567_3 @ linux-64
 libabseil=20250512.1=cxx17_hba17884_0 @ linux-64
 libarrow-acero=22.0.0=h635bf11_4_cpu @ linux-64
 libarrow-compute=22.0.0=h8c2c5c3_4_cpu @ linux-64
@@ -73,7 +73,7 @@ libcrc32c=1.1.2=h9c3ff4c_0 @ linux-64
 libcurl=8.17.0=h4e3cde8_0 @ linux-64
 libedit=3.1.20250104=pl5321h7949ede_0 @ linux-64
 libev=4.33=hd590300_2 @ linux-64
-libevent=2.1.12=hf998b51_1 @ linux-64
+libevent=2.1.12=hdbd6064_1 @ linux-64
 libexpat=2.7.3=hecca717_0 @ linux-64
 libffi=3.5.2=h9ec8514_0 @ linux-64
 libgcc-ng=15.2.0=h69a702a_7 @ linux-64
@@ -95,8 +95,8 @@ libopentelemetry-cpp=1.21.0=hb9b0907_1 @ linux-64
 libparquet=22.0.0=h7376487_4_cpu @ linux-64
 libprotobuf=6.31.1=h49aed37_2 @ linux-64
 libre2-11=2025.11.05=h7b12aa8_0 @ linux-64
-libsqlite=3.51.0=hee844dc_0 @ linux-64
-libssh2=1.11.1=hcf80075_0 @ linux-64
+libsqlite=3.51.0=h0c1763c_0 @ linux-64
+libssh2=1.11.1=hf672d98_0 @ linux-64
 libstdcxx-ng=15.2.0=h4852527_7 @ linux-64
 libstdcxx=15.2.0=h8f9b012_7 @ linux-64
 libthrift=0.22.0=h454ac66_1 @ linux-64
@@ -119,8 +119,8 @@ palantir-spark-time=3.24.0=py_0 @ noarch
 pandas=2.3.3=py312hf79963d_1 @ linux-64
 parsimonious=0.10.0=pyhd8ed1ab_1 @ noarch
 pip=25.3=pyh8b19718_0 @ noarch
-polars-runtime-32=1.35.1=py310hffdcd12_0 @ linux-64
-polars=1.35.1=pyh6a1acc5_0 @ noarch
+polars-runtime-32=1.35.2=py310hffdcd12_0 @ linux-64
+polars=1.35.2=pyh6a1acc5_0 @ noarch
 prometheus-cpp=1.3.0=ha5d0236_0 @ linux-64
 propcache=0.3.1=py312h178313f_0 @ linux-64
 py4j=0.10.9.7=pyhd8ed1ab_0 @ noarch
@@ -149,10 +149,10 @@ six=1.17.0=pyhe01879c_1 @ noarch
 snappy=1.2.2=h03e3b7b_1 @ linux-64
 tables-api=0.1066.0=py_0 @ noarch
 tk=8.6.13=noxft_ha0e22de_103 @ linux-64
-transforms-container-ops-python=0.177.0=py312 @ linux-64
-transforms-expectations=0.1089.0=py_0 @ noarch
-transforms-preview=0.1089.0=py_0 @ noarch
-transforms-verbs=0.1089.0=py_0 @ noarch
+transforms-container-ops-python=0.179.0=py312 @ linux-64
+transforms-expectations=0.1091.0=py_0 @ noarch
+transforms-preview=0.1091.0=py_0 @ noarch
+transforms-verbs=0.1091.0=py_0 @ noarch
 transforms=3.118.2=py_0 @ noarch
 typeguard=4.4.4=pyhd8ed1ab_0 @ noarch
 typing-extensions=4.15.0=h396c80c_0 @ noarch
@@ -172,4 +172,4 @@ zstd=1.5.7=hb8e6e7a_2 @ linux-64
 duckdb==1.4.2
 
 [Conda lock version]
-v2 - 25be189adfeb237265d9b30c16d495977484f5e5f4482f5a33b1128a396392d9
+v2 - 2126b5ae111fa9be57a6a31a9900544bcba3e212eb6d28b30f6433892f8a4088
