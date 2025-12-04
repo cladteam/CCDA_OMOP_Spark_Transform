@@ -19,7 +19,8 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
       o.observation_source_concept_id,
       o.unit_source_value,
       o.qualifier_source_value,
-      map.data_partner_id
+      map.data_partner_id,
+      o.cfg_name
  --     oscn.concept_name as observation_source_concept_name,
  --     ocn.concept_name as observation_concept_name,
  --     otcn.concept_name as observation_type_concept_name,

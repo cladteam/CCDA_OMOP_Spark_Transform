@@ -8,7 +8,8 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
         l.zip,
         upper(l.county) as county,
         l.location_source_value,
-        map.data_partner_id
+        map.data_partner_id,
+        l.cfg_name
     FROM `ri.foundry.main.dataset.1ed07a69-4970-4b8d-b67c-e0557606ff33` l
     JOIN   `ri.foundry.main.dataset.672dd7ae-bbd4-43e8-9b8b-b5c7e8711e79` rm
       ON l.filename = rm.response_file_path

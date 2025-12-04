@@ -17,7 +17,8 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
       sscn.concept_name as specialty_source_concept_name,
       gscn.concept_name as gender_source_concept_name,
       gcn.concept_name as gender_concept_name,
-      scn.concept_name as specialty_concept_name
+      scn.concept_name as specialty_concept_name,
+      p.cfg_name
     FROM `ri.foundry.main.dataset.673b0f9d-76b9-4c03-8382-bb566451cd8e` p
     JOIN   `ri.foundry.main.dataset.672dd7ae-bbd4-43e8-9b8b-b5c7e8711e79` rm
       ON p.filename = rm.response_file_path

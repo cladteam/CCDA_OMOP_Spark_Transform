@@ -14,7 +14,8 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
       po.procedure_source_value,
       po.procedure_source_concept_id,
       po.modifier_source_value,
-      map.data_partner_id
+      map.data_partner_id,
+      po.cfg_name
  --     pcn.concept_name as procedure_concept_name,
  --     ptcn.concept_name as procedure_type_concept_name,
  --     pscn.concept_name as procedure_source_concept_name,

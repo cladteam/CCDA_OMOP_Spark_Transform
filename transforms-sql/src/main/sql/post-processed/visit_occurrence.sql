@@ -17,7 +17,8 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
         vo.discharge_to_source_value,
         vo.discharge_to_concept_id,
         vo.preceding_visit_occurrence_id,
-        map.data_partner_id
+        map.data_partner_id,
+        vo.cfg_name
 --        vcn.concept_name as visit_concept_name,
 --        vtcn.concept_name as visit_type_concept_name,
 --        vscn.concept_name as visit_source_concept_name,

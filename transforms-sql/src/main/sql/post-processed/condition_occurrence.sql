@@ -17,7 +17,8 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
         co.condition_source_concept_id, --
         co.condition_status_source_value, --
         map.data_partner_id,
-        ccn.concept_name as condition_concept_name
+        ccn.concept_name as condition_concept_name,
+        co.cfg_name
 --        ctcn.concept_name as condition_type_concept_name,
 --        cstcn.concept_name as condition_status_concept_name,
 --       csocn.concept_name as condition_source_concept_name

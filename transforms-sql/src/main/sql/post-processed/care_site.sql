@@ -6,7 +6,8 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
         cs.location_id,
         cs.care_site_source_value,
         cs.place_of_service_source_value,
-        map.data_partner_id
+        map.data_partner_id,
+        cs.cfg_name
     FROM `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/care_site` cs
     JOIN   `ri.foundry.main.dataset.672dd7ae-bbd4-43e8-9b8b-b5c7e8711e79` rm
       ON cs.filename = rm.response_file_path

@@ -18,7 +18,8 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
       map.data_partner_id, --
       dcn.concept_name as device_concept_name,  --target_concept_id and target_concept_name
       dtcn.concept_name as device_type_concept_name,
-      dscn.concept_name as device_source_concept_name
+      dscn.concept_name as device_source_concept_name,
+      de.cfg_name
     FROM `ri.foundry.main.dataset.b1aa8bc7-106d-4234-b93b-061bf473cf80` de
     JOIN  `ri.foundry.main.dataset.672dd7ae-bbd4-43e8-9b8b-b5c7e8711e79` rm
       ON de.filename = rm.response_file_path

@@ -20,7 +20,9 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
       m.measurement_source_concept_id,
       m.unit_source_value,
       m.value_source_value,
-      map.data_partner_id
+      map.data_partner_id,
+      m.filename, 
+      m.cfg_name
  --     mcn.concept_name as measurement_concept_name,
  --     mtcn.concept_name as measurement_type_concept_name,
  --     ocn.concept_name as operator_concept_name,

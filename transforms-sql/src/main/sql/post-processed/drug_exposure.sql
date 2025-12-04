@@ -27,7 +27,8 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
      dcn.concept_name as drug_concept_name,  --target_concept_id and target_concept_name
      dtcn.concept_name as drug_type_concept_name,
      rcn.concept_name as route_concept_name,
-     dscn.concept_name as drug_source_concept_name
+     dscn.concept_name as drug_source_concept_name,
+     de.cfg_name
     FROM  `ri.foundry.main.dataset.efbc1e75-a650-469e-91e8-ece4ba38a376` de
     JOIN   `ri.foundry.main.dataset.672dd7ae-bbd4-43e8-9b8b-b5c7e8711e79` rm
       ON de.filename = rm.response_file_path

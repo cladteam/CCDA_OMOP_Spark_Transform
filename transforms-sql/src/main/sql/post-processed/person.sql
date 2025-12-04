@@ -19,7 +19,8 @@ SELECT distinct
         race_source_concept_id,
         ethnicity_source_value,
         ethnicity_source_concept_id,
-        map.data_partner_id -- 21
+        map.data_partner_id, -- 21
+        cfg_name
  --       gcn.concept_name as gender_concept_name,
  --       gscn.concept_name as gender_source_concept_name,
  --       ecn.concept_name as ethnicity_concept_name,
