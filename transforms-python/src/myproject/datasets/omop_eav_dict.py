@@ -18,7 +18,7 @@ from . import OMOP_EAV_DICT_FULL_PATH
 from . import OMOP_EAV_DICT_RECORD_FULL_PATH
 
 
-STEP_SIZE=2000
+STEP_SIZE=1000
 
 record_schema = T.StructType( [
         T.StructField("path", T.StringType(), True),
