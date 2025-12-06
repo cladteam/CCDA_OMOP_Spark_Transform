@@ -73,7 +73,7 @@ libcrc32c=1.1.2=h9c3ff4c_0 @ linux-64
 libcurl=8.17.0=h4e3cde8_0 @ linux-64
 libedit=3.1.20250104=pl5321h7949ede_0 @ linux-64
 libev=4.33=hd590300_2 @ linux-64
-libevent=2.1.12=hdbd6064_1 @ linux-64
+libevent=2.1.12=hf998b51_1 @ linux-64
 libexpat=2.7.3=hecca717_0 @ linux-64
 libffi=3.5.2=h9ec8514_0 @ linux-64
 libgcc-ng=15.2.0=h69a702a_14 @ linux-64
