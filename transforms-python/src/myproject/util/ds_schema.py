@@ -334,7 +334,7 @@ domain_dataset_schema = {
     T.StructField('care_site_source_value', T.StringType(), True),
     T.StructField('place_of_service_source_value', T.StringType(), True),
     T.StructField('filename', T.StringType(), True),
-    T.StructField('cfg_name', T.StringType(), True),     
+    T.StructField('cfg_name', T.StringType(), True)
  #   T.StructField('place_of_service_concept_name', T.StringType(), True)
      ]), 
 
