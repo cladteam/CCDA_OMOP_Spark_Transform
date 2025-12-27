@@ -6,7 +6,7 @@
   },
   "parentTemplateVersion" : "10.69.0",
   "childTemplateVersionsByPath" : {
-    "transforms-python" : "1.1069.0",
-    "transforms-sql" : "1.571.0"
+    "transforms-python" : "1.1072.0",
+    "transforms-sql" : "1.572.0"
   }
 }
