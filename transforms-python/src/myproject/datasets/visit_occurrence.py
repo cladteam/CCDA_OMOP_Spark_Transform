@@ -31,7 +31,8 @@ def compute(ctx, omop_eav_dict):
         .withColumn('visit_start_datetime',  F.to_timestamp(F.col('visit_start_datetime'))) \
         .withColumn('visit_end_date',  F.to_date(F.col('visit_end_date'))) \
         .withColumn('visit_end_datetime',  F.to_timestamp(F.col('visit_end_datetime'))) \
-        .withColumn('visit_type_concept_id', df['visit_type_concept_id'].cast(T.IntegerType())) 
+        .withColumn('visit_type_concept_id', df['visit_type_concept_id'].cast(T.IntegerType()))\
+        .withColumn('data_partner_id', df['data_partner_id'].cast(T.LongType())) 
 
     df = df.select([
         'visit_source_value', 'person_id', 'visit_occurrence_id', 'visit_source_concept_id',
@@ -39,7 +40,7 @@ def compute(ctx, omop_eav_dict):
         'care_site_id', 'provider_id', 'visit_concept_id', 'visit_start_date', 'visit_start_datetime',
         'visit_end_date', 'visit_end_datetime', 'visit_type_concept_id', 'admitting_source_value',
         'discharge_to_source_value',
-        'filename', 'cfg_name'
+        'data_partner_id','filename', 'cfg_name'
     ])
 
     df = ctx.spark_session.createDataFrame(df.rdd, ds_schema.domain_dataset_schema['Visit'])

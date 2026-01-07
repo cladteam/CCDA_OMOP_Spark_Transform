@@ -2,7 +2,7 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
 ` AS
     SELECT distinct 
       o.observation_id,
-      cast(rm.mspi as LONG) as person_id,
+      o.person_id,
       o.observation_concept_id,
       to_date(o.observation_date) as observation_date,
       o.observation_datetime,
@@ -19,8 +19,7 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
       o.observation_source_concept_id,
       o.unit_source_value,
       o.qualifier_source_value,
-      map.data_partner_id,
-      o.cfg_name
+      o.data_partner_id
  --     oscn.concept_name as observation_source_concept_name,
  --     ocn.concept_name as observation_concept_name,
  --     otcn.concept_name as observation_type_concept_name,
@@ -28,10 +27,6 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
  --     ucn.concept_name as unit_concept_name,
  --     vcn.concept_name as value_as_concept_name
     FROM `ri.foundry.main.dataset.75efa0bb-e85c-4fcd-b4a7-a0e2da095e01` o
-    JOIN   `/All of Us-cdb223/HIN - HIE/sharedResources/FullyIdentiifed/ccda/ccda_response_metadata` rm
-      ON o.filename = rm.response_file_path
-    JOIN `/All of Us-cdb223/HIN - HIE/sharedResources/health_care_site_to_data_partner_id` map
-      ON rm.healthcare_site = map.healthcare_site
 --       JOIN `ri.foundry.main.dataset.831ad30e-a134-41ac-8f68-def86cc8b05c` oscn
 --         on oscn.concept_id = o.observation_source_concept_id 
 --       JOIN `ri.foundry.main.dataset.831ad30e-a134-41ac-8f68-def86cc8b05c` ocn

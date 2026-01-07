@@ -26,7 +26,7 @@ record_schema = T.StructType( [
         T.StructField("modified", T.LongType(), True),
 ])
 
-@incremental(semantic_version=1, snapshot_inputs=["input_files", "visit_xwalk_ds", "valueset_xwalk_ds", "codemap_xwalk_ds"])
+@incremental(semantic_version=1, snapshot_inputs=["input_files", "visit_xwalk_ds", "valueset_xwalk_ds", "codemap_xwalk_ds","ccda_metadata_ds", "partner_mapping_ds"])
 @configure(profile=["DRIVER_MEMORY_EXTRA_LARGE", "EXECUTOR_MEMORY_LARGE", "NUM_EXECUTORS_64"] )
 @transform(
     omop_eav_dict=Output(OMOP_EAV_DICT_FULL_PATH),
@@ -35,6 +35,8 @@ record_schema = T.StructType( [
     visit_xwalk_ds=Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/visit_concept_xwalk_mapping_dataset" ),
     valueset_xwalk_ds=Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/ccda_value_set_mapping_table_dataset" ),
     codemap_xwalk_ds=Input("ri.foundry.main.dataset.28fe6af8-0b22-4b45-86e2-b394c62dcd09" ),
+    ccda_metadata_ds=Input("ri.foundry.main.dataset.672dd7ae-bbd4-43e8-9b8b-b5c7e8711e79"),
+    partner_mapping_ds=Input("/All of Us-cdb223/HIN - HIE/sharedResources/health_care_site_to_data_partner_id")
 )
 def compute(
     ctx,
@@ -44,6 +46,8 @@ def compute(
     visit_xwalk_ds,
     valueset_xwalk_ds,
     codemap_xwalk_ds,
+    ccda_metadata_ds,   
+    partner_mapping_ds
 ):
     # Killswitch
     #    if not ctx.is_incremental:
@@ -57,11 +61,24 @@ def compute(
     codemap_dict = get_codemap_dict_list(codemap_xwalk_ds)
     valueset_dict = get_valueset_dict_list(valueset_xwalk_ds)
     visit_map_dict = get_visitmap_dict_list(visit_xwalk_ds)
+    # New Mapping Logic for MSPI and Partner ID
+    metadata_df = ccda_metadata_ds.dataframe().select("response_file_path", "mspi", "healthcare_site")
+    partner_df = partner_mapping_ds.dataframe().select("healthcare_site", "data_partner_id")
+    # Join to get a unified reference dataframe
+    mapping_ref_df = metadata_df.join(partner_df, "healthcare_site").collect()
+
+    # Create the dictionaries
+    mspi_map: dict = {row.response_file_path: row.mspi for row in mapping_ref_df}
+    partner_map = {row.response_file_path: row.data_partner_id for row in mapping_ref_df}
+
     if len(codemap_dict) < 1 or len(valueset_dict) < 1 or  len(visit_map_dict) < 1:
         raise Exception(f" DEBUG codemap codemap:{codemap_xwalk_ds.dataframe().count()} {len(codemap_dict)}"
                                      f" valueset:{valueset_xwalk_ds.dataframe().count()} {len(valueset_dict)} "
                                      f" visitmap:{visit_xwalk_ds.dataframe().count()} {len(visit_map_dict)}")
-
+    
+    metadata_df = ccda_metadata_ds.dataframe().select("response_file_path", "healthcare_site")
+    partner_df = partner_mapping_ds.dataframe().select("healthcare_site", "data_partner_id")
+    filename_to_partner_df = metadata_df.join(partner_df, "healthcare_site").select("response_file_path", "data_partner_id")
 
     doc_regex = re.compile(r"(<ClinicalDocument.*?</ClinicalDocument>)", re.DOTALL)
     input_fs = input_files.filesystem()
@@ -69,9 +86,14 @@ def compute(
     codemap_broadcast = ctx.spark_session.sparkContext.broadcast(codemap_dict)
     visitmap_broadcast = ctx.spark_session.sparkContext.broadcast(visit_map_dict)
     valuemap_broadcast = ctx.spark_session.sparkContext.broadcast(valueset_dict)
+    mspi_broadcast = ctx.spark_session.sparkContext.broadcast(mspi_map)
+    partner_broadcast = ctx.spark_session.sparkContext.broadcast(partner_map)
 
     def process_file(file_row):
+        VT.set_mspi_map(mspi_broadcast.value)       # Crucial for DERIVED person_id
+        VT.set_partner_map(partner_broadcast.value) # Crucial for data_partner_id
         if True:  # Show that the maps are here inside process_file and work.
+            
             # CODEMAP returns integers
             VT.set_codemap_dict(codemap_broadcast.value)
             try:
@@ -167,6 +189,8 @@ def compute(
                     codemap_broadcast.value,
                     visitmap_broadcast.value,
                     valuemap_broadcast.value,
+                    mspi_broadcast.value,  
+                    partner_broadcast.value
                 )
 
                 # Convert list of dicts to yield of Rows.

@@ -33,6 +33,7 @@ def compute(ctx, omop_eav_dict):
         .withColumn('quantity', df['quantity'].cast(T.IntegerType())) \
         .withColumn('device_source_value', df['device_source_value'].cast(T.StringType())) \
         .withColumn('device_source_concept_id', df['device_source_concept_id'].cast(T.IntegerType())) \
+        .withColumn('data_partner_id', df['data_partner_id'].cast(T.LongType())) 
 
     df = df.select([ 
         'visit_detail_id',
@@ -42,7 +43,7 @@ def compute(ctx, omop_eav_dict):
         'device_exposure_end_date', 'device_exposure_end_datetime',
         'device_type_concept_id', 'unique_device_id',
         'quantity', 'device_source_value', 'device_source_concept_id',
-        'filename', 'cfg_name'
+        'data_partner_id','filename', 'cfg_name'
     ])
 
     df = ctx.spark_session.createDataFrame(df.rdd, ds_schema.domain_dataset_schema['Device'])

@@ -31,7 +31,8 @@ def compute(ctx, omop_eav_dict):
         .withColumn('visit_occurrence_id', df['visit_occurrence_id'].cast(T.LongType())) \
         .withColumn('visit_detail_id', df['visit_detail_id'].cast(T.LongType())) \
         .withColumn('condition_source_value', df['condition_source_value'].cast(T.StringType())) \
-        .withColumn('condition_source_concept_id', df['condition_source_concept_id'].cast(T.IntegerType()))
+        .withColumn('condition_source_concept_id', df['condition_source_concept_id'].cast(T.IntegerType()))\
+        .withColumn('data_partner_id', df['data_partner_id'].cast(T.LongType())) 
         # condition_status_source_value
         # stop_reason
 
@@ -41,8 +42,8 @@ def compute(ctx, omop_eav_dict):
         'condition_start_datetime', 'condition_end_date', 'condition_end_datetime',
         'condition_type_concept_id', 'condition_status_concept_id', 'stop_reason',
         'provider_id', 'visit_occurrence_id', 'visit_detail_id',
-        'condition_source_value', 'condition_source_concept_id', 'condition_status_source_value',
-        'filename', 'cfg_name'
+        'condition_source_value', 'condition_source_concept_id', 'condition_status_source_value', 
+        'data_partner_id', 'filename', 'cfg_name'
     ])
         
 

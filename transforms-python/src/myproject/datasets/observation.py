@@ -31,7 +31,8 @@ def compute(ctx, omop_eav_dict):
         .withColumn('observation_type_concept_id', df['observation_type_concept_id'].cast(T.IntegerType())) \
         .withColumn('value_as_concept_id', df['value_as_concept_id'].cast(T.IntegerType())) \
         .withColumn('qualifier_concept_id', df['qualifier_concept_id'].cast(T.IntegerType())) \
-        .withColumn('unit_concept_id', df['unit_concept_id'].cast(T.IntegerType()))
+        .withColumn('unit_concept_id', df['unit_concept_id'].cast(T.IntegerType()))\
+        .withColumn('data_partner_id', df['data_partner_id'].cast(T.LongType())) 
 
     df = df.select([
         'visit_detail_id', 'visit_occurrence_id', 'provider_id', 'value_as_number', 'person_id', 
@@ -40,7 +41,7 @@ def compute(ctx, omop_eav_dict):
         'observation_type_concept_id', 'value_as_string', 'value_as_concept_id',
         'qualifier_concept_id', 'qualifier_source_value', 'unit_concept_id',
         'unit_source_value',
-        'filename', 'cfg_name'
+        'data_partner_id', 'filename', 'cfg_name'
     ])
 
     df = ctx.spark_session.createDataFrame(df.rdd, ds_schema.domain_dataset_schema['Observation'])

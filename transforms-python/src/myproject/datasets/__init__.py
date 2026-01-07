@@ -1,7 +1,7 @@
 # src/myproject/datasets/__init__.py
 #
 # --- INPUT CONFIG  ---
-INPUT_VERSION = "Dec19_weekly"
+INPUT_VERSION = "Jan07_2025"
 
 INPUT_BASE_PATH = "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark"
 OMOP_EAV_DICT_FULL_PATH = f"{INPUT_BASE_PATH}/omop_eav_dict_{INPUT_VERSION}"

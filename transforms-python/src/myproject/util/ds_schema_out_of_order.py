@@ -14,7 +14,7 @@ domain_dataset_schema = {
 
     'Person': T.StructType([
 #   T.StructField('payload', T.StringType(), True),
-#    T.StructField('data_partner_id', T.IntegerType(), True),
+    T.StructField('data_partner_id', T.IntegerType(), True),
 #   T.StructField('global_person_id', T.StringType(), True),
     T.StructField('care_site_id', T.LongType(), True),                  #11
     T.StructField('race_source_concept_id', T.IntegerType(), True),     #16

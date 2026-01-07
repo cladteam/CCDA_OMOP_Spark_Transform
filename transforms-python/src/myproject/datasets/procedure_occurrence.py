@@ -29,14 +29,15 @@ def compute(ctx, omop_eav_dict):
         .withColumn('procedure_date',  F.to_date(F.col('procedure_date'))) \
         .withColumn('procedure_datetime',  F.to_timestamp(F.col('procedure_datetime'))) \
         .withColumn('procedure_type_concept_id', df['procedure_type_concept_id'].cast(T.IntegerType())) \
-        .withColumn('quantity', df['quantity'].cast(T.IntegerType())) 
+        .withColumn('quantity', df['quantity'].cast(T.IntegerType()))\
+        .withColumn('data_partner_id', df['data_partner_id'].cast(T.LongType())) \
 
     df = df.select([
         'visit_detail_id', 'procedure_source_concept_id', 'procedure_concept_id', 'visit_occurrence_id',
         'person_id', 'procedure_occurrence_id', 'provider_id', 'modifier_concept_id',
         'procedure_date', 'procedure_datetime', 'procedure_type_concept_id',
         'quantity', 'procedure_source_value', 'modifier_source_value',
-        'filename', 'cfg_name'
+        'data_partner_id', 'filename', 'cfg_name'
     ])
         
 
