@@ -24,9 +24,9 @@ def compute(ctx, omop_eav_dict):
     df = df.withColumn('location_id', df['location_id'].cast(T.LongType()))\
            .withColumn('data_partner_id', df['data_partner_id'].cast(T.IntegerType())) 
 
-    df = df.select(['data_partner_id', 'location_id', 'address_1', 'address_2', 'city', 'state', 
+    df = df.select(['location_id', 'address_1', 'address_2', 'city', 'state', 
                     'zip', 'county', 'location_source_value',
-                    'filename', 'cfg_name'])
+                    'filename', 'cfg_name', 'data_partner_id' ])
     df =ctx.spark_session.createDataFrame(df.rdd, ds_schema.domain_dataset_schema['Location'])
     return(df)
 

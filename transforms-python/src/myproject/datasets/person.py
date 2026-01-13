@@ -21,7 +21,6 @@ def compute(ctx, omop_eav_dict):
 
     df = df \
         .withColumn('person_id', df['person_id'].cast(T.LongType())) \
-        .withColumn('data_partner_id', df['data_partner_id'].cast(T.LongType())) \
         .withColumn('gender_concept_id', df['gender_concept_id'].cast(T.IntegerType())) \
         .withColumn('year_of_birth', df['year_of_birth'].cast(T.IntegerType())) \
         .withColumn('month_of_birth', df['month_of_birth'].cast(T.IntegerType())) \
@@ -35,15 +34,16 @@ def compute(ctx, omop_eav_dict):
         .withColumn('gender_source_concept_id', df['gender_source_concept_id'].cast(T.IntegerType())) \
         .withColumn('race_source_concept_id', df['race_source_concept_id'].cast(T.IntegerType())) \
         .withColumn('ethnicity_source_concept_id', df['ethnicity_source_concept_id'].cast(T.IntegerType())) \
+        .withColumn('data_partner_id', df['data_partner_id'].cast(T.LongType())) \
         .replace("None", None, subset=['ethnicity_source_value', 'gender_source_value', 'race_source_value']) # schema
 
     df = df.select([
-        'person_id','data_partner_id', 'gender_concept_id',  'year_of_birth',  'month_of_birth',  'day_of_birth',
+        'person_id', 'gender_concept_id',  'year_of_birth',  'month_of_birth',  'day_of_birth',
         'birth_datetime',  'race_concept_id',  'ethnicity_concept_id',  'location_id',  'provider_id',
         'care_site_id',  'person_source_value',  'gender_source_value',  'gender_source_concept_id',
         'race_source_value',  'race_source_concept_id',  'ethnicity_source_value',
         'ethnicity_source_concept_id', 
-        'filename', 'cfg_name'
+        'filename', 'cfg_name', 'data_partner_id'
     ])
 
     df = ctx.spark_session.createDataFrame(df.rdd, ds_schema.domain_dataset_schema['Person'])

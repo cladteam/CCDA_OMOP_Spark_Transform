@@ -51,7 +51,7 @@ def compute(ctx, omop_eav_dict):
 
     fields = [ 'care_site_id', 'care_site_name', 'place_of_service_concept_id',
            'location_id', 'care_site_source_value', 'place_of_service_source_value', 
-           'data_partner_id', 'filename', 'cfg_name'
+           'filename', 'cfg_name', 'data_partner_id', 
     ]
 
     df = omop_eav_dict.select('key_value', 'field_name', 'field_value') \
@@ -68,9 +68,9 @@ def compute(ctx, omop_eav_dict):
         .withColumn('location_id', df['location_id'].cast(T.LongType())) \
         .withColumn('place_of_service_concept_id', df['place_of_service_concept_id'].cast(T.IntegerType())) 
 
-    df = df.select(['data_partner_id','location_id', 'care_site_id', 'care_site_name', 'place_of_service_concept_id',
+    df = df.select(['location_id', 'care_site_id', 'care_site_name', 'place_of_service_concept_id',
                     'care_site_source_value', 'place_of_service_source_value',
-                    'filename', 'cfg_name'])
+                    'filename', 'cfg_name','data_partner_id'])
 
 
     new_df = ctx.spark_session.createDataFrame(df.rdd, ds_schema.domain_dataset_schema['Care_Site'])

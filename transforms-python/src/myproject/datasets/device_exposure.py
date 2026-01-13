@@ -19,7 +19,6 @@ def compute(ctx, omop_eav_dict):
 
     df = df \
         .withColumn('visit_detail_id', df['visit_detail_id'].cast(T.LongType())) \
-        .withColumn('data_partner_id', df['data_partner_id'].cast(T.LongType())) \
         .withColumn('visit_occurrence_id', df['visit_occurrence_id'].cast(T.LongType())) \
         .withColumn('provider_id', df['provider_id'].cast(T.LongType())) \
         .withColumn('person_id', df['person_id'].cast(T.LongType())) \
@@ -33,18 +32,19 @@ def compute(ctx, omop_eav_dict):
         .withColumn('unique_device_id', df['unique_device_id'].cast(T.IntegerType())) \
         .withColumn('quantity', df['quantity'].cast(T.IntegerType())) \
         .withColumn('device_source_value', df['device_source_value'].cast(T.StringType())) \
-        .withColumn('device_source_concept_id', df['device_source_concept_id'].cast(T.IntegerType())) 
+        .withColumn('device_source_concept_id', df['device_source_concept_id'].cast(T.IntegerType()))\
+        .withColumn('data_partner_id', df['data_partner_id'].cast(T.LongType()))  
         
 
     df = df.select([ 
-        'visit_detail_id', 'data_partner_id',
+        'visit_detail_id', 
         'visit_occurrence_id', 'provider_id',
         'person_id', 'device_exposure_id', 'device_concept_id',
         'device_exposure_start_date', 'device_exposure_start_datetime',
         'device_exposure_end_date', 'device_exposure_end_datetime',
         'device_type_concept_id', 'unique_device_id',
         'quantity', 'device_source_value', 'device_source_concept_id',
-        'filename', 'cfg_name'
+        'filename', 'cfg_name', 'data_partner_id'
     ])
 
     df = ctx.spark_session.createDataFrame(df.rdd, ds_schema.domain_dataset_schema['Device'])

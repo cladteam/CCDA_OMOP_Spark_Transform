@@ -31,7 +31,6 @@ domain_dataset_schema = {
 #   T.StructField('global_person_id', T.StringType(), True),
     #T.StructField('person_id', T.StringType(), True),                     # 1 !
     T.StructField('person_id', T.LongType(), True),                     # 1 !
-    T.StructField('data_partner_id', T.LongType(), True),
     T.StructField('gender_concept_id', T.IntegerType(), True),          # 2 !
     T.StructField('year_of_birth', T.IntegerType(), True),              # 3 !
     T.StructField('month_of_birth', T.IntegerType(), True),             # 4 !
@@ -51,7 +50,8 @@ domain_dataset_schema = {
     T.StructField('ethnicity_source_concept_id', T.IntegerType(), True), #18 !
 
     T.StructField('filename', T.StringType(), True),      #19 !
-    T.StructField('cfg_name', T.StringType(), True),      
+    T.StructField('cfg_name', T.StringType(), True), 
+    T.StructField('data_partner_id', T.IntegerType(), True),     
     
 #   T.StructField('gender_concept_name', T.StringType(), True),
 #   T.StructField('ethnicity_concept_name', T.StringType(), True),
@@ -63,7 +63,6 @@ domain_dataset_schema = {
 
     'Condition': T.StructType([ 
 #   T.StructField('payload', T.StringType(), True),
-    T.StructField('data_partner_id', T.IntegerType(), True),
 
     T.StructField('condition_occurrence_id',      T.LongType(), True),         # 1
     T.StructField('person_id',                    T.LongType(), True),                       # 2
@@ -91,7 +90,8 @@ domain_dataset_schema = {
     T.StructField('condition_source_concept_id',   T.IntegerType(), True),  #15
     T.StructField('condition_status_source_value', T.StringType(), True),  #16
     T.StructField('filename', T.StringType(), True),
-    T.StructField('cfg_name', T.StringType(), True), 
+    T.StructField('cfg_name', T.StringType(), True),
+    T.StructField('data_partner_id', T.IntegerType(), True),
 
 #   T.StructField('condition_concept_name', T.StringType(), True),
 #   T.StructField('condition_type_concept_name', T.StringType(), True),
@@ -101,7 +101,6 @@ domain_dataset_schema = {
 
     'Death' : T.StructType([
     T.StructField('payload', T.StringType(), True),
-    T.StructField('data_partner_id', T.IntegerType(), True),
     T.StructField('death_datetime', T.TimestampType(), True),
     T.StructField('cause_source_concept_id', T.IntegerType(), True),
     T.StructField('cause_concept_id', T.IntegerType(), True),
@@ -112,12 +111,12 @@ domain_dataset_schema = {
     T.StructField('cause_concept_name', T.StringType(), True),
     T.StructField('death_type_concept_name', T.StringType(), True),
     T.StructField('cause_source_concept_name', T.StringType(), True),
+    T.StructField('data_partner_id', T.IntegerType(), True),
     ]),
 
     'Device': T.StructType([
     T.StructField('visit_detail_id', T.LongType(), True),
 #    T.StructField('payload', T.StringType(), True),
-    T.StructField('data_partner_id', T.IntegerType(), True),
     T.StructField('visit_occurrence_id', T.LongType(), True),
     T.StructField('provider_id', T.LongType(), True),
     T.StructField('person_id', T.LongType(), True),
@@ -133,7 +132,8 @@ domain_dataset_schema = {
     T.StructField('device_source_value', T.StringType(), True),
     T.StructField('device_source_concept_id', T.IntegerType(), True),
     T.StructField('filename', T.StringType(), True),
-    T.StructField('cfg_name', T.StringType(), True),     
+    T.StructField('cfg_name', T.StringType(), True), 
+    T.StructField('data_partner_id', T.IntegerType(), True),    
 #    T.StructField('device_concept_name', T.StringType(), True),
 #    T.StructField('device_type_concept_name', T.StringType(), True),
 #    T.StructField('device_source_concept_name', T.StringType(), True)
@@ -142,7 +142,6 @@ domain_dataset_schema = {
     'Drug': T.StructType([
     T.StructField('visit_detail_id', T.LongType(), True),                   #19
 #   T.StructField('payload', T.StringType(), True),
-    T.StructField('data_partner_id', T.IntegerType(), True),
     T.StructField('sig', T.StringType(), True),                             #14
     T.StructField('verbatim_end_date', T.DateType(), True),                 # 8
     T.StructField('visit_occurrence_id', T.LongType(), True),               #18
@@ -171,7 +170,8 @@ domain_dataset_schema = {
     
     T.StructField('dose_unit_source_value', T.StringType(), True),          #23
     T.StructField('filename', T.StringType(), True),
-    T.StructField('cfg_name', T.StringType(), True),     
+    T.StructField('cfg_name', T.StringType(), True), 
+    T.StructField('data_partner_id', T.IntegerType(), True),    
 #    T.StructField('drug_concept_name', T.StringType(), True),
 #    T.StructField('drug_type_concept_name', T.StringType(), True),
 #    T.StructField('route_concept_name', T.StringType(), True),
@@ -180,7 +180,6 @@ domain_dataset_schema = {
 
     'Measurement': T.StructType([
 #   T.StructField('payload', T.StringType(), True),
-    T.StructField('data_partner_id', T.IntegerType(), True),
     T.StructField('measurement_time', T.StringType(), True),
     T.StructField('visit_detail_id', T.LongType(), True),
     T.StructField('visit_occurrence_id', T.LongType(), True),
@@ -202,7 +201,8 @@ domain_dataset_schema = {
     T.StructField('unit_source_value', T.StringType(), True),
     T.StructField('value_source_value', T.StringType(), True),
     T.StructField('filename', T.StringType(), True),
-    T.StructField('cfg_name', T.StringType(), True),     
+    T.StructField('cfg_name', T.StringType(), True),
+    T.StructField('data_partner_id', T.IntegerType(), True),     
 #   T.StructField('measurement_concept_name', T.StringType(), True),
 #   T.StructField('measurement_type_concept_name', T.StringType(), True),
 #   T.StructField('operator_concept_name', T.StringType(), True),
@@ -213,7 +213,6 @@ domain_dataset_schema = {
 
     'Observation': T.StructType([
  #   T.StructField('payload', T.StringType(), True),
-    T.StructField('data_partner_id', T.IntegerType(), True),
     T.StructField('visit_detail_id', T.LongType(), True),
     T.StructField('visit_occurrence_id', T.LongType(), True),
     T.StructField('provider_id', T.LongType(), True),
@@ -234,6 +233,7 @@ domain_dataset_schema = {
     T.StructField('unit_source_value', T.StringType(), True),
     T.StructField('filename', T.StringType(), True),
     T.StructField('cfg_name', T.StringType(), True), 
+    T.StructField('data_partner_id', T.IntegerType(), True),
  #   T.StructField('observation_source_concept_name', T.StringType(), True),
  #   T.StructField('observation_concept_name', T.StringType(), True),
  #   T.StructField('observation_type_concept_name', T.StringType(), True),
@@ -245,7 +245,6 @@ domain_dataset_schema = {
     'Procedure': T.StructType([
     T.StructField('visit_detail_id', T.LongType(), True),
  #   T.StructField('payload', T.StringType(), True),
-    T.StructField('data_partner_id', T.IntegerType(), True),
     T.StructField('procedure_source_concept_id', T.IntegerType(), True),
     T.StructField('procedure_concept_id', T.IntegerType(), True),
     T.StructField('visit_occurrence_id', T.LongType(), True),
@@ -260,7 +259,8 @@ domain_dataset_schema = {
     T.StructField('procedure_source_value', T.StringType(), True),
     T.StructField('modifier_source_value', T.StringType(), True),
     T.StructField('filename', T.StringType(), True),
-    T.StructField('cfg_name', T.StringType(), True),     
+    T.StructField('cfg_name', T.StringType(), True),
+    T.StructField('data_partner_id', T.IntegerType(), True),     
  #   T.StructField('procedure_concept_name', T.StringType(), True),
  #   T.StructField('procedure_type_concept_name', T.StringType(), True),
  #   T.StructField('procedure_source_concept_name', T.StringType(), True),
@@ -269,7 +269,6 @@ domain_dataset_schema = {
 
     'Visit_Detail': T.StructType([
     T.StructField('payload', T.StringType(), True),
-    T.StructField('data_partner_id', T.IntegerType(), True),
     T.StructField('visit_occurrence_id', T.LongType(), True),
     T.StructField('visit_detail_parent_id', T.LongType(), True),
     T.StructField('preceding_visit_detail_id', T.LongType(), True),
@@ -293,11 +292,11 @@ domain_dataset_schema = {
     T.StructField('visit_detail_concept_name', T.StringType(), True),
     T.StructField('visit_detail_type_concept_name', T.StringType(), True),
     T.StructField('visit_detail_source_concept_name', T.StringType(), True),
-    T.StructField('admitting_source_concept_name', T.StringType(), True)
+    T.StructField('admitting_source_concept_name', T.StringType(), True),
+    T.StructField('data_partner_id', T.IntegerType(), True),
      ]), 
 
     'Visit': T.StructType([
-    T.StructField('data_partner_id', T.IntegerType(), True),
 #    T.StructField('payload', T.StringType(), True),
     T.StructField('visit_source_value', T.StringType(), True),
     T.StructField('person_id', T.LongType(), True),
@@ -317,7 +316,8 @@ domain_dataset_schema = {
     T.StructField('admitting_source_value', T.StringType(), True),
     T.StructField('discharge_to_source_value', T.StringType(), True),
     T.StructField('filename', T.StringType(), True),
-    T.StructField('cfg_name', T.StringType(), True),     
+    T.StructField('cfg_name', T.StringType(), True), 
+    T.StructField('data_partner_id', T.IntegerType(), True),    
 #    T.StructField('visit_concept_name', T.StringType(), True),
 #    T.StructField('visit_type_concept_name', T.StringType(), True),
 #    T.StructField('visit_source_concept_name', T.StringType(), True),
@@ -327,7 +327,6 @@ domain_dataset_schema = {
 
     'Care_Site': T.StructType([ 
 #    T.StructField('payload', T.StringType(), True),
-    T.StructField('data_partner_id', T.IntegerType(), True),
     T.StructField('location_id', T.LongType(), True),
     T.StructField('care_site_id', T.LongType(), True),
     T.StructField('care_site_name', T.StringType(), True),
@@ -335,13 +334,13 @@ domain_dataset_schema = {
     T.StructField('care_site_source_value', T.StringType(), True),
     T.StructField('place_of_service_source_value', T.StringType(), True),
     T.StructField('filename', T.StringType(), True),
-    T.StructField('cfg_name', T.StringType(), True)
+    T.StructField('cfg_name', T.StringType(), True),
+    T.StructField('data_partner_id', T.IntegerType(), True),
  #   T.StructField('place_of_service_concept_name', T.StringType(), True)
      ]), 
 
     'Location': T.StructType([
  #   T.StructField('payload', T.StringType(), True),
-    T.StructField('data_partner_id', T.IntegerType(), True),
     T.StructField('location_id', T.LongType(), True),
     T.StructField('address_1', T.StringType(), True),
     T.StructField('address_2', T.StringType(), True),
@@ -351,23 +350,23 @@ domain_dataset_schema = {
     T.StructField('county', T.StringType(), True),
     T.StructField('location_source_value', T.StringType(), True),
     T.StructField('filename', T.StringType(), True),
-    T.StructField('cfg_name', T.StringType(), True), 
+    T.StructField('cfg_name', T.StringType(), True),
+    T.StructField('data_partner_id', T.IntegerType(), True),
     ]),
 
     'Observation_Period': T.StructType([
     T.StructField('payload', T.StringType(), True),
-    T.StructField('data_partner_id', T.IntegerType(), True),
     T.StructField('observation_period_start_date', T.DateType(), True),
     T.StructField('observation_period_end_date', T.DateType(), True),
     T.StructField('person_id', T.LongType(), True),
     T.StructField('observation_period_id', T.LongType(), True),
     T.StructField('period_type_concept_id', T.IntegerType(), True),
-    T.StructField('period_type_concept_name', T.StringType(), True)
+    T.StructField('period_type_concept_name', T.StringType(), True),
+    T.StructField('data_partner_id', T.IntegerType(), True),
      ]), 
 
     'Payer_Plan_Period': T.StructType([ 
     T.StructField('payer_source_value', T.StringType(), True),
-    T.StructField('data_partner_id', T.IntegerType(), True),
     T.StructField('payer_plan_period_end_date', T.DateType(), True),
     T.StructField('stop_reason_concept_id', T.IntegerType(), True),
     T.StructField('sponsor_source_concept_id', T.IntegerType(), True),
@@ -392,12 +391,12 @@ domain_dataset_schema = {
     T.StructField('stop_reason_concept_name', T.StringType(), True),
     T.StructField('payer_source_concept_id', T.IntegerType(), True),
     T.StructField('stop_reason_source_concept_name', T.StringType(), True),
-    T.StructField('person_id', T.LongType(), True)
+    T.StructField('person_id', T.LongType(), True),
+    T.StructField('data_partner_id', T.IntegerType(), True),
      ]), 
 
     'Provider': T.StructType([
 #   T.StructField('payload', T.StringType(), True),
-    T.StructField('data_partner_id', T.IntegerType(), True),
     T.StructField('year_of_birth', T.IntegerType(), True),
     T.StructField('care_site_id', T.LongType(), True),
     T.StructField('provider_id', T.LongType(), True),
@@ -412,7 +411,8 @@ domain_dataset_schema = {
     T.StructField('gender_source_value', T.StringType(), True),
     T.StructField('gender_source_concept_id', T.IntegerType(), True),
     T.StructField('filename', T.StringType(), True),
-    T.StructField('cfg_name', T.StringType(), True)
+    T.StructField('cfg_name', T.StringType(), True),
+    T.StructField('data_partner_id', T.IntegerType(), True),
 
 
 #   T.StructField('specialty_concept_name', T.StringType(), True),
