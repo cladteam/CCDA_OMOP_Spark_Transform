@@ -63,13 +63,14 @@ def compute(ctx, omop_eav_dict):
                 .drop('key_value')
 
     df = df \
+        .withColumn('data_partner_id', df['data_partner_id'].cast(T.IntegerType())) \
         .withColumn('care_site_id', df['care_site_id'].cast(T.LongType())) \
         .withColumn('location_id', df['location_id'].cast(T.LongType())) \
         .withColumn('place_of_service_concept_id', df['place_of_service_concept_id'].cast(T.IntegerType())) 
 
-    df = df.select(['location_id', 'care_site_id', 'care_site_name', 'place_of_service_concept_id',
+    df = df.select(['data_partner_id','location_id', 'care_site_id', 'care_site_name', 'place_of_service_concept_id',
                     'care_site_source_value', 'place_of_service_source_value',
-                    'data_partner_id','filename', 'cfg_name'])
+                    'filename', 'cfg_name'])
 
 
     new_df = ctx.spark_session.createDataFrame(df.rdd, ds_schema.domain_dataset_schema['Care_Site'])

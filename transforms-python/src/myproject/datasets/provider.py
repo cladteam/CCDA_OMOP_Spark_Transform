@@ -19,6 +19,7 @@ def compute(ctx, omop_eav_dict):
         .drop('key_value')
 
     df = df \
+        .withColumn('data_partner_id', df['data_partner_id'].cast(T.IntegerType())) \
         .withColumn('year_of_birth', df['year_of_birth'].cast(T.IntegerType())) \
         .withColumn('care_site_id', df['care_site_id'].cast(T.LongType())) \
         .withColumn('provider_id', df['provider_id'].cast(T.LongType())) \
@@ -26,14 +27,14 @@ def compute(ctx, omop_eav_dict):
         .withColumn('gender_concept_id', df['gender_concept_id'].cast(T.IntegerType())) \
         .withColumn('specialty_source_concept_id', df['specialty_source_concept_id'].cast(T.IntegerType())) \
         .withColumn('gender_source_concept_id', df['gender_source_concept_id'].cast(T.IntegerType()))\
-        .withColumn('data_partner_id', df['data_partner_id'].cast(T.LongType())) \
+        
 
     df = df.select([
-        'year_of_birth', 'care_site_id', 'provider_id', 'provider_name',
+        'data_partner_id', 'year_of_birth', 'care_site_id', 'provider_id', 'provider_name',
         'npi', 'dea', 'specialty_concept_id', 'gender_concept_id',
         'provider_source_value', 'specialty_source_value', 'specialty_source_concept_id',
         'gender_source_value', 'gender_source_concept_id',
-        'data_partner_id', 'filename', 'cfg_name'
+        'filename', 'cfg_name'
     ])
 
     df = ctx.spark_session.createDataFrame(df.rdd, ds_schema.domain_dataset_schema['Provider'])

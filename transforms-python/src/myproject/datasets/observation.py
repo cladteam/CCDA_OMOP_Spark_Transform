@@ -18,6 +18,7 @@ def compute(ctx, omop_eav_dict):
                 .drop('key_value')
 
     df = df \
+        .withColumn('data_partner_id', df['data_partner_id'].cast(T.LongType())) \
         .withColumn('visit_detail_id', df['visit_detail_id'].cast(T.LongType())) \
         .withColumn('visit_occurrence_id', df['visit_occurrence_id'].cast(T.LongType())) \
         .withColumn('provider_id', df['provider_id'].cast(T.LongType())) \
@@ -32,16 +33,16 @@ def compute(ctx, omop_eav_dict):
         .withColumn('value_as_concept_id', df['value_as_concept_id'].cast(T.IntegerType())) \
         .withColumn('qualifier_concept_id', df['qualifier_concept_id'].cast(T.IntegerType())) \
         .withColumn('unit_concept_id', df['unit_concept_id'].cast(T.IntegerType()))\
-        .withColumn('data_partner_id', df['data_partner_id'].cast(T.LongType())) 
+        
 
     df = df.select([
-        'visit_detail_id', 'visit_occurrence_id', 'provider_id', 'value_as_number', 'person_id', 
+        'data_partner_id', 'visit_detail_id', 'visit_occurrence_id', 'provider_id', 'value_as_number', 'person_id', 
         'observation_id', 'observation_concept_id', 'observation_source_value',
         'observation_source_concept_id', 'observation_date', 'observation_datetime',
         'observation_type_concept_id', 'value_as_string', 'value_as_concept_id',
         'qualifier_concept_id', 'qualifier_source_value', 'unit_concept_id',
         'unit_source_value',
-        'data_partner_id', 'filename', 'cfg_name'
+        'filename', 'cfg_name'
     ])
 
     df = ctx.spark_session.createDataFrame(df.rdd, ds_schema.domain_dataset_schema['Observation'])

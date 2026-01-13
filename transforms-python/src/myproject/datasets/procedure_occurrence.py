@@ -19,6 +19,7 @@ def compute(ctx, omop_eav_dict):
 
     df = df \
         .withColumn('visit_detail_id', df['visit_detail_id'].cast(T.LongType())) \
+        .withColumn('data_partner_id', df['data_partner_id'].cast(T.LongType())) \
         .withColumn('procedure_source_concept_id', df['procedure_source_concept_id'].cast(T.IntegerType())) \
         .withColumn('procedure_concept_id', df['procedure_concept_id'].cast(T.IntegerType())) \
         .withColumn('visit_occurrence_id', df['visit_occurrence_id'].cast(T.LongType())) \
@@ -30,14 +31,14 @@ def compute(ctx, omop_eav_dict):
         .withColumn('procedure_datetime',  F.to_timestamp(F.col('procedure_datetime'))) \
         .withColumn('procedure_type_concept_id', df['procedure_type_concept_id'].cast(T.IntegerType())) \
         .withColumn('quantity', df['quantity'].cast(T.IntegerType()))\
-        .withColumn('data_partner_id', df['data_partner_id'].cast(T.LongType())) \
+
 
     df = df.select([
-        'visit_detail_id', 'procedure_source_concept_id', 'procedure_concept_id', 'visit_occurrence_id',
+        'visit_detail_id','data_partner_id', 'procedure_source_concept_id', 'procedure_concept_id', 'visit_occurrence_id',
         'person_id', 'procedure_occurrence_id', 'provider_id', 'modifier_concept_id',
         'procedure_date', 'procedure_datetime', 'procedure_type_concept_id',
         'quantity', 'procedure_source_value', 'modifier_source_value',
-        'data_partner_id', 'filename', 'cfg_name'
+         'filename', 'cfg_name'
     ])
         
 

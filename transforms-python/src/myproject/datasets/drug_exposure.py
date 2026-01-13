@@ -19,6 +19,8 @@ def compute(ctx, omop_eav_dict):
 
     df = df \
         .withColumn('visit_detail_id', df['visit_detail_id'].cast(T.LongType())) \
+        .withColumn('data_partner_id', df['data_partner_id'].cast(T.IntegerType())) \
+        .withColumn('sig', df['sig'].cast(T.StringType())) \
         .withColumn('verbatim_end_date',  F.to_date(F.col('verbatim_end_date'))) \
         .withColumn('visit_occurrence_id', df['visit_occurrence_id'].cast(T.LongType())) \
         .withColumn('provider_id', df['provider_id'].cast(T.LongType())) \
@@ -34,11 +36,10 @@ def compute(ctx, omop_eav_dict):
         .withColumn('drug_type_concept_id', df['drug_type_concept_id'].cast(T.IntegerType())) \
         .withColumn('refills', df['refills'].cast(T.IntegerType())) \
         .withColumn('route_concept_id', df['route_concept_id'].cast(T.IntegerType())) \
-        .withColumn('drug_source_concept_id', df['drug_source_concept_id'].cast(T.IntegerType())) \
-        .withColumn('data_partner_id', df['data_partner_id'].cast(T.LongType())) 
+        .withColumn('drug_source_concept_id', df['drug_source_concept_id'].cast(T.IntegerType())) 
 
     df = df.select([ 
-        'visit_detail_id', 'sig', 'verbatim_end_date',
+        'visit_detail_id','data_partner_id', 'sig', 'verbatim_end_date',
         'visit_occurrence_id', 'provider_id', 'days_supply', 'quantity',
         'person_id', 'drug_exposure_id', 'drug_concept_id',
         'drug_exposure_start_date', 'drug_exposure_start_datetime',
@@ -46,7 +47,7 @@ def compute(ctx, omop_eav_dict):
         'drug_type_concept_id', 'stop_reason', 'refills', 'route_concept_id', 'lot_number',
         'drug_source_value', 'drug_source_concept_id', 'route_source_value',
         'dose_unit_source_value',
-        'data_partner_id', 'filename', 'cfg_name'
+         'filename', 'cfg_name'
     ])
 
     df = ctx.spark_session.createDataFrame(df.rdd, ds_schema.domain_dataset_schema['Drug'])
