@@ -34,7 +34,7 @@ def compute(ctx, omop_eav_dict):
         .withColumn('gender_source_concept_id', df['gender_source_concept_id'].cast(T.IntegerType())) \
         .withColumn('race_source_concept_id', df['race_source_concept_id'].cast(T.IntegerType())) \
         .withColumn('ethnicity_source_concept_id', df['ethnicity_source_concept_id'].cast(T.IntegerType())) \
-        .withColumn('data_partner_id', df['data_partner_id'].cast(T.LongType())) \
+        .withColumn('data_partner_id', df['data_partner_id'].cast(T.IntegerType())) \
         .replace("None", None, subset=['ethnicity_source_value', 'gender_source_value', 'race_source_value']) # schema
 
     df = df.select([

@@ -34,7 +34,7 @@ def compute(ctx, omop_eav_dict):
         .withColumn('value_as_number', df['value_as_number'].cast(T.DoubleType())) \
         .withColumn('value_as_concept_id', df['value_as_concept_id'].cast(T.IntegerType())) \
         .withColumn('measurement_source_concept_id', df['measurement_source_concept_id'].cast(T.IntegerType()))\
-        .withColumn('data_partner_id', df['data_partner_id'].cast(T.LongType())) 
+        .withColumn('data_partner_id', df['data_partner_id'].cast(T.IntegerType())) 
         
         #.withColumn('measurement_time',  F.to_timestamp(F.col('measurement_time'))) \    # STRING?
 

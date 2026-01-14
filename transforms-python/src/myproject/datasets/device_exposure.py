@@ -33,7 +33,7 @@ def compute(ctx, omop_eav_dict):
         .withColumn('quantity', df['quantity'].cast(T.IntegerType())) \
         .withColumn('device_source_value', df['device_source_value'].cast(T.StringType())) \
         .withColumn('device_source_concept_id', df['device_source_concept_id'].cast(T.IntegerType()))\
-        .withColumn('data_partner_id', df['data_partner_id'].cast(T.LongType()))  
+        .withColumn('data_partner_id', df['data_partner_id'].cast(T.IntegerType()))  
         
 
     df = df.select([ 
