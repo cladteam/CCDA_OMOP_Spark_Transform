@@ -30,4 +30,8 @@ LEFT    JOIN `ri.foundry.main.dataset.831ad30e-a134-41ac-8f68-def86cc8b05c` ccn
 --      ON co.condition_status_concept_id = cstcn.concept_id
 --    JOIN `ri.foundry.main.dataset.831ad30e-a134-41ac-8f68-def86cc8b05c` csocn
 --      ON co.condition_source_concept_id = csocn.concept_id
-      
+      WHERE co.condition_occurrence_id IS NOT NULL
+      AND co.person_id IS NOT NULL
+      AND co.condition_concept_id IS NOT NULL
+      AND co.condition_start_date IS NOT NULL
+      AND co.condition_type_concept_id IS NOT NULL;

@@ -8,4 +8,5 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
         cs.place_of_service_source_value,
         cs.data_partner_id
     FROM `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/care_site` cs
+    WHERE cs.care_site_id IS NOT NULL;
 

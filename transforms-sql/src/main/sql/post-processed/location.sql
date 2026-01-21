@@ -10,3 +10,4 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
         l.location_source_value,
         l.data_partner_id
     FROM `ri.foundry.main.dataset.1ed07a69-4970-4b8d-b67c-e0557606ff33` l
+    WHERE l.location_id IS NOT NULL;

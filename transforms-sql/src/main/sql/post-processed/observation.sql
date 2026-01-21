@@ -39,3 +39,8 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
 --         on ucn.concept_id = o.unit_concept_id
 --       JOIN `ri.foundry.main.dataset.831ad30e-a134-41ac-8f68-def86cc8b05c` vcn
 --         on vcn.concept_id = o.value_as_concept_i`
+        WHERE o.observation_id IS NOT NULL
+        AND o.person_id IS NOT NULL
+        AND o.observation_concept_id IS NOT NULL
+        AND o.observation_date IS NOT NULL
+        AND o.observation_type_concept_id IS NOT NULL;

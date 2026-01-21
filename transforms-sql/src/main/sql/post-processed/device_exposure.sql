@@ -26,4 +26,9 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
       ON dtcn.concept_id = de.device_type_concept_id
     LEFT JOIN `ri.foundry.main.dataset.831ad30e-a134-41ac-8f68-def86cc8b05c` dscn
       ON dscn.concept_id = de.device_source_concept_id
+    WHERE de.device_exposure_id IS NOT NULL
+      AND de.person_id IS NOT NULL
+      AND de.device_concept_id IS NOT NULL
+      AND de.device_exposure_start_date IS NOT NULL
+      AND de.device_type_concept_id IS NOT NULL;
      

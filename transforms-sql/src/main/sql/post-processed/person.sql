@@ -39,4 +39,8 @@ SELECT distinct
 --      on p.race_concept_id = rcn.concept_id
 --    JOIN `/All of Us-cdb223/Data Source: Athena Vocabularies/datasets/concept`  rscn
 --      on p.race_source_concept_id = rscn.concept_id 
-     
+      WHERE person_id IS NOT NULL
+        AND gender_concept_id IS NOT NULL
+        AND year_of_birth IS NOT NULL
+        AND race_concept_id IS NOT NULL
+        AND ethnicity_concept_id IS NOT NULL;

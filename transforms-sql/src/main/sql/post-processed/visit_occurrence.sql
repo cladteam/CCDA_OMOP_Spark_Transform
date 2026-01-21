@@ -20,5 +20,10 @@ CREATE TABLE `/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/post-pr
         vo.data_partner_id
 
     FROM `ri.foundry.main.dataset.f3d88333-9315-4a11-963a-6703a72cfd8a` vo
-
+    WHERE vo.visit_occurrence_id IS NOT NULL
+      AND vo.person_id IS NOT NULL
+      AND vo.visit_concept_id IS NOT NULL
+      AND vo.visit_start_date IS NOT NULL
+      AND vo.visit_end_date IS NOT NULL
+      AND vo.visit_type_concept_id IS NOT NULL;
 

@@ -27,3 +27,4 @@ LEFT    JOIN `ri.foundry.main.dataset.831ad30e-a134-41ac-8f68-def86cc8b05c` gcn
       ON gcn.concept_id = p.gender_concept_id
 LEFT    JOIN `ri.foundry.main.dataset.831ad30e-a134-41ac-8f68-def86cc8b05c` scn
       ON scn.concept_id = p.specialty_concept_id
+    WHERE p.provider_id IS NOT NULL;

@@ -37,4 +37,9 @@ LEFT    JOIN `ri.foundry.main.dataset.831ad30e-a134-41ac-8f68-def86cc8b05c` rcn
       ON rcn.concept_id = de.route_concept_id
 LEFT    JOIN `ri.foundry.main.dataset.831ad30e-a134-41ac-8f68-def86cc8b05c` dscn
       ON dscn.concept_id = de.drug_source_concept_id
-     
+     WHERE de.drug_exposure_id IS NOT NULL
+      AND de.person_id IS NOT NULL
+      AND de.drug_concept_id IS NOT NULL
+      AND de.drug_exposure_start_date IS NOT NULL
+      AND de.drug_exposure_end_date IS NOT NULL
+      AND de.drug_type_concept_id IS NOT NULL;
