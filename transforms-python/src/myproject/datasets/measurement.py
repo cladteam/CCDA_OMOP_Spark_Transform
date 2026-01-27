@@ -47,7 +47,7 @@ def compute(ctx, omop_eav_dict):
         'visit_occurrence_id', 'visit_detail_id', 
         'measurement_source_value', 'measurement_source_concept_id', 
         'unit_source_value', 'value_source_value',
-        'filename', 'cfg_name', 'data_partner_id'
+        'cfg_name', 'data_partner_id'
     ])
 
     new_df = ctx.spark_session.createDataFrame(df.rdd, ds_schema.domain_dataset_schema['Measurement'])

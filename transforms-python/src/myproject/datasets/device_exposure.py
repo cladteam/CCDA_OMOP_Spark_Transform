@@ -44,7 +44,7 @@ def compute(ctx, omop_eav_dict):
         'device_exposure_end_date', 'device_exposure_end_datetime',
         'device_type_concept_id', 'unique_device_id',
         'quantity', 'device_source_value', 'device_source_concept_id',
-        'filename', 'cfg_name', 'data_partner_id'
+        'cfg_name', 'data_partner_id'
     ])
 
     df = ctx.spark_session.createDataFrame(df.rdd, ds_schema.domain_dataset_schema['Device'])
