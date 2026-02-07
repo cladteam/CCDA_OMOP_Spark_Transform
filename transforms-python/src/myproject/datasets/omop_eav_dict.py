@@ -34,7 +34,10 @@ record_schema = T.StructType( [
     input_files=Input("ri.foundry.main.dataset.8c8ff8f9-d429-4396-baed-a3de9c945f49"),
     visit_xwalk_ds=Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/visit_concept_xwalk_mapping_dataset" ),
     valueset_xwalk_ds=Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/ccda_value_set_mapping_table_dataset" ),
-    codemap_xwalk_ds=Input("ri.foundry.main.dataset.28fe6af8-0b22-4b45-86e2-b394c62dcd09" ),
+    
+    #codemap_xwalk_ds=Input("ri.foundry.main.dataset.28fe6af8-0b22-4b45-86e2-b394c62dcd09" ),
+    codemap_xwalk_ds=Input("/All of Us-cdb223/HIN - HIE/CCDA/scratch/Tanner/unified_mapping_source_code_vocab_fix_to_mimic_codemap" ),
+
     ccda_metadata_ds=Input("ri.foundry.main.dataset.672dd7ae-bbd4-43e8-9b8b-b5c7e8711e79"),
     partner_mapping_ds=Input("/All of Us-cdb223/HIN - HIE/sharedResources/health_care_site_to_data_partner_id")
 )
