@@ -27,7 +27,7 @@ def compute(ctx, omop_eav_dict):
         .withColumn('observation_concept_id', df['observation_concept_id'].cast(T.IntegerType())) \
         .withColumn('observation_source_concept_id', df['observation_source_concept_id'].cast(T.IntegerType())) \
         .withColumn('observation_date',  F.to_date(F.col('observation_date'))) \
-        .withColumn('observation_datetime',  F.to_timestamp(F.col('observation_datetime'))) \
+        .withColumn('observation_datetime',  F.to_timestamp(F.to_timestamp_ntz(F.col('observation_datetime')))) \
         .withColumn('observation_type_concept_id', df['observation_type_concept_id'].cast(T.IntegerType())) \
         .withColumn('value_as_concept_id', df['value_as_concept_id'].cast(T.IntegerType())) \
         .withColumn('qualifier_concept_id', df['qualifier_concept_id'].cast(T.IntegerType())) \

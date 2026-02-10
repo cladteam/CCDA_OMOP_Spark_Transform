@@ -29,9 +29,9 @@ def compute(ctx, omop_eav_dict):
         .withColumn('drug_exposure_id', df['drug_exposure_id'].cast(T.LongType())) \
         .withColumn('drug_concept_id', df['drug_concept_id'].cast(T.IntegerType())) \
         .withColumn('drug_exposure_start_date',  F.to_date(F.col('drug_exposure_start_date'))) \
-        .withColumn('drug_exposure_start_datetime',  F.to_timestamp(F.col('drug_exposure_start_datetime'))) \
+        .withColumn('drug_exposure_start_datetime',  F.to_timestamp(F.to_timestamp_ntz(F.col('drug_exposure_start_datetime')))) \
         .withColumn('drug_exposure_end_date',  F.to_date(F.col('drug_exposure_end_date'))) \
-        .withColumn('drug_exposure_end_datetime',  F.to_timestamp(F.col('drug_exposure_end_datetime'))) \
+        .withColumn('drug_exposure_end_datetime',  F.to_timestamp(F.to_timestamp_ntz(F.col('drug_exposure_end_datetime')))) \
         .withColumn('drug_type_concept_id', df['drug_type_concept_id'].cast(T.IntegerType())) \
         .withColumn('refills', df['refills'].cast(T.IntegerType())) \
         .withColumn('route_concept_id', df['route_concept_id'].cast(T.IntegerType())) \

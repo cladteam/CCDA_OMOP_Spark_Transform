@@ -27,7 +27,7 @@ def compute(ctx, omop_eav_dict):
         .withColumn('provider_id', df['provider_id'].cast(T.LongType())) \
         .withColumn('modifier_concept_id', df['modifier_concept_id'].cast(T.IntegerType())) \
         .withColumn('procedure_date',  F.to_date(F.col('procedure_date'))) \
-        .withColumn('procedure_datetime',  F.to_timestamp(F.col('procedure_datetime'))) \
+        .withColumn('procedure_datetime',  F.to_timestamp(F.to_timestamp_ntz(F.col('procedure_datetime')))) \
         .withColumn('procedure_type_concept_id', df['procedure_type_concept_id'].cast(T.IntegerType())) \
         .withColumn('quantity', df['quantity'].cast(T.IntegerType()))\
         .withColumn('data_partner_id', df['data_partner_id'].cast(T.IntegerType())) \

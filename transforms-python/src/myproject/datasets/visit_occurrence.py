@@ -28,9 +28,9 @@ def compute(ctx, omop_eav_dict):
         .withColumn('provider_id', df['provider_id'].cast(T.LongType())) \
         .withColumn('visit_concept_id', df['visit_concept_id'].cast(T.IntegerType())) \
         .withColumn('visit_start_date',  F.to_date(F.col('visit_start_date'))) \
-        .withColumn('visit_start_datetime',  F.to_timestamp(F.col('visit_start_datetime'))) \
+        .withColumn('visit_start_datetime',  F.to_timestamp(F.to_timestamp_ntz(F.col('visit_start_datetime')))) \
         .withColumn('visit_end_date',  F.to_date(F.col('visit_end_date'))) \
-        .withColumn('visit_end_datetime',  F.to_timestamp(F.col('visit_end_datetime'))) \
+        .withColumn('visit_end_datetime',  F.to_timestamp(F.to_timestamp_ntz(F.col('visit_end_datetime')))) \
         .withColumn('visit_type_concept_id', df['visit_type_concept_id'].cast(T.IntegerType()))\
         .withColumn('data_partner_id', df['data_partner_id'].cast(T.IntegerType())) \
 

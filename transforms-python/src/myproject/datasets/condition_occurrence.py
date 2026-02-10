@@ -22,9 +22,9 @@ def compute(ctx, omop_eav_dict):
         .withColumn('person_id', df['person_id'].cast(T.LongType())) \
         .withColumn('condition_concept_id', df['condition_concept_id'].cast(T.IntegerType())) \
         .withColumn('condition_start_date',  F.to_date(F.col('condition_start_date'))) \
-        .withColumn('condition_start_datetime',  F.to_timestamp(F.col('condition_start_datetime'))) \
+        .withColumn('condition_start_datetime',  F.to_timestamp(F.to_timestamp_ntz(F.col('condition_start_datetime')))) \
         .withColumn('condition_end_date',  F.to_date(F.col('condition_end_date'))) \
-        .withColumn('condition_end_datetime',  F.to_timestamp(F.col('condition_end_datetime'))) \
+        .withColumn('condition_end_datetime',  F.to_timestamp(F.to_timestamp_ntz(F.col('condition_end_datetime')))) \
         .withColumn('condition_type_concept_id', df['condition_type_concept_id'].cast(T.IntegerType())) \
         .withColumn('condition_status_concept_id', df['condition_status_concept_id'].cast(T.IntegerType())) \
         .withColumn('stop_reason', df['stop_reason'].cast(T.StringType())) \

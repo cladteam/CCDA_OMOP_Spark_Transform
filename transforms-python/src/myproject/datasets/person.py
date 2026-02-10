@@ -25,7 +25,7 @@ def compute(ctx, omop_eav_dict):
         .withColumn('year_of_birth', df['year_of_birth'].cast(T.IntegerType())) \
         .withColumn('month_of_birth', df['month_of_birth'].cast(T.IntegerType())) \
         .withColumn('day_of_birth', df['day_of_birth'].cast(T.IntegerType())) \
-        .withColumn('birth_datetime', F.to_timestamp(F.col('birth_datetime'), "yyyy-MM-dd HH:mm:ss")) \
+        .withColumn('birth_datetime', F.to_timestamp(F.to_timestamp_ntz(F.col('birth_datetime')))) \
         .withColumn('race_concept_id', df['race_concept_id'].cast(T.IntegerType())) \
         .withColumn('ethnicity_concept_id', df['ethnicity_concept_id'].cast(T.IntegerType())) \
         .withColumn('location_id', df['location_id'].cast(T.LongType())) \
