@@ -86,17 +86,17 @@ mappings:
   - "READ"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.75efa0bb-e85c-4fcd-b4a7-a0e2da095e01"
-- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_Feb7_weekly"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_CR_743_Feb12b"
   modes:
   - "BUILD"
   - "READ"
   path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.e8729d54-7d9e-4a97-b097-5124d3813359"
-- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_record_Feb7_weekly"
+  rid: "ri.foundry.main.dataset.95c8738c-5c09-4652-866f-a54e82fbe0d4"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_record_CR_743_Feb12b"
   modes:
   - "BUILD"
   path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.6442e44d-2612-4a00-958f-b74882324007"
+  rid: "ri.foundry.main.dataset.c6385672-c939-4bda-8da7-83e32f73b63f"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/person"
   modes:
   - "BUILD"
@@ -307,11 +307,6 @@ mappings:
   - "BUILD"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.2b80bd23-9d3c-444c-93dc-e5cea6a28d22"
-- alias: "/All of Us-cdb223/HIN - HIE/CCDA/scratch/Tanner/unified_mapping_source_code_vocab_fix_to_mimic_codemap"
-  modes:
-  - "READ"
-  path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.64e0ea88-f75b-4ef5-b6ce-4022d094e7a5"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/ccda_value_set_mapping_table_dataset"
   modes:
   - "READ"
@@ -347,6 +342,11 @@ mappings:
   - "READ"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.1ed07a69-4970-4b8d-b67c-e0557606ff33"
+- alias: "ri.foundry.main.dataset.28fe6af8-0b22-4b45-86e2-b394c62dcd09"
+  modes:
+  - "READ"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.28fe6af8-0b22-4b45-86e2-b394c62dcd09"
 - alias: "ri.foundry.main.dataset.5ba1594c-ef36-4eeb-b6c4-d3d005dbd127"
   modes:
   - "READ"
