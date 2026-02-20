@@ -1,5 +1,7 @@
 from pyspark.sql import types as T
-from collections import defaultdict  
+from collections import defaultdict
+from transforms.api import Output
+from pyspark.sql import SparkSession, DataFrame
 
 from ..util.ds_schema import domain_key_fields
 
@@ -12,6 +14,7 @@ omop_dict_schema = T.StructType([
     T.StructField('field_name', T.StringType(), True),
     T.StructField('field_value', T.StringType(), True)
 ])
+
 
 def concat_key(domain_name, record_dict):
     return domain_name + "|" +  "|".join(list(map(str, record_dict.values())))
@@ -74,3 +77,12 @@ def get_visitmap_dict_list(visitmap_ds):
         }
         visitmap_dict[key].append(value)
     return visitmap_dict
+
+
+def reset_previous_files_listing(ctx, previous_files_output: Output, schema_for_file_tracking: T.StructType) -> None:
+    if not ctx.is_incremental:
+        spark: SparkSession = ctx.spark_session
+        empty_df: DataFrame = spark.createDataFrame([], schema=schema_for_file_tracking)
+        previous_files_output.set_mode("replace")
+        previous_files_output.write_dataframe(empty_df)
+    return

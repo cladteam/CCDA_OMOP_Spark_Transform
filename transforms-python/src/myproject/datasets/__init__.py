@@ -1,12 +1,15 @@
 # src/myproject/datasets/__init__.py
 #
 # --- INPUT CONFIG  ---
-INPUT_VERSION = "CR_743_Feb12b"
+OMOP_EAV_DICT_STEP_SIZE = 1 # Batch size for stepping through OMOP_EAV_DICT. Set to None for all-at-once mode
+INPUT_VERSION = "test_609_v2_cr"
+
 
 INPUT_BASE_PATH = "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark"
 OMOP_EAV_DICT_FULL_PATH = f"{INPUT_BASE_PATH}/omop_eav_dict_{INPUT_VERSION}"
 OMOP_EAV_DICT_RECORD_FULL_PATH = f"{INPUT_BASE_PATH}/omop_eav_dict_record_{INPUT_VERSION}"
-
+# Use below to control the backup_omop_eav_dict output.
+OMOP_EAV_DICT_BACKUP_FULL_PATH = f"{INPUT_BASE_PATH}/omop_eav_dict_{INPUT_VERSION}_bkp"
 
 # --- OUTPUT CONFIG ---
 OUTPUT_PARENT_DIR = "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData"

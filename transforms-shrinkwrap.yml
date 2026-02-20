@@ -86,17 +86,22 @@ mappings:
   - "READ"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.75efa0bb-e85c-4fcd-b4a7-a0e2da095e01"
-- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_CR_743_Feb12b"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_record_test_609_v2_cr"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.6106872e-0f8a-4382-9880-50329d6709a3"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_test_609_v2_cr"
   modes:
   - "BUILD"
   - "READ"
   path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.95c8738c-5c09-4652-866f-a54e82fbe0d4"
-- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_record_CR_743_Feb12b"
+  rid: "ri.foundry.main.dataset.a178870e-96b9-4e48-b24f-7f5a355fdcf1"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_test_609_v2_cr_bkp"
   modes:
   - "BUILD"
   path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.c6385672-c939-4bda-8da7-83e32f73b63f"
+  rid: "ri.foundry.main.dataset.14ae4e60-5ebf-4ef3-a647-aec775e0dbbc"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/person"
   modes:
   - "BUILD"
@@ -249,6 +254,11 @@ mappings:
   - "READ"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.b9e52736-86d6-4ec2-886c-6d82fc7f4415"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/datasets/uniquify_stage_1/dq_omop_eav_distinct_files"
+  modes:
+  - "BUILD"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.58e35399-f797-4630-8569-82d73483f9be"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/datasets/uniquify_stage_1/drug_exposure"
   modes:
   - "BUILD"
@@ -337,6 +347,12 @@ mappings:
   - "READ"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.1956665b-3f6d-4efb-a6b0-3e87c19d9bd8"
+- alias: "ri.foundry.main.dataset.1cc0185b-10b1-4a44-a565-09d88b1899a2"
+  modes:
+  - "BUILD"
+  - "READ"
+  path: "/deprecated-field"
+  rid: "ri.foundry.main.dataset.1cc0185b-10b1-4a44-a565-09d88b1899a2"
 - alias: "ri.foundry.main.dataset.1ed07a69-4970-4b8d-b67c-e0557606ff33"
   modes:
   - "READ"
