@@ -1,8 +1,8 @@
 # src/myproject/datasets/__init__.py
 #
 # --- INPUT CONFIG  ---
-OMOP_EAV_DICT_STEP_SIZE = 1 # Batch size for stepping through OMOP_EAV_DICT. Set to None for all-at-once mode
-INPUT_VERSION = "test_609_v2_cr"
+OMOP_EAV_DICT_STEP_SIZE = 10000  # Batch size for stepping through OMOP_EAV_DICT. Set to None for all-at-once mode
+INPUT_VERSION = "master"
 
 
 INPUT_BASE_PATH = "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark"
