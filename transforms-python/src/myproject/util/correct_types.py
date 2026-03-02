@@ -16,74 +16,79 @@ from prototype_2.domain_dataframe_column_types import domain_dataframe_column_ty
 
 def correct_record_list(record_list, column_name, intended_column_type, domain_name):
     for record in record_list:
-        field_value = record[column_name]
+        try:
+            field_value = record[column_name]
 
-        # FROM STRINGS
-        if type(field_value) is str:
-            if intended_column_type is int:
-                record[column_name] = int(field_value)
-                if type(record[column_name]) is not intended_column_type:
-                    msg=f"CAST to int FAILED:  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
-                    raise Exception(msg)
+            # FROM STRINGS
+            if type(field_value) is str:
+                if intended_column_type is int:
+                    record[column_name] = int(field_value)
+                    if type(record[column_name]) is not intended_column_type:
+                        msg=f"CAST to int FAILED:  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
+                        raise Exception(msg)
 
-            if intended_column_type == np.int64:
-                record[column_name] = np.int64(field_value)
-                if type(record[column_name]) is not np.int64:
-                    msg=f"CAST for int64 to int FAILED:  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
-                    raise Exception(msg)
+                if intended_column_type == np.int64:
+                    record[column_name] = np.int64(field_value)
+                    if type(record[column_name]) is not np.int64:
+                        msg=f"CAST for int64 to int FAILED:  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
+                        raise Exception(msg)
 
-            if intended_column_type == np.int32:
-                intermediate_int32 = np.int32(field_value) # hopes of forcing an int, not a long
-                #record[column_name] = int(intermediate_int32)
-                record[column_name] = intermediate_int32
-                if type(record[column_name]) is not np.int32:
-                    msg=f"CAST for int32 to int FAILED:  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
-                    raise Exception(msg)
+                if intended_column_type == np.int32:
+                    intermediate_int32 = np.int32(field_value) # hopes of forcing an int, not a long
+                    #record[column_name] = int(intermediate_int32)
+                    record[column_name] = intermediate_int32
+                    if type(record[column_name]) is not np.int32:
+                        msg=f"CAST for int32 to int FAILED:  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
+                        raise Exception(msg)
 
-        # FROM various INTs, just pass an int, not int32 or int64, but go via int32 when that is asked for
-        elif type(field_value) in (int, np.int32, np.int64):
-            if intended_column_type is int:
-                intermediate = np.int32(field_value)
-                record[column_name] = int(intermediate)
-                if type(record[column_name]) is not int:
-                    msg=f"CAST for int to int FAILED:  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
-                    raise Exception(msg)
-            elif intended_column_type == np.int32:
-                record[column_name] = np.int32(field_value) # hopes of forcing an int, not a long
-                if type(record[column_name]) is not np.int32:
-                    msg=f"CAST for int32 to int FAILED:  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
-                    raise Exception(msg)
-            elif intended_column_type == np.int64:
-                record[column_name] = np.int64(field_value)
-                if type(record[column_name]) is not np.int64:
-                    msg=f"CAST for int64 to int FAILED:  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
-                    raise Exception(msg)
-            else:
-                if type(record[column_name]) is not int:
-                    msg=f"something FAILED:  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
-                    raise Exception(msg)
+            # FROM various INTs, just pass an int, not int32 or int64, but go via int32 when that is asked for
+            elif type(field_value) in (int, np.int32, np.int64):
+                if intended_column_type is int:
+                    intermediate = np.int32(field_value)
+                    record[column_name] = int(intermediate)
+                    if type(record[column_name]) is not int:
+                        msg=f"CAST for int to int FAILED:  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
+                        raise Exception(msg)
+                elif intended_column_type == np.int32:
+                    record[column_name] = np.int32(field_value) # hopes of forcing an int, not a long
+                    if type(record[column_name]) is not np.int32:
+                        msg=f"CAST for int32 to int FAILED:  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
+                        raise Exception(msg)
+                elif intended_column_type == np.int64:
+                    record[column_name] = np.int64(field_value)
+                    if type(record[column_name]) is not np.int64:
+                        msg=f"CAST for int64 to int FAILED:  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
+                        raise Exception(msg)
+                else:
+                    if type(record[column_name]) is not int:
+                        msg=f"something FAILED:  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
+                        raise Exception(msg)
 
-        # FROM float
-        elif type(field_value) in (np.float32, float, np.float64):
-            if intended_column_type is float:
-                record[column_name] = float(field_value)
-                if type(record[column_name]) is not float:
-                    msg=f"CAST for float to float FAILED:  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
-                    raise Exception(msg)
-            elif intended_column_type == np.float32:
-                record[column_name] = np.float32(field_value)
-                if type(record[column_name]) is not np.float32:
-                    msg=f"CAST for float32 to float FAILED:  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
-                    raise Exception(msg)
-            elif intended_column_type == np.float64:
-                record[column_name] = np.float64(field_value)
-                if type(record[column_name]) is not np.float64:
-                    msg=f"CAST for 64 to int FAILED: was:{type(field_value)}  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
-                    raise Exception(msg)
-            else:
-                if type(record[column_name]) is not float:
-                    msg=f"something float FAILED:  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
-                    raise Exception(msg)
+            # FROM float
+            elif type(field_value) in (np.float32, float, np.float64):
+                if intended_column_type is float:
+                    record[column_name] = float(field_value)
+                    if type(record[column_name]) is not float:
+                        msg=f"CAST for float to float FAILED:  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
+                        raise Exception(msg)
+                elif intended_column_type == np.float32:
+                    record[column_name] = np.float32(field_value)
+                    if type(record[column_name]) is not np.float32:
+                        msg=f"CAST for float32 to float FAILED:  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
+                        raise Exception(msg)
+                elif intended_column_type == np.float64:
+                    record[column_name] = np.float64(field_value)
+                    if type(record[column_name]) is not np.float64:
+                        msg=f"CAST for 64 to int FAILED: was:{type(field_value)}  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
+                        raise Exception(msg)
+                else:
+                    if type(record[column_name]) is not float:
+                        msg=f"something float FAILED:  cfg:{domain_name} col:{column_name} intended:{intended_column_type} actual:{type(record[column_name])} val:{record[column_name]}"
+                        raise Exception(msg)
+        except Exception as e:
+            parse_config = record.get('cfg_name', 'parse config name not available')
+            msg=f"Error in correct_record_list() in omop_eav_dict.py. domain:{domain_name} cfg: {parse_config} column:{column_name}, intended type:{intended_column_type} \n{e}"
+            raise(Exception(msg))
 
 def check_record_list(record_list, column_name, intended_column_type, domain_name):
     # Check and throw/raise if incorrect

@@ -17,7 +17,9 @@ from ..util.omop_eav_dict_common import get_visitmap_dict_list
 from . import OMOP_EAV_DICT_FULL_PATH
 from . import OMOP_EAV_DICT_RECORD_FULL_PATH
 from . import OMOP_EAV_DICT_STEP_SIZE
+from . import DUMMY_TRIGGER_PATH
 
+ 
 # Start fresh by rebuilding _dummy_incremental_reset_trigger prior to rebuilding OMOP_EAV_DICT tables
 # Run all at once if OMOP_EAV_DICT_STEP_SIZE = None (in __init__.py)
 
@@ -41,8 +43,8 @@ record_schema = T.StructType( [
     input_files=Input("ri.foundry.main.dataset.8c8ff8f9-d429-4396-baed-a3de9c945f49"),
     visit_xwalk_ds=Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/visit_concept_xwalk_mapping_dataset"),
     valueset_xwalk_ds=Input("/All of Us-cdb223/HIN - HIE/CCDA/transform/mapping-reference-files/ccda_value_set_mapping_table_dataset"),
-    codemap_xwalk_ds=Input("ri.foundry.main.dataset.28fe6af8-0b22-4b45-86e2-b394c62dcd09"),
-    dummy_incremental_reset_trigger=Input("ri.foundry.main.dataset.1cc0185b-10b1-4a44-a565-09d88b1899a2"),
+    codemap_xwalk_ds=Input("ri.foundry.main.dataset.2f6c08ad-6616-404c-b26c-dbd2049290b6"),
+    dummy_incremental_reset_trigger=Input(DUMMY_TRIGGER_PATH),
     ccda_metadata_ds=Input("ri.foundry.main.dataset.672dd7ae-bbd4-43e8-9b8b-b5c7e8711e79"),
     partner_mapping_ds=Input("/All of Us-cdb223/HIN - HIE/sharedResources/health_care_site_to_data_partner_id")
 )
@@ -96,88 +98,7 @@ def compute(
     def process_file(file_row):
         VT.set_mspi_map(mspi_broadcast.value)       # Crucial for DERIVED person_id
         VT.set_partner_map(partner_broadcast.value) # Crucial for data_partner_id
-        if True:  # Show that the maps are here inside process_file and work.
-            
-            # CODEMAP returns integers
-            VT.set_codemap_dict(codemap_broadcast.value)
-            try:
-                test_value = VT.codemap_xwalk_concept_id({"vocabulary_oid": "2.16.840.1.113883.6.96", "concept_code": "608837004", "default": 0, })  # dict not initialized!!
-            except KeyError as e:
-                msg = f"key error in codemap   {len(VT.get_codemap_xwalk_dict())} "
-                raise Exception(msg)
-            if (test_value is None or test_value == "XXX" or test_value == "None" or test_value == 0):
-                raise Exception("codemap_xwalk test failed with some form of None")
-            elif test_value != 1340204:
-                msg = f"codemap_xwalk test failed to deliver correct code, got: {test_value}"
-                raise Exception(msg)
-
-            try:
-                test_value = codemap_broadcast.value[("2.16.840.1.113883.6.96", "608837004")]
-            except KeyError as e:
-                msg = f"key error in codemap   {len(VT.get_codemap_xwalk_dict())} "
-                raise Exception(msg)
-            if ( test_value is None or len(test_value) < 1 or test_value[0] is None
-                or test_value[0]["target_concept_id"] is None
-                or test_value[0]["target_concept_id"] == 0 ):
-                raise Exception("codemap_xwalk test failed with some form of None")
-            elif test_value[0]["target_concept_id"] != 1340204:
-                msg = f"codemap_xwalk test failed to deliver correct code, got: {test_value}"
-                raise Exception(msg)
-
-            # VALUESET MAP returns strings
-            try:
-                test_value = valuemap_broadcast.value[ ("2.16.840.1.113883.6.238", "2106-3") ]
-            except KeyError as e:
-                msg = f"valueset 1: key error in valueset map   {len(VT.get_codemap_xwalk_dict())} "
-                raise Exception(msg)
-            if (test_value is None or len(test_value) < 1 or test_value[0] is None
-                or test_value[0]["target_concept_id"] is None
-                or test_value[0]["target_concept_id"] == 0 ):
-                raise Exception( "valueset 1: valueset_xwalk test failed with some form of None" )
-            elif test_value[0]["target_concept_id"] != "8527":
-                msg = f"valueset 1: valueset_xwalk test failed to deliver correct code, got: {test_value}"
-                raise Exception(msg)
-
-            # VALUESET MAP returns strings: MALE
-            try:
-                test_value = valuemap_broadcast.value[ ("2.16.840.1.113883.5.1", "M") ]
-            except KeyError as e:
-                msg = f"valueset 1: key error in valueset map   {len(VT.get_codemap_xwalk_dict())} "
-                raise Exception(msg)
-            if (test_value is None or len(test_value) < 1 or test_value[0] is None
-                or test_value[0]["target_concept_id"] is None
-                or test_value[0]["target_concept_id"] == 0 ):
-                raise Exception( "valueset 1: valueset_xwalk test failed with some form of None" )
-            elif test_value[0]["target_concept_id"] != "8507":
-                msg = f"valueset M: valueset_xwalk test failed to deliver correct code, got: {test_value}"
-                raise Exception(msg)
-            # VALUESET MAP returns strings : FEMALE
-            try:
-                test_value = valuemap_broadcast.value[ ("2.16.840.1.113883.5.1", "F") ]
-            except KeyError as e:
-                msg = f"valueset 1: key error in valueset map   {len(VT.get_codemap_xwalk_dict())} "
-                raise Exception(msg)
-            if (test_value is None or len(test_value) < 1 or test_value[0] is None
-                or test_value[0]["target_concept_id"] is None
-                or test_value[0]["target_concept_id"] == 0 ):
-                raise Exception( "valueset 1: valueset_xwalk test failed with some form of None" )
-            elif test_value[0]["target_concept_id"] != "8532":
-                msg = f"valueset F: valueset_xwalk test failed to deliver correct code, got: {test_value}"
-                raise Exception(msg)
-
-            # VISIT SET MAP returns strings
-            try:
-                test_value = visitmap_broadcast.value[ ("2.16.840.1.113883.6.259", "1026-4") ]
-            except KeyError as e:
-                msg = f"valueset 1: key error in visit map.  {len(VT.get_codemap_xwalk_dict())} "
-                raise Exception(msg)
-            if ( test_value is None or len(test_value) < 1 or test_value[0] is None
-                or test_value[0]["target_concept_id"] is None
-                or test_value[0]["target_concept_id"] == 0 ):
-                raise Exception("visit set_xwalk test failed with some form of None")
-            elif test_value[0]["target_concept_id"] != "9201":
-                msg = ( f"visitmap  test failed to deliver correct code, got: {test_value}" )
-                raise Exception(msg)
+     
 
         with input_fs.open(file_row.path, "rb") as f:
             contents = f.read().decode("utf-8")

@@ -1,10 +1,10 @@
 from transforms.api import transform, Output
 from pyspark.sql import SparkSession
 import datetime
-
+from . import DUMMY_TRIGGER_PATH
 
 @transform(
-    output=Output("ri.foundry.main.dataset.1cc0185b-10b1-4a44-a565-09d88b1899a2")
+    output=Output(DUMMY_TRIGGER_PATH)
 )
 def compute(ctx, output):
     spark: SparkSession = ctx.spark_session
