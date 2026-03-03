@@ -1,7 +1,7 @@
 # src/myproject/datasets/__init__.py
 #
 # --- INPUT CONFIG  ---
-OMOP_EAV_DICT_STEP_SIZE = 10000  # Batch size for stepping through OMOP_EAV_DICT. Set to None for all-at-once mode
+OMOP_EAV_DICT_STEP_SIZE = 1000  # Batch size for stepping through OMOP_EAV_DICT. Set to None for all-at-once mode
 #INPUT_VERSION = "master"
 INPUT_VERSION = "master_Mar02"
 
