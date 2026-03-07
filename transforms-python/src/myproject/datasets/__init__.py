@@ -3,7 +3,7 @@
 # --- INPUT CONFIG  ---
 OMOP_EAV_DICT_STEP_SIZE = 1000  # Batch size for stepping through OMOP_EAV_DICT. Set to None for all-at-once mode
 #INPUT_VERSION = "master"
-INPUT_VERSION = "master_Mar02"
+INPUT_VERSION = "master_Mar07"
 
 
 INPUT_BASE_PATH = "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark"

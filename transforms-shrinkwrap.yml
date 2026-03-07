@@ -1,11 +1,11 @@
 ---
 mappings:
-- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/_dummy_incremental_reset_trigger_master_Mar02"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/_dummy_incremental_reset_trigger_master_Mar07"
   modes:
   - "BUILD"
   - "READ"
   path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.fea0a2ea-8268-4a45-b46b-f7c4351353f4"
+  rid: "ri.foundry.main.dataset.c891b0ef-2d89-484b-8b49-68c83c26c34b"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/care_site"
   modes:
   - "BUILD"
@@ -92,22 +92,22 @@ mappings:
   - "READ"
   path: "/deprecated-field"
   rid: "ri.foundry.main.dataset.75efa0bb-e85c-4fcd-b4a7-a0e2da095e01"
-- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_master_Mar02"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_master_Mar07"
   modes:
   - "BUILD"
   - "READ"
   path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.04b11b02-261a-4e56-b2eb-9843701c3954"
-- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_master_Mar02_bkp"
+  rid: "ri.foundry.main.dataset.c7eb7be3-5f81-4d3e-9f3a-def9579912d0"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_master_Mar07_bkp"
   modes:
   - "BUILD"
   path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.2019d31f-5c0f-4e9e-b667-35f284bf800a"
-- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_record_master_Mar02"
+  rid: "ri.foundry.main.dataset.d647e797-52a6-4c18-abb5-2022a20cc6ee"
+- alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/omop_eav_dict_record_master_Mar07"
   modes:
   - "BUILD"
   path: "/deprecated-field"
-  rid: "ri.foundry.main.dataset.722b7ca2-cd3b-41e3-bf1d-ca7520f03fb5"
+  rid: "ri.foundry.main.dataset.ec0fcfac-e15f-40f8-94fb-0c43685dc593"
 - alias: "/All of Us-cdb223/HIN - HIE/CCDA/IdentifiedData/OMOP_spark/person"
   modes:
   - "BUILD"
