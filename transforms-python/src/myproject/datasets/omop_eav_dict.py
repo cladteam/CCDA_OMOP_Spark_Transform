@@ -19,6 +19,7 @@ from . import OMOP_EAV_DICT_RECORD_FULL_PATH
 from . import OMOP_EAV_DICT_STEP_SIZE
 from . import DUMMY_TRIGGER_PATH
 
+import logging
  
 # Start fresh by rebuilding _dummy_incremental_reset_trigger prior to rebuilding OMOP_EAV_DICT tables
 # Run all at once if OMOP_EAV_DICT_STEP_SIZE = None (in __init__.py)
@@ -28,6 +29,8 @@ record_schema = T.StructType( [
         T.StructField("size", T.LongType(), True),
         T.StructField("modified", T.LongType(), True),
 ])
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.ERROR)
 
 @incremental(semantic_version=1, snapshot_inputs=[
     "input_files", 
@@ -60,6 +63,7 @@ def compute(
     ccda_metadata_ds,
     partner_mapping_ds
 ):
+    logger.setLevel(logging.WARNING)
     omop_eav_dict.set_mode("modify")
 
     codemap_dict = get_codemap_dict_list(codemap_xwalk_ds)
