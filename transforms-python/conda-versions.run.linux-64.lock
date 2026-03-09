@@ -34,7 +34,7 @@ brotli-python=1.2.0=py312hdb49522_1 @ linux-64
 bzip2=1.0.8=hda65f42_9 @ linux-64
 c-ares=1.34.6=hb03c661_0 @ linux-64
 ca-certificates=2026.2.25=hbd8a1cb_0 @ noarch
-ccda-omop-conversion-package=2.45.0=py_0 @ noarch
+ccda-omop-conversion-package=2.46.0=py_0 @ noarch
 certifi=2026.2.25=pyhd8ed1ab_0 @ noarch
 charset-normalizer=3.4.5=pyhd8ed1ab_0 @ noarch
 conjure-python-client=2.12.0=pyhd8ed1ab_1 @ noarch
@@ -169,4 +169,4 @@ zstd=1.5.7=hb78ec9c_6 @ linux-64
 duckdb==1.5.0
 
 [Conda lock version]
-v2 - 314a9659a623d8c77b676faa103b3c82ccf91fd503394427c46079a8d45b6c11
+v2 - 8a6a0aa93e25503bfb10e0700bfcb6449405ce092767aa9c2b0760353d557624
